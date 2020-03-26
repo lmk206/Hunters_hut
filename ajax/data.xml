@@ -1,0 +1,8 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<items>
+    <!-- <depth> --> <!-- depth구분을 위해 쓴다. --> <!--가장 큰 태그 안에 다 담아야 한다.-->
+    <item>../../img/img-01.jpg</item>
+    <item>../../img/img-02.jpg</item>
+    <item>../../img/img-03.jpg</item>
+    <!-- </depth> -->
+</items>

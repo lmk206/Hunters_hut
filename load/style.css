@@ -1,0 +1,17 @@
+header{
+    opacity:0;
+    transition:.5s;
+}
+section{
+    opacity:0;
+    margin-top:100px;
+    transition:.5s;
+}
+body.active section{
+    opacity:1;
+    margin-top:0;
+}
+body.active header,
+body.active footer{
+    opacity:1
+}

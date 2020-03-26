@@ -1,0 +1,12 @@
+section{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin:0 auto;
+    display:none;
+}
+
+section img{
+    width:400px;
+    max-height:400px;
+}
