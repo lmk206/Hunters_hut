@@ -1,0 +1,122 @@
+@import url('common.css');
+
+#total{
+    width:100vw;
+}
+/* -------------------------------- header ------------------------------------ */
+header{
+    position:fixed;
+    width:100%;
+    height:100px;
+    background-color:#000;
+    z-index:10;
+}
+header .header_wrap{
+    display:flex;
+    background:#000;
+}
+.header_wrap figure{}
+.header_wrap figure img{
+    width:100%;
+}
+
+/* --------------------------------- nav -------------------------------------- */
+.header_wrap nav{
+    width:100%;
+    padding:1.7%;
+}
+.header_wrap nav ul{
+    display:flex;
+    justify-content:space-around;
+    background-color:#000;
+}
+.header_wrap nav ul li{}
+.header_wrap nav ul li a{
+    color:#fff;
+}
+.header_wrap nav ul div{
+    width:100%;
+    display:none;
+}
+.header_wrap nav ul div a{
+    display:block;
+    margin:50px 0;
+}
+/* -------------------------------- visual ----------------------------------- */
+.visual{
+    width:100%;
+    position:relative;
+}
+.visual figure{
+    width:100%; height:100vh;
+}
+.visual figure img{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    /* opacity:0;
+    transition:.8s; */
+    display:none;
+}
+
+.visual figure img.active{
+    /* opacity:1; */
+    display:block;
+}
+
+.visual figcaption{
+    position:absolute;
+    left:25%;
+    top:30%;
+    text-align:center;
+}
+
+.visual figcaption h1{
+    color:#fff;
+    font-size:4vw;
+    margin-bottom:8%;
+}
+
+.visual figcaption p{
+    font-size:2vw;
+    color:#fff;
+    text-align:center;
+}
+
+.visual figcaption a{
+    padding:1% 2%;
+    background-color:#2981bb;
+    margin-top:6%;
+}
+
+.visual figcaption span{
+    /* margin:1% 2%; */
+    font-size:1vw;
+    color:#fff;
+}
+
+.visual .indigator{
+    position:absolute;
+    left:45%;
+    bottom:6%;
+    display:flex;
+}
+
+.visual .indigator li{
+    width:15px;
+    height:15px;
+    border-radius:15px;
+    background-color:#fff;
+    margin-right:60px;
+}
+
+.visual .indigator li.active{
+    transform:scale(1.5);
+}
+/* -------------------------- container ----------------------- */
+
+.container{
+    background:url()
+}
