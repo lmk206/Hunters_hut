@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link src="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function () {
+    //start
+        var a = $('section div').eq(0).offset().top;
+        var b = $('section div').eq(0).position().top;
+        console.log('offset='+ a);
+        console.log('position='+ b);
+    // 컨텐츠 시작점을 찾는 방법
+    // 1. 페이지의 최상단에서 찾는방법 -> 절대좌표 offsetTop
+    // 2. 브라우저 기준점에서 찾는방법 -> 상대좌표 positionTop
+
+    //end
+});
+</script>
+</head>
+
+<body>
+  
+<section>
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+</section>
+
+<style>
+    *{margin:0;}
+    body{
+
+    }
+    section{
+        position:relative;
+        top:300px;
+        border:5px solid #f00;
+        padding-top:100px;
+    }
+    div{
+
+        width:100%; height:100vh;
+        background:#aaa;
+        display:flex; 
+        justify-content: center;
+        align-items: center;
+        font-size:5em;
+    }
+    div:nth-of-type(even){
+        background:#eee;
+    }
+</style> 
+    
+    
+</body>
+
+</html>

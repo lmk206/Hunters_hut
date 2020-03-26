@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    
+        $(function(){
+        //start
+        var move = 0
+            $('section div').on('mousewheel',function(e){
+                console.log(e);
+                var delta = e.originalEvent.wheelDelta;
+                
+                if(delta < 0){
+                    //휠 내림
+                    console.log(delta);
+                    move = $(this).next().offset().top;
+                    sAction();
+                }else{
+                    //휠 올림
+                    console.log(delta);
+                    move = $(this).prev().offset().top;
+                    sAction();
+                }
+
+                function sAction(){
+                    $('html').stop().animate({
+                        scrollTop : move
+                    },2000,'easeInOutCirc',function(){
+                        if(delta <0){
+                            num++;
+                        }else{
+                            num--;
+                        }
+                        console.log(num)
+                    });
+                }
+            });
+        //end
+        });
+       
+    </script>
+</head>
+<body>
+    
+    <section>
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+        <div>04</div>
+        <div>05</div>
+        <div>06</div>
+    </section>
+    <style>
+        *{margin:0;}
+        body{
+            overflow:hidden;
+        }
+        section{
+            position:relative;
+            top:0;
+            height:100vh;
+            /* overflow-y:scroll; */
+        }
+        div{
+            width:100%;
+            height:100vh;
+            background:#aaa;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:5em;
+        }
+        div:nth-of-type(even){
+            background:#eee;
+        }
+        
+    </style>
+</body>
+</html>

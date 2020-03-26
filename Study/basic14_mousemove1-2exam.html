@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link src="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function () {
+    //start
+        var parentNode = $('section');
+        var dragBln = true;
+        var offset = {x:0,y:0};
+        parentNode.on('mousedown',function(e){
+            // console.log('마우스 클릭')
+            dragBln = true;
+            offset.x = e.offsetX;
+            offset.y = e.offsetY;
+        });   
+        parentNode.on('mousemove',function(e){
+            // console.log('움직이고 있다.')
+            if(dragBln){
+                
+                console.log("드래그 중...")
+                
+                if(e.target.nodeName != 'DIV'){return;}
+                
+                $('section div').css({
+                    left:e.pageX - offset.x, // 커서의 위치에 따라 움직임 부여 (페이지 x값에서 박스의 x값을 빼 줌으로써 커서의 현재 값을 구할 수 있다.)
+                    top:e.pageY - offset.y // 커서의 위치에 따라 움직임 부여 (페이지 y값에서 박스의 y값을 빼 줌으로써 커서의 현재 값을 구할 수 있다.)
+                });
+            }
+        });
+        //항상 좌측 상단이 기준점이 된다.
+        parentNode.on('mouseup',function(e){
+            // console.log('마우스 클릭 해제')
+            dragBln = false;
+        });
+    //end
+});
+</script>
+</head>
+
+<body>
+  
+<section>
+    <div>01</div>
+</section>
+
+<style>
+    *{margin:0;}
+    body{
+
+    }
+    section{
+        position:relative;
+        height:2000px;
+        border:5px solid #f00;
+    }
+    div{
+
+        width:100px; height:100px;
+        background:#f00;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    div:nth-of-type(even){
+        background:#eee;
+    }
+</style> 
+    
+    
+</body>
+
+</html>

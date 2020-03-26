@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+       $(function(){
+       //start
+       var wid = $('.each').width(); // 안쪽의 실제 컨텐츠의 너비
+       var innerWid = $('.each').innerWidth(); //padding값을 포함한 영역의 너비(border값은 포함하지 않는다.)
+       var outerWid = $('.each').outerWidth(); //padding,border값을 포함한 영역의 너비
+       var outerWid2 = $('.each').outerWidth(true);//padding,border,margin(상,하) or margin(좌,우) 값을 포함한 영역의 너비
+
+       var elmCss = $('.each').css('padding');
+
+       console.log("width="+wid);
+       console.log("innerWidth="+innerWid);
+       console.log("outerWidth="+outerWid);
+       console.log("outerWidth(ture)="+outerWid2);
+       console.log("element style="+parseInt(elmCss));    
+       })
+    
+    </script>
+</head>
+<body>
+    <div class="each">
+        <img src="../Dom_control/img/img-01.jpg" alt="">
+        <img src="../Dom_control/img/img-02.jpg" alt="">
+        <img src="../Dom_control/img/img-03.jpg" alt="">
+    </div>
+
+    <style>
+        .each{
+            padding:50px;
+            border:5px solid #000;
+            margin:100px;
+        }
+        img{
+            width:300px; 
+            height:200px;
+        }
+    </style>
+   
+</body>
+</html>

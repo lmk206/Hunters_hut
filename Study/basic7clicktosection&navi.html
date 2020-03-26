@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+       $(function(){
+       //start
+       $('header a').on('click',function(){
+           var idx = $(this).index();
+           var offsetTop = $('.con').eq(idx).offset().top;
+           var headHeight = $('header').innerHeight()
+           //case1
+           $(window).scrollTop(offsetTop); //--> method 작성방식
+        // $(선택자).animate({ scrollTop : ~~~ ---> 속성 작성방식})
+                // //case2
+                // $('html').animate({
+                //     scrollTop : offsetTop - headHeight
+                // })
+         // console.log(offsetTop - headHeight)
+           
+        //  offsetTop > window.scrollY
+       })
+
+       $(window).on('scroll',function(){
+           
+           $('.con').each(function(i){
+            var conOffset = $('.con').eq(i).offset().top;
+            var wScroll = $(window).scrollTop();
+            console.log(conOffset/1.5);
+            console.log(wScroll)
+            if(conOffset/1.1 < wScroll){
+            //    $('header a').removeClass('active');
+                $('header a').eq(i).addClass('active')
+                .siblings().removeClass('active'); //siblings -> 앞뒤형제요소
+           };
+           });
+
+       });
+       //end
+       })
+       
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="active">Navi01</a>
+            <a>Navi02</a>
+            <a>Navi03</a>
+            <a>Navi04</a>
+        </nav>
+    </header>
+    
+    <div>
+    <section class="con">contents_01</section>
+    <section class="con">contents_02</section>
+    <section class="con">contents_03</section>
+    <section class="con">contents_04</section>
+    </div>
+
+    <style>
+        header{
+            background:#ddd; 
+            padding:10px 0;
+            position:fixed; top:0; left:0;
+            width:100%; text-align:center;
+        }
+
+        header a.active{
+            background: #0000ff;
+            color:#fff;
+        }
+        section{
+            height:900px;
+            margin-top:40px;
+        }
+
+        section:nth-of-type(even){
+            background:#eee;
+        }
+    </style>
+</body>
+</html>

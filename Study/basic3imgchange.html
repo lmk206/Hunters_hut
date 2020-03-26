@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            //start
+            $('.fade img').not(':first').hide(); // first 가 "아닌" 이미지들을 hide.
+            var idx = 0, inter;
+            function loop(){
+                inter = setInterval(function(){
+                
+                $('.fade img').eq(idx).fadeOut(); // eq = nth-of-type
+                idx++;
+                if(idx == 3){
+                    idx = 0
+                }
+                $('.fade img').eq(idx).fadeIn();
+
+            },2000);
+            };
+            loop();
+
+            $('.fade').on('mouseenter',function(){
+                clearInterval(inter);
+            });
+            $('.fade').on('mouseleave',function(){
+                loop();
+            });
+            //end
+        })
+    </script>
+
+</head>
+<body>
+    <div class="fade">
+        <img src="../Dom_control/img/img-01.jpg" alt="">
+        <img src="../Dom_control/img/img-02.jpg" alt="">
+        <img src="../Dom_control/img/img-03.jpg" alt="">
+    </div>
+
+    <style>
+        img{
+            width:600px; height:400px;
+            position:absolute;
+            left:0; top:0;
+        }
+    </style>
+</body>
+</html>

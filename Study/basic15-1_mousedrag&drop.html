@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+        //start
+        /*
+            axis, revert, containment
+        */
+        $('.drag').draggable({
+            // axis:'y', //지정하는 매개값으로만 이벤트를 발생시킴.
+            revert:true, //현재상태를 기억하고 있다가 되돌리는 역할.
+            // containment: //해당 부모 영역안에서만 이벤트를 발생시킬때 사용
+            start: function(){console.log('start')},
+            drag: function(){console.log('drag')},
+            stop: function(){console.log('stop')}
+            
+        });
+        $('.drop').droppable({});        
+        //end
+        });
+        
+    </script>
+</head>
+<body>
+    
+        <div class="drag"></div>
+        <div class="drop"></div>
+    
+    <style>
+        .drag{
+            width:100px;
+            height:100px;
+            background:#ddd;
+        }
+        .drop{
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            background:#f00;
+        }
+    </style>
+
+</body>
+</html>

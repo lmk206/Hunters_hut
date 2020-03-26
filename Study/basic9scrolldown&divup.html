@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    
+       $(function(){
+           //start
+           var sTop = 0;
+       $(window).on('scroll',function(){
+           var winH = $(window).height();
+           sTop = $(this).scrollTop();
+           
+            $('div').each(function(i){
+            var con = $('div').eq(i).offset().top;
+                if((con - winH) < sTop){
+                    console.log(con);
+                    console.log(winH);
+                    console.log(sTop);
+                console.log('도착');
+                $('div').eq(i).css({
+                    opacity:1,
+                    marginTop:100
+                });
+                }
+            });
+       });
+            // 윈도우에 스크롤 이벤트 발생 -> script에는 dispatch 이벤트.
+//            $(window).trigger('scroll');
+       //end
+       });
+       
+    </script>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <style>
+
+        div{
+
+            width:400px;
+            height:500px;
+            background:#aaa;
+            margin:0 auto;
+            margin-top:200px;
+            opacity:0;
+            transition:1s;
+        }
+        
+    </style>
+</body>
+</html>

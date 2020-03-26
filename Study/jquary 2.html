@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+        $(function(){
+            //start
+            // $('선택자').메소드() --> 메소드는 항상 괄호를 열고, 닫아줘야한다.;
+            $('.box').css({
+                width:100,
+                height:100,
+                background:'red'
+            }); 
+            // eq ---> ~ 번째 열
+            // $('button').eq(0).on('click',function(){
+            //     $('.box').animate({
+            //         marginLeft : '+=50'
+            //     },1000);
+            // });
+            // $('button').eq(1).on('click',function(){
+            //     $('.box').animate({
+            //         marginLeft : '-=50'
+            //     },1000)
+            // })
+            //case2
+            // var count = 0;
+            // $('.basic button').on('click',function(){
+                
+            //     var $this = $(this).index();
+            //     console.log($this);
+            //     if($this == 0){
+            //         $('.box').animate({
+            //       marginLeft : '+=50'
+            //     },700)
+            //     }else{
+            //         $('.box').animate({
+            //       marginLeft : '-=50'
+            //     },700)
+            //     }
+                
+            // })
+            //case3
+            var count = 0;
+            $('.basic button').on('click',function(){
+                
+                var $this = $(this).index();
+                console.log($this);
+                if($this == 0){
+                    count += 50
+                }else{
+                  count -= 50
+                }
+                $('.box').animate({
+                    marginLeft:count
+                },700)
+            })
+            //end
+        });
+
+    $(function(){
+        //start
+
+        // $('.btn button').on('click',function(){
+        //     var leftCalc = 0;
+        //     var txt = '닫기';
+        //     $('.nav').animate({
+        //         left:leftCalc+'px', //{}안의 속성이 :를 통한 객체로 표현될때 , 로 연결한다.
+        //         top: 50+'px'
+        //     },700/*,'움직임 관련된 애니메이션 속성',function(){}*/,function(){
+        //         $('.btn button').text(txt);
+        //     });
+        // })
+
+        // // case2
+        // $('.btn button').on('click',function(){
+        //     var leftCalc = 0;
+        //     var txt = '닫기';
+            
+        //     var aaa = $('.btn button').text();
+            
+        //     // if(aaa == '닫기'){
+        //     // leftCalc = -600;
+        //     // txt = "메뉴"
+        //     // }
+        //     //else는 위와 동일하기에 생략
+        //     $(this).toggleClass('active');
+
+        //     // $(this).hasClass('active') // hasClass -> 클래스 소유 여부 확인
+        //     // ! -> 부정형 나타낸다.
+        //         if( !$(this).hasClass('active')){
+        //             leftCalc = -600
+        //             txt = '메뉴';
+        //         }
+
+        //     $('.nav').animate({
+        //         left : leftCalc
+        //     },700,function(){
+        //         $('.btn button').text(txt)
+        //     });
+        // })
+         
+        // case3
+        $('.btn button').on('click',function(){
+            var leftCalc = 0;
+            var txt = '닫기';
+            
+            var aaa = $('.btn button').text();
+            console.log(aaa)
+            $('.btn').toggleClass('active');
+            if($('.btn').hasClass('active')){
+                aaa = "닫기"
+            }else{
+                aaa = "메뉴"
+            }
+            // animate를 사용할땐 css에 transition을 쓰지 않는다.
+
+        })
+
+        // //case4
+        // $('.btn button').on('click',function(){
+        //     var leftCalc = 0;
+        //     var txt = '닫기';
+        //     var menu = '메뉴';
+        //     var aaa = $('.btn button').text();
+
+        //     if(aaa == menu){
+        //         leftCalc = 0;
+        //         txt = "닫기"
+        //     }else{
+        //        leftCalc = -600;
+        //        txt = menu;
+        //     }
+        //     $('.nav').animate({
+        //         left : leftCalc
+        //     },700,function(){
+        //         $('.btn button').text(txt)
+        //     })
+        // });
+
+    //end
+    });
+
+    </script>
+
+</head>
+<body>
+<div class="basic">    
+    <button>우측</button>
+    <button>좌측</button>
+    <div class="box">
+        콘텐츠 내용입니다.
+    </div>
+</div>
+
+<div class="btn">
+    <button>메뉴</button>
+    <div class="nav"> 네비게이션 </div>
+    <style>
+        .btn{
+            margin:100px;
+            position:relative;
+        }
+        .btn.active .nav{
+            left:0;
+        }
+        .nav{
+            background:#ddd;
+            padding:100px;
+            display:inline-block;
+            position:absolute;
+            left:-600px; top:50px;
+            transition :.5s
+        }
+
+        
+    </style>
+</div>
+</body>
+</html>

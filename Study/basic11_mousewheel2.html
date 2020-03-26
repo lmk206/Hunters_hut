@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link src="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function () {
+    //start
+    var move=0, num=0;
+    $('section').css('top','0px');
+    
+    //console.log($('section div').eq(2).offset().top);
+    
+    
+    $('section div').on('mousewheel',function(e){
+        
+        var delta = e.originalEvent.wheelDelta;
+        
+        if(delta < 0){
+            //휠 내림
+               move = num * $(window).height();
+                
+            }else{
+                //휠 올림
+                move = $(this).prev().offset().top;
+                
+            }
+            console.log(move);
+        
+            $('section').stop().animate({ 
+                top : -move 
+            },1000,function(){
+                if(delta < 0){
+                    num++;
+                }else{
+                    num--;
+                }
+                console.log(num)
+            });
+        
+        
+        
+    });    
+    //end
+});
+</script>
+</head>
+
+<body>
+  
+<section>
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+</section>
+
+
+<style>
+    *{margin:0;}
+    body{overflow:hidden;}
+    section{
+        position:relative;
+        top:0;
+        height:100vh;
+        /*overflow-y:scroll;*/
+    }
+    div{
+        width:100%; height:100vh;
+        background:#aaa;
+        display:flex; 
+        justify-content: center;
+        align-items: center;
+        font-size:5em;
+    }
+    div:nth-of-type(even){
+        background:#eee;
+    }
+</style> 
+    
+    
+</body>
+
+</html>

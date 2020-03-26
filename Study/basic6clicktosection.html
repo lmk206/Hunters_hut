@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+       $(function(){
+       //start
+       $('header a').on('click',function(){
+           var idx = $(this).index();
+           var offsetTop = $('.con').eq(idx).offset().top;
+           var headHeight = $('header').innerHeight();
+           
+           //case1
+//           $(window).scrollTop(offsetTop); //--> method 작성방식
+         $('html').animate({ scrollTop : offsetTop/*~~~ ---> 속성 작성방식*/})
+           console.log(offsetTop)
+                // //case2
+                // $('html').animate({
+                //     scrollTop : offsetTop - headHeight
+                // })
+         // console.log(offsetTop - headHeight)
+           
+        //  offsetTop > window.scrollY
+       })
+       //end
+       })
+    
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a>Navi01</a>
+            <a>Navi02</a>
+            <a>Navi03</a>
+            <a>Navi04</a>
+        </nav>
+    </header>
+    
+    <div>
+    <section class="con">contents_01</section>
+    <section class="con">contents_02</section>
+    <section class="con">contents_03</section>
+    <section class="con">contents_04</section>
+    </div>
+
+    <style>
+        header{
+            background:#ddd; 
+            padding:10px 0;
+            position:fixed; top:0; left:0;
+            width:100%; text-align:center;
+        }
+
+        section{
+            height:900px;
+            margin-top:40px;
+        }
+
+        section:nth-of-type(even){
+            background:#eee;
+        }
+    </style>
+</body>
+</html>

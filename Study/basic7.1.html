@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+       $(function(){
+       //start
+    //  //case 1
+    //    $('header a').on('click',function(){
+    //        var idx = $(this).index();
+    //        var offsetTop = $('.con').eq(idx).offset().top;
+    //        var headHeight = $('header').innerHeight()
+    //        //case1
+    //        $(window).scrollTop(offsetTop); //--> method 작성방식
+        // $(선택자).animate({ scrollTop : ~~~ ---> 속성 작성방식})
+                // //case2
+                // $('html').animate({
+                //     scrollTop : offsetTop - headHeight
+                // })
+         // console.log(offsetTop - headHeight)
+    //    });
+    //  offsetTop > window.scrollY
+      
+    //  //case 2
+    //    $(window).on('scroll',function(){
+           
+    //        $('.con').each(function(i){
+    //         var conOffset = $('.con').eq(i).offset().top;
+    //         var wScroll = $(window).scrollTop();
+            
+    //         if(conOffset/1.5 < wScroll){
+    //         //    $('header a').removeClass('active');
+    //         console.log(conOffset);
+    //             $('header a').eq(i).addClass('active')
+    //             .siblings().removeClass('active'); //siblings -> 앞뒤형제요소
+    //        };
+    //     });
+
+    //  //case 3
+           //scroll event
+        //    1.헤더가 상단으로부터 위치하는 값
+        //    2. scroll 이벤트 발생
+        //    3. 헤더와 스크롤 수치 비교
+        //    4. 헤더에 active클래스 추가 또는 삭제
+
+        //    $(window).on('scroll',function(){
+        //         var headOffset = $('header').offset().top;
+        //         var wScroll = $(window).scrollTop();
+        //        if(headOffset <= wScroll ){
+        //         $('header').addClass('active');
+        //        }else{
+        //         $('header').removeClass('active');
+        //        }
+        //        })
+        //    });
+
+    
+       //end
+
+
+
+        var head = document.querySelector('header');
+        var offSet = head.offsetTop;
+        // var winSet = window.scrollY;
+        var windset = window.pageYOffset;
+        
+       head.addEventListener('scroll',function(){
+        
+           if(offset <= winSet){
+               head.classList.add('active');
+           }else{
+               head.classList.remove('active');
+           }
+       })
+
+
+    });
+
+       
+    
+    </script>
+</head>
+<body>
+    <div class="bn">banner</div>
+
+    <header>
+        <nav>
+            <a>Navi01</a>
+            <a>Navi02</a>
+            <a>Navi03</a>
+            <a>Navi04</a>
+        </nav>
+    </header>
+    
+    <div>
+    <section class="con">contents_01</section>
+    <section class="con">contents_02</section>
+    <section class="con">contents_03</section>
+    <section class="con">contents_04</section>
+    </div>
+
+    <style>
+        header{
+            background:#ddd; 
+            padding:10px 0;
+            position:relative; top:0; left:0;
+            width:100%; text-align:center;
+        }
+
+        header.active{
+            position:fixed;
+            top:0; left:0;
+        }
+
+        header a{color:#00f;}
+
+        section{
+            height:900px;
+            margin-top:40px;
+        }
+
+        section:nth-of-type(even){
+            background:#eee;
+        }
+
+        .bn{
+            height:200px;
+            background:#0f0;
+        }
+    </style>
+</body>
+</html>

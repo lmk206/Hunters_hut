@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+        //start
+        /*
+            axis, revert, containment
+        */
+        //javascript
+        var ul = document.querySelector(".slide ul");
+        var li = document.querySelectorAll('.slide ul li');
+        var idx = 0;
+        for(var i = 0 ;i<length;i++){
+            // ul.children[i].style.left = i*100+"%";
+            li[i].style.left = i*100+"%";
+        }
+        // //jquery
+        // var length = $('.slide li').length;
+        // for(var i =0; i<length;i++){
+        //     $('.slide li').eq(i).css({
+        //         left:i*100 +'%'
+        //     })
+        // }
+        var dragPos;    
+        $('.slide ul').draggable({
+            // axis:'y', //지정하는 매개값으로만 이벤트를 발생시킴.
+            // revert:true, //현재상태를 기억하고 있다가 되돌리는 역할.
+            // containment: //해당 부모 영역안에서만 이벤트를 발생시킬때 사용
+            axis:'x',
+            start: function(e){
+                
+                posStart = e.pageX
+            },
+            drag: function(e){console.log(e)},
+            stop: function(e){
+                posStop = e.pageX;
+                if(posStart > posStop){
+                    // console.log('좌측');
+                    // console.log(posStart - posStop);
+                    idx++;
+                }else{
+                    // console.log('우측');
+                    // console.log(posStop - posStart);
+                    idx--
+                }
+                draging();
+            } 
+        });
+        
+        function draging(){
+            $('.slide ul').stop().animate({
+                left:-idx * 100 +'%'
+            })
+        }
+        $('.drop').droppable({}); 
+        
+        var ban = document.querySelector('.ban');
+
+        ban.addEventListener('dragstart',function(){
+            console.log('dragStart');
+            /*
+                dragstart
+                dragend
+                dragover
+                dragenter
+                dragleave
+            */
+        })
+        ban.addEventListener('dragend',function(){
+            console.log('dragEnd');
+            /*
+                dragstart
+                dragend
+                dragover
+                dragenter
+                dragleave
+            */
+        })
+        //end
+        });
+        
+    </script>
+</head>
+<body>
+    <div class="ban" draggable="true">activated</div>
+    <div class="slide">
+        <ul>
+            <li>slide 01</li>
+            <li>slide 02</li>
+            <li>slide 03</li>
+            <li>slide 04</li>
+        </ul>
+    </div>
+
+    <style>
+        *{
+            margin:0;
+        }
+        .slide{
+            width:300px;
+            height:300px;
+            background:#ddd;
+            border:5px solid #f00;
+            position:relative;
+        }
+        .slide ul{
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+        .slide ul li{
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            background:#ddd;
+            position:absolute;
+            left:0; 
+            top:0;
+        }
+        .slide ul li:nth-of-type(1){left:0;}
+        .slide ul li:nth-of-type(2){left:100%;}
+        .slide ul li:nth-of-type(3){left:200%;}
+        .slide ul li:nth-of-type(4){left:300%;}
+        ul,li{
+            list-style-type:none;
+        }
+    </style>
+
+</body>
+</html>

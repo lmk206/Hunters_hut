@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    
+        $(function(){
+        //start
+            var firstCount = 0,
+                lastCount = 0;
+            var head = $('header');
+
+            $(window).on('scroll',function(e){
+                console.log(head)
+                
+                // console.log(e)
+                //window.scrollY
+                //window.outerHeight
+                firstCount = $(this).scrollTop();
+
+                console.log("first"+firstCount);
+                console.log("last"+lastCount);
+                // 스크롤을 아래로 내릴때는 first 수치가 더 크고,
+                // 스크롤을 위로 올릴때는 last 수치가 더 크다.
+
+                if(firstCount > lastCount){
+                    // 스크롤 아래로
+                    console.log('내림');
+                    head.addClass('active');
+                }else{
+                    // 스크롤 위로
+                    console.log('올림');
+                    head.removeClass('active');
+                };
+
+                lastCount = firstCount;
+            });
+        //end
+        });
+       
+    </script>
+</head>
+<body>
+    <header>
+        <p>header</p>
+    </header>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <style>
+        header{
+            width:100%;
+            height:100px;
+            background:#000;
+            position:absolute;
+            top:0;
+            opacity:1;
+            transition:.5s;
+        }
+
+        header.active{
+            position:fixed;
+            top:0;
+            opacity:0;
+            transition:.5s;
+        }
+        header p{
+            color:#fff;
+            text-align:center;
+        }
+        div{
+
+            width:400px;
+            height:500px;
+            background:#aaa;
+            margin:0 auto;
+            margin-top:200px;
+            opacity:0;
+            transition:1s;
+        }
+        
+    </style>
+</body>
+</html>
