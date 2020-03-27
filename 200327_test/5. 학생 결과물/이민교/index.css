@@ -1,0 +1,303 @@
+@import url(common.css);
+#total{
+    width:100%;
+}
+/* ----------------header---------------- */
+header{
+    width:100%;
+    padding:2% 15%;
+    position:fixed;
+    background-color:#020303;
+    display:flex;
+    justify-content:space-between;
+    z-index:10;
+    opacity:1;
+}
+header.operate{
+    opacity:0;
+}
+header div{
+    font-size:32px;
+    color:#fff;
+}
+header .burger{
+    position:relative;
+    left:0;
+    top:15px;
+    z-index:20;
+    background-color:#000;
+}
+header .burger span{
+    background-color:#fff;
+    width:25px;
+    height:2px;
+    position:absolute;
+    left:0;
+    top:0;
+}
+header .burger span:nth-of-type(1){
+    top:0;
+}
+header .burger span:nth-of-type(2){
+    top:6px;
+}
+header .burger span:nth-of-type(3){
+    top:12px;
+}
+header .burger.active{}
+
+/* -----------section visual-------------- */
+section{
+    width:100%;
+}
+.visual{
+    width:100%;
+}
+.visual figcaption{
+    transform:translateY(-100px);
+    animation-name: 'slideUp';
+    animation-timing-function:ease;
+    animation-duration:2s;
+}
+/* ----------- visual pop up --------------- */
+.visual .popup{
+    background-color:#000;
+    position:absolute;
+    left:50%;
+    top:40%;
+    width:0%;
+    height:0%;
+    z-index:20;
+    opacity:0;
+    transition:.5s;
+    /* display:none; */
+}
+.visual .popup ul{
+    margin-top:15%;
+}
+.visual .popup ul li{
+    color:#fff;
+    font-size:2em;
+    text-align:center;
+    line-height:2em;
+}
+/* --------------- pop up show ---------------------- */
+.visual .popup.show{
+    /* display:block */
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    opacity:0.7
+}
+
+.visual .popup .burger span:nth-of-type(1){
+    top:0;
+}
+.visual .popup .burger span:nth-of-type(2){
+    top:6px;
+}
+.visual .popup .burger span:nth-of-type(3){
+    top:12px;
+}
+.visual figure{
+    position:relative;
+    transition:.5s;
+    height:800px;
+}
+.visual figure.scale{
+    position:relative;
+    padding:10%;
+    margin:0 auto;
+    transition:.5s;
+    height:800px;
+}
+.visual figure img{
+    width:100%;
+    height:100%;
+}
+
+.visual figure figcaption{
+    position:absolute;
+    left:40%;
+    top:60%;
+    z-index:5;
+    opacity:0;
+    transition:.6s;
+}
+.visual figure figcaption.show{
+    opacity:1;
+    top:40%;
+}
+
+.visual figure p{
+    color:#fff;
+    font-size: 1em;
+    letter-spacing:20px;
+    text-align:center;
+}
+
+.visual figure h1{
+    color:#fff;
+    font-size: 3em;
+    text-align:center;
+    margin-top:1%;
+}
+
+/* -------------section contents---------- */
+.contents{
+    width:100%;
+}
+.contents .sectionWrap{
+    width:100%;
+}
+.sectionWrap .title{
+    padding:5% 0;
+}
+.sectionWrap .title h1{
+    width:200px;
+    font-size:2em;
+    margin:0 auto;
+    padding:1% 0;
+    opacity:0;
+    margin-top:100px;
+    transition:.5s;
+}
+.sectionWrap .title h1.show{}
+.sectionWrap .title h1:after{
+    content:'';
+    display:block;
+    width:60px;
+    height:2px;
+    background-color:#00f;
+    margin:0 auto;
+    margin-top:15px;
+}
+.sectionWrap .con{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+}
+.sectionWrap .con .con1{
+    margin-top:100px;
+    opacity:0;
+    width:50%;
+    padding:30px;
+    position:relative;
+    transition:.5s;
+}
+.sectionWrap .con .con1 > img{
+    width:100%;
+    height:100%;
+}
+.sectionWrap .con .con2{
+    margin-top:100px;
+    opacity:0;
+    width:50%;
+    padding:30px;
+    position:relative;
+    transition:.7s;
+}
+.sectionWrap .con .con2 > img{
+    width:100%;
+    height:100%;
+}
+/* ----------------------content hover----------------------- */
+.sectionWrap .hover{
+    background-color:#fff;
+    position:absolute;
+    left:7%;
+    top:9%;
+    padding: 50px;
+    width:85%;
+    height:0;
+    opacity:0;
+    transition:.5s;
+}
+.sectionWrap .con1:hover .hover{
+    height:80%;
+    opacity:1;
+}
+.sectionWrap .con2:hover .hover{
+    height:80%;
+    opacity:1;
+}
+.sectionWrap .hover.display{
+    opacity:0.7
+}
+.sectionWrap .hover .hovercon{
+    position:absolute;
+    left:45%;
+    top:35%;
+    margin:0 auto;
+}
+.sectionWrap .hover img{
+    margin-left:10px;
+    margin-bottom:10px;
+}
+.sectionWrap .hover .hovercon img{
+    width:70%;
+    height:70%;
+}
+.sectionWrap .hover p{}
+/* -------------------- content hover end ------------------------- */
+.sectionWrap .button{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:3% 15%;
+}
+.sectionWrap .button a{
+    border:1px solid #000;
+    padding:1% 2% 1% 2%;
+    color:#000;
+    transition:.5s;
+}
+.sectionWrap .button a:nth-of-type(1).active{
+    border:1px solid #00f;
+    padding:1% 2% 1% 4%;
+    color:#00f;
+}
+.sectionWrap .button a:nth-of-type(2).active{
+    border:1px solid #00f;
+    padding:1% 4% 1% 2%;
+    color:#00f;
+}
+
+.sectionWrap .button span{
+    margin:0 15px;
+}
+/* ----------------lastPage-------------- */
+.lastPage{
+    background-color:#eee;
+    padding:5% 10%;
+}
+.lastPage .pageWrap{
+    margin-top:100px;
+    opacity:0;
+    transition:.5s;
+}
+.lastPage .pageWrap p{
+    white-space:pre-line;
+    font-weight:600;
+    font-size:2em;
+}
+.lastPage .pageWrap a{
+    background-color:#00f;
+    padding:1% 2%;
+    margin-top:2%;
+}
+.lastPage .pageWrap a span{
+    color:#fff;
+}
+/* -----------------footer---------------- */
+footer{
+    background-color:#000;
+    padding:10% 10%;
+}
+footer div{
+    text-align:center;
+}
+footer div p{
+    color:#fff;
+}
