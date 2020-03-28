@@ -1,21 +1,30 @@
 
 
 window.addEventListener('DOMContentLoaded',function(){
-    //start
-    var header = document.querySelector('.header_wrap');
-    var nav = document.querySelector('nav');
-    var li = document.querySelectorAll('nav ul li');
-    var twoDepth = document.querySelectorAll('nav ul div');
-    var i = 0;
+//     //start
+//      네비 떨구는 스크립트 입니다.
+    // var header = document.querySelector('.header_wrap');
+    // var nav = document.querySelector('nav');
+    // var li = document.querySelectorAll('nav ul li');
+    // var twoDepth = document.querySelectorAll('nav ul div');
+    // var i = 0;
 
-    for(let i = 0; i<li.length;i++){
-        li[i].addEventListener('mouseover',function(e){
-            twoDepth[i].style.display = "block"
+    // for(let i = 0; i<li.length;i++){
+    //     li[i].addEventListener('mouseover',function(e){
+    //         twoDepth[i].style.display = "block"
+    //     });
+    //     li[i].addEventListener('mouseleave',function(e){
+    //         twoDepth[i].style.display = "none"
+    //     });
+    // }
+    $(function(){
+        $('nav li').on('mouseover',function(){
+            $('nav div').slideDown(1000);
+        })
+        $('nav li').on('mouseleave',function(){
+            $('nav div').slideUp(1000);
         });
-        li[i].addEventListener('mouseleave',function(e){
-            twoDepth[i].style.display = "none"
-        });
-    }
+    })    
     //end
 
     $(function(){
@@ -79,6 +88,9 @@ window.addEventListener('DOMContentLoaded',function(){
             });
         }
     });
+
+    $('.visual').on('mouseover',function(){
+        $('.visual figcaption').addClass('visible')
+    })
     // end
-    
 });

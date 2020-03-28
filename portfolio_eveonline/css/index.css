@@ -1,7 +1,12 @@
 @import url('common.css');
-
+body{
+     
+}
 #total{
     width:100vw;
+    background:url("../img/bg_fullversion2.jpg")no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
 }
 /* -------------------------------- header ------------------------------------ */
 header{
@@ -12,8 +17,10 @@ header{
     z-index:10;
 }
 header .header_wrap{
+    width:100%;
     display:flex;
     background:#000;
+    height:100%;
 }
 .header_wrap figure{}
 .header_wrap figure img{
@@ -37,6 +44,13 @@ header .header_wrap{
 .header_wrap nav ul div{
     width:100%;
     display:none;
+    height:0;
+    /* opacity:0;
+    transition:.4s; */
+}
+.header_wrap nav ul div.show{
+    opacity:1;
+    height:150px;;
 }
 .header_wrap nav ul div a{
     display:block;
@@ -68,11 +82,16 @@ header .header_wrap{
 
 .visual figcaption{
     position:absolute;
+    opacity:0;
     left:25%;
-    top:30%;
+    top:40%;
     text-align:center;
+    transition:.8s;
 }
-
+.visual figcaption.visible{
+    opacity:1;
+    top:30%;
+}
 .visual figcaption h1{
     color:#fff;
     font-size:4vw;
@@ -118,5 +137,24 @@ header .header_wrap{
 /* -------------------------- container ----------------------- */
 
 .container{
-    background:url()
+    width:100%;
+}
+
+.faction_wrap{
+    width:100%;
+    display:flex;
+    padding:20% 15%;
+}
+.faction_wrap div{
+    width:100%;
+    margin:0 1%;
+    height:60vh
+}
+.faction_wrap figure{
+    width:100%;
+    height:100%;
+}
+.faction_wrap figure img{
+    width:100%;
+    height:100%;
 }
