@@ -1,0 +1,427 @@
+@import url('common.css');
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap');
+
+/**css-----------------------------------------------------------------------*/
+body{
+    width: 100%
+}
+
+/*--------------header입니다-------------*/
+body > header{
+    width: 100%;
+    background: #fff;
+    position: fixed; left: 50%; top: 0; z-index: 100;
+    transform: translateX(-50%);
+    border-bottom: 1px dotted #ccc
+}
+header .fixed{
+    width: 80%; margin: 0 auto;
+    display: flex;
+    justify-content: flex-start
+}
+/* --------------------- 로고 ------------------------------------------------------------------ */
+#total{
+    width:100%;
+}
+
+/* header */
+
+header{
+    width:100vw;
+    position:fixed;
+    z-index:100;
+    background-color:#fff;
+    padding:0.5% 10%;
+    border:1px solid #ccc;
+}
+
+header .header_wrap{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.header_left{
+    display:flex;
+}
+.header_wrap .logo{
+    margin-right:5vw;
+    margin-top:4%;
+}
+.header_wrap .logo figure{
+    width:100%;
+}
+.header_wrap .logo figure img{
+    width:100%;
+}
+/* -------------- navigation 1depth ---------------- */
+
+.header_wrap nav{
+    position:relative;
+    width:100%;
+}
+
+.header_wrap nav > ul{
+    display:flex;
+    margin:5% 0%;
+    position:relative;
+    justify-content:space-between;
+}
+.header_wrap nav > ul > li{
+    /* word-spacing:30px; */
+}
+nav ul li{
+    position:relative;
+    font-size:0;
+    margin:0 4vw 0 0;
+    /* text-align:center; */
+}
+
+nav ul li > a:nth-of-type(1){
+    position:relative;
+    font-size:0.9vw;
+}
+
+nav ul li > a:nth-of-type(1):after{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:0%;
+    height:2px;
+    background:#333;
+    transition:.5s;
+    bottom:-5px;
+}
+
+nav ul li:hover > a:nth-of-type(1):after{
+    width:100%;
+    left:0;
+}
+
+nav ul li div{
+    display:none;
+    overflow:hidden;
+}
+nav ul li:hover div{
+    display:block;
+}
+nav ul li div > a{
+    margin-top:15px;
+    line-height:30px;
+    text-align:center;
+    display:block
+}
+nav ul li div > a{
+    font-size:0.7vw;
+}
+nav ul li div > a:hover{
+    background-color:#ccc;
+}
+nav ul li div > a:hover{
+    color:#fff;
+
+}
+.burger_menu{
+    display:none;
+}
+.burger_menu span{
+    width:20px;
+    height:2px;
+    background:#333;
+    position:absolute;
+    display:none;
+}
+.burger_menu span:nth-of-type(1){
+    top:6px;
+}
+.burger_menu span:nth-of-type(2){
+    top:12px;
+}
+.burger_menu span:nth-of-type(3){
+    top:18px;
+}
+
+.header_right{
+    display:flex;
+}
+/* ---------------- header quick_menu --------------- */
+.header_wrap .quick_menu{
+    margin:35px 0;
+    word-spacing:15px;
+}
+.header_wrap .quick_menu a{}
+
+
+.header_wrap .quick_menu a img{
+    width:15px;
+    height:15px;
+}
+.header_wrap .search_box{
+    margin:35px 0;
+}
+/* .header_wrap .search_box form{}
+/* .search_box input{
+    border-top:none;
+    border-right:none;
+    border-left:none;
+} */
+/* .search_box img{
+    width:15px;
+    height:15px;
+} */
+
+/* ---------------- header quick_menu --------------- */
+.header_wrap .quick_menu{
+    margin:35px 0;
+    margin-right:30px;
+    word-spacing:15px;
+}
+.header_wrap .quick_menu a{}
+.header_wrap .quick_menu a img{
+    width:15px;
+    height:15px;
+}
+.header_wrap .search_box{
+    margin:35px 0;
+}
+/* .header_wrap .search_box form{}
+/* .search_box input{
+    border-top:none;
+    border-right:none;
+    border-left:none;
+} */
+/* .search_box img{
+    width:15px;
+    height:15px;
+} */
+/* main ------------------------------------------------------------- */
+main{
+    width: 80%; margin: 0 auto;
+    padding-top: 5vw
+}
+main h3{
+    font-size: 1.5rem; font-weight: 600;
+    text-align: left;
+    padding: 1vw 0
+}
+/* .filter ------------------------------------------------------------- */
+.filter{
+    width: 100%;
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding-bottom: 3vw
+}
+.filter h3{
+    padding-top: 4vw;
+    padding-bottom: 2vw;
+    text-align: center
+}
+.filter h3 span{
+    font-size: 1.2em; font-weight: 600
+}
+.filter h3 code{
+    font-size: 1.2em; font-weight: 600
+}
+.filter div{
+    border: 1px dotted #ccc;
+    width: 60%;
+    display: flex;
+    justify-content: space-between; align-items: center
+}
+.filter form{
+    width: 70%
+}
+.filter form table{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 2vw 0;
+    padding: 30px 0;
+    border-collapse: collapse;
+}
+.filter form table tbody{
+    width: 100%
+}
+.filter form table tbody tr{}
+.filter form table tbody th{
+    width: 35%;
+    font-size: 1.1rem; font-weight: 600;
+}
+.filter form table tbody td{
+    padding: 10px 5px
+}
+.filter form table tbody td input{
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 1.5rem
+}
+.filter a{
+    margin-right: 50px;
+    padding: 15px 60px;
+    background: rgba(242, 154, 130, 0.7);
+    font-size: 1.25rem
+}
+/* .product ------------------------------------------------------------- */
+.product{
+    width: 100%
+}
+.product header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2vw;
+    /* border-top: 1px dotted #ccc; */
+    border-bottom: 1px dotted #ccc
+}
+.product header h3{
+    font-weight: normal;
+    color: #999
+}
+.product header h3 span{
+    font-size: 1.5rem; font-weight: 600
+}
+.product header h3 code{
+    font-size: 1.5rem; font-weight: 600
+}
+.product header .r_container{
+    /* border: 1px solid #f00; */
+    display: flex;
+    align-items: center
+}
+.product header .r_container select{
+    margin-right: 20px;
+    padding: 5px 10px;
+    outline-style: none;
+}
+.product header .r_container select option{
+    padding: 5px 15px
+}
+.product header a{
+    padding: 5px 15px;
+    background: #ccc;
+    color: #333
+}
+.product header .sortby{
+}
+.product header .sortby li{}
+.product header .sortby li a{}
+/* .prd_list ------------------------------------------------------------- */
+.product .prd_list{
+    display: flex; flex-wrap: wrap;
+    justify-content: space-between; align-items: center
+}
+.product .prd_list li{margin-bottom: 70px;
+}
+
+.product .prd_list li figure figcaption p{
+    font-size: 12px;
+    color: black;
+    text-align: center;
+}
+.product .prd_list li figure img{width:340px;
+height: 340px;
+border: 1px solid #ccc;}
+
+.product .prd_list li figure:hover img{
+    transform: scale(1.1);
+    transition: .3s;
+}
+/*하단*/
+.next p{text-align: center;
+color: black;
+    margin-bottom: 30px;
+}
+/* ---------------------- 푸터 ----------------------------------------------------------------- */
+/* footer */
+
+footer{
+    width:100%;
+
+    margin:35px 0;
+}
+.footer_tit{
+    width:100%;
+    padding:0 11% ;
+    background:#ccc;}
+.tit_wrap{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.sitemap{
+    margin-right:35px !important;
+}
+.footer_tit ul{
+    display:flex;
+    margin:2% 0;
+    justify-content:space-around;
+}
+.footer_tit div{
+    display:flex;
+    margin:2% 0;
+}
+
+.footer_tit ul li{
+    margin:0 35px;
+}
+
+.footer_tit div p{
+    margin:0 35px;
+}
+
+/* footer_cont */
+.footer_cont{
+    width:80%;
+    margin:2% 10%;
+}
+.foot_con_wrap{
+    display:flex;
+    justify-content:space-around;
+}
+.footer_cont .foot_logo{
+    padding-top:30px;
+}
+.footer_cont .foot_logo figure{
+}
+.footer_cont .foot_logo img{
+}
+
+.foot_left{line-height:35px;}
+.foot_address{margin-bottom:35px;}
+.foot_address ul li{
+    display:block;
+}
+.foot_info ul li{
+    display:block;
+}
+.foot_center{line-height:35px;}
+.foot_contacts{margin-bottom:5px;}
+.foot_contacts ul li{
+    display:block;
+}
+.foot_bank{}
+.foot_bank ul li{
+    display:block;
+}
+.foot_quick{line-height:35px;}
+.foot_quick ul li{
+    display:block;
+}
+.footer_cont div ul li:nth-of-type(1){
+    font-weight:600;
+}
+
+
+/*
+--------------------------미디어쿼리
+@media screen and (max-width: 767px){
+    body {background: red;}
+}
+@media screen and (min-width: 768px) and (max-width:959px){
+    body {background: green;}
+}
+
+@media screen and (min-width: 960px){
+    body {background: white;}
+}
+*/
+

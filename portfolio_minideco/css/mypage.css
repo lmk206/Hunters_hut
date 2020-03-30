@@ -1,0 +1,505 @@
+@import url('common.css');
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap');
+
+body > header{
+    width: 100%;
+    background: #fff;
+    position: fixed; left: 50%; top: 0; z-index: 100;
+    transform: translateX(-50%);
+    border-bottom: 1px dotted #ccc
+}
+header .fixed{
+    width: 80%; margin: 0 auto;
+    display: flex;
+    justify-content: flex-start
+}
+/* --------------------- 로고 ------------------------------------------------------------------ */
+#total{
+    width:100%;
+}
+
+/* header */
+
+header{
+    width:100vw;
+    position:fixed;
+    z-index:100;
+    background-color:#fff;
+    padding:0.5% 10%;
+    border:1px solid #ccc;
+}
+
+header .header_wrap{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.header_left{
+    display:flex;
+}
+.header_wrap .logo{
+    margin-right:5vw;
+    margin-top:4%;
+}
+.header_wrap .logo figure{
+    width:100%;
+}
+.header_wrap .logo figure img{
+    width:100%;
+}
+/* -------------- navigation 1depth ---------------- */
+
+.header_wrap nav{
+    position:relative;
+    width:100%;
+}
+
+.header_wrap nav > ul{
+    display:flex;
+    margin:5% 0%;
+    position:relative;
+    justify-content:space-between;
+}
+.header_wrap nav > ul > li{
+    /* word-spacing:30px; */
+}
+nav ul li{
+    position:relative;
+    font-size:0;
+    margin:0 4vw 0 0;
+    /* text-align:center; */
+}
+
+nav ul li > a:nth-of-type(1){
+    position:relative;
+    font-size:0.9vw;
+}
+
+nav ul li > a:nth-of-type(1):after{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:0%;
+    height:2px;
+    background:#333;
+    transition:.5s;
+    bottom:-5px;
+}
+
+nav ul li:hover > a:nth-of-type(1):after{
+    width:100%;
+    left:0;
+}
+
+nav ul li div{
+    display:none;
+    overflow:hidden;
+}
+nav ul li:hover div{
+    display:block;
+}
+nav ul li div > a{
+    margin-top:15px;
+    line-height:30px;
+    text-align:center;
+    display:block
+}
+nav ul li div > a{
+    font-size:0.7vw;
+}
+nav ul li div > a:hover{
+    background-color:#ccc;
+}
+nav ul li div > a:hover{
+    color:#fff;
+
+}
+.burger_menu{
+    display:none;
+}
+.burger_menu span{
+    width:20px;
+    height:2px;
+    background:#333;
+    position:absolute;
+    display:none;
+}
+.burger_menu span:nth-of-type(1){
+    top:6px;
+}
+.burger_menu span:nth-of-type(2){
+    top:12px;
+}
+.burger_menu span:nth-of-type(3){
+    top:18px;
+}
+
+.header_right{
+    display:flex;
+}
+/* ---------------- header quick_menu --------------- */
+.header_wrap .quick_menu{
+    margin:35px 0;
+    word-spacing:15px;
+}
+.header_wrap .quick_menu a{}
+
+
+.header_wrap .quick_menu a img{
+    width:15px;
+    height:15px;
+}
+.header_wrap .search_box{
+    margin:35px 0;
+}
+/* .header_wrap .search_box form{}
+/* .search_box input{
+    border-top:none;
+    border-right:none;
+    border-left:none;
+} */
+/* .search_box img{
+    width:15px;
+    height:15px;
+} */
+
+/* ---------------------- .title --------------------------------------------------------- */
+section{
+    width: 80%; margin: 70px auto;
+}
+section .title{
+    width:100%; padding: 35px 0; margin-bottom: 85px;
+    text-align:left;
+    position: relative; top: 80px
+}
+section .title h2{
+    font-size:2.5em;
+    margin-bottom:35px
+}
+section .title a{
+    padding: 0 1em
+}
+section .title a:first-of-type{
+    padding-left: 0
+}
+section .title:after{
+    content:'';
+    width:100%; height:2px; background:#ccc;
+    position: absolute; left: 0; bottom: 0;
+}
+/* ---------------------- .contents ----------------------------------------------------------------- */
+section .contents{
+    width: 100%; 
+    padding-top: 35px;
+    display: flex
+}
+section .contents .shallow_box{
+    border: 1px solid #ccc;
+    width: 20%;
+    margin-right: 20px;
+    padding: 10px;
+    display: flex; flex-direction: column;
+    justify-content: space-between
+}
+section .contents .broad_box{
+    border: 1px solid #ccc;
+    width: 80%;
+    padding: 10px;
+    position: relative;
+    display: flex; flex-direction: column
+}
+section .contents h3{
+    font-size: 1.5em; font-weight: 600;
+    text-align: left;
+    padding-bottom: 15px
+}
+/* ---------------------- 프로필 ----------------------------------------------------------------- */
+section .contents .profile{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center
+}
+section .contents .profile h3{
+    width: 100%;
+    text-align: center;
+    white-space: pre-line
+}
+section .contents .profile figure{
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 80%; margin: 0 auto; padding: 10px
+}
+section .contents .profile figure img{
+    width: 100%
+}
+section .contents .profile a{
+    width: 100%;
+    padding-top: 10px;
+    font-size: 0.9rem; text-align: center;
+    position: relative
+}
+section .contents .profile a:hover:after{
+    content: '';
+    width: 15%; height: 1px;
+    background: #333;
+    position: absolute; left: 50%; bottom: 0;
+    transform: translateX(-50%)
+}
+/* ---------------------- 퀵 메뉴 ----------------------------------------------------------------- */
+section .contents .q_menu{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center
+}
+section .contents .q_menu h3{
+    padding: 10px 0;
+    background: rgba(150, 213, 193, 0.7);
+    text-align: center
+}
+section .contents .q_menu ul{
+    display: flex; flex-direction: column
+}
+section .contents .q_menu ul li{}
+section .contents .q_menu ul li a{
+    width: 100%;
+    padding: 10px;
+    background: rgba(150, 213, 193, 0.2);
+    border-top: 1px dotted #ccc;
+    position: relative
+}
+section .contents .q_menu ul li:hover a:after{
+    content: '';
+    width: 100%; height: 100%;
+    background: rgba(150, 213, 193, 0.4);
+    position: absolute; left: 50%; top: 50%; z-index: -10;
+    transform: translate(-50%, -50%)
+}
+section .contents .q_menu ul li:first-of-type a{
+    border-top: 1px solid #ccc
+}
+/* ---------------------- 주문 내역 ----------------------------------------------------------------- */
+section .contents .od_history{
+    width: 100%; height: 50%;
+    margin-bottom: 35px
+}
+section .contents .od_history header{
+    all: unset;
+    display: flex;
+    justify-content: space-between; align-items: center;
+    margin-bottom: 10px
+}
+section .contents .od_history header h3{
+    padding: 10px 0
+}
+section .contents .od_history header a{}
+section .contents .od_history table{
+    border-collapse: collapse;
+    width: 100%
+}
+section .contents .od_history table thead{}
+section .contents .od_history table thead tr{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc
+}
+section .contents .od_history table thead tr th{
+    background: rgba(150, 213, 193, 0.5);
+    padding: 10px 0;
+    font-size: 1.2em; font-weight: 600
+}
+section .contents .od_history table thead tr th:nth-of-type(2){
+    border: 1px solid #ccc;
+
+}
+section .contents .od_history table thead tr th:nth-of-type(1){
+    width: 20%
+}
+section .contents .od_history table thead tr th:nth-of-type(3){
+    width: 20%
+}
+section .contents .od_history table tbody{
+    text-align: center;
+}
+section .contents .od_history table tbody tr{
+    border-bottom: 1px solid #ccc
+
+}
+section .contents .od_history table tbody tr td{
+    /* border: 1px solid #ccc; */
+    border-right: 1px solid #ccc;
+    padding: 10px 0
+}
+section .contents .od_history table tbody tr td:nth-of-type(2){
+    width: 15%;
+    padding: 10px
+}
+section .contents .od_history table tbody tr td:last-of-type{
+    border-right: none
+}
+section .contents .od_history table tbody tr:last-of-type td:last-of-type{
+    padding: 0
+}
+section .contents .od_history table tbody tr td:nth-of-type(2){
+    width: 100px
+}
+section .contents .od_history table tbody tr td figure{
+    width: 100%
+}
+section .contents .od_history table tbody tr td figure img{
+    width: 100%
+}
+section .contents .od_history table tbody tr td a{
+    width: 95%; padding: 6px 0;
+    background: rgba(150, 213, 193, 0.3);
+    position: relative
+}
+section .contents .od_history table tbody tr td a:hover:after{
+    content: '';
+    width: 100%; height: 100%;
+    background: rgba(150, 213, 193, 0.5);
+    position: absolute; left: 50%; top: 50%; z-index: -10;
+    transform: translate(-50%, -50%)
+}
+section .contents .od_history table tbody tr td a strong{}
+/* ---------------------- 관심 상품 ----------------------------------------------------------------- */
+section .contents .w_list{
+    width: 100%
+}
+section .contents .w_list header{
+    all: unset;
+    display: flex;
+    justify-content: space-between; align-items: center;
+    margin-bottom: 10px
+}
+section .contents .w_list header h3{
+    padding: 10px 0
+}
+section .contents .w_list header a{}
+section .contents .w_list ul{
+    display: flex;
+    justify-content: space-between
+}
+section .contents .w_list ul li{
+    width: 24%;
+    font-size: 0
+}
+section .contents .w_list ul li a{
+    width: 100%;
+    position: relative
+}
+section .contents .w_list ul li a:nth-of-type(1){
+    font-size: 0;
+    padding-bottom: 10px
+}
+section .contents .w_list ul li a:nth-of-type(2){
+    background: rgba(242, 154, 130, 0.3);
+    padding: 10px 0;
+    text-align: center;
+}
+section .contents .w_list ul li:hover a:nth-of-type(2):after{
+    content: '';
+    font-size: 0;
+    width: 100%; height: 100%;
+    background: rgba(242, 154, 130, 0.5);
+    position: absolute; left: 50%; top: 50%; z-index: -10;
+    transform: translate(-50%, -50%)
+}
+section .contents .w_list ul li a img{
+    border: 1px solid #ccc;
+    width: 100%
+}
+/* ---------------------- 1:1 채팅 ----------------------------------------------------------------- */
+aside{}
+aside a{
+    width: 50px; height: 50px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background: #fff;
+    padding: 7px;
+    position: fixed; z-index: 100;
+    right: 5vw; bottom: 5vw
+}
+aside a img{
+    width: 100%
+}
+/* ---------------------- 푸터 ----------------------------------------------------------------- */
+/* footer */
+
+footer{
+    width:100%;
+
+    margin:35px 0;
+}
+.footer_tit{
+    width:100%;
+    padding:0 11% ;
+    background:#ccc;}
+.tit_wrap{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.sitemap{
+    margin-right:35px !important;
+}
+.footer_tit ul{
+    display:flex;
+    margin:2% 0;
+    justify-content:space-around;
+}
+.footer_tit div{
+    display:flex;
+    margin:2% 0;
+}
+
+.footer_tit ul li{
+    margin:0 35px;
+}
+
+.footer_tit div p{
+    margin:0 35px;
+}
+
+/* footer_cont */
+.footer_cont{
+    width:80%;
+    margin:2% 10%;
+}
+.foot_con_wrap{
+    display:flex;
+    justify-content:space-around;
+}
+.footer_cont .foot_logo{
+    padding-top:30px;
+}
+.footer_cont .foot_logo figure{
+}
+.footer_cont .foot_logo img{
+}
+
+.foot_left{line-height:35px;}
+.foot_address{margin-bottom:35px;}
+.foot_address ul li{
+    display:block;
+}
+.foot_info ul li{
+    display:block;
+}
+.foot_center{line-height:35px;}
+.foot_contacts{margin-bottom:5px;}
+.foot_contacts ul li{
+    display:block;
+}
+.foot_bank{}
+.foot_bank ul li{
+    display:block;
+}
+.foot_quick{line-height:35px;}
+.foot_quick ul li{
+    display:block;
+}
+.footer_cont div ul li:nth-of-type(1){
+    font-weight:600;
+}

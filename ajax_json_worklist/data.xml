@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portfolio>
+    <work>
+        <thum>../img/img-01-thum.jpg</thum>
+        <detail>../img/img-01.jpg</detail>
+        <name>쿠팡</name>
+        <time>24</time>
+        <link>http://naver.com</link>
+    </work>
+    
+    <work>
+        <thum>../img/img-02-thum.jpg</thum>
+        <detail>../img/img-02.jpg</detail>
+        <name>위메프</name>
+        <time>24</time>
+        <link>http://kakao.com</link>
+    </work>
+    
+</portfolio>

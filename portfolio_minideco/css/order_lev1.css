@@ -1,0 +1,451 @@
+@import url('common.css');
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap');
+
+body > header{
+    width: 100%;
+    background: #fff;
+    position: fixed; left: 50%; top: 0; z-index: 100;
+    transform: translateX(-50%);
+    border-bottom: 1px dotted #ccc
+}
+header .fixed{
+    width: 80%; margin: 0 auto;
+    display: flex;
+    justify-content: flex-start
+}
+/* --------------------- 로고 ------------------------------------------------------------------ */
+#total{
+    width:100%;
+}
+
+/* header */
+
+header{
+    width:100vw;
+    position:fixed;
+    z-index:100;
+    background-color:#fff;
+    padding:0.5% 10%;
+    border:1px solid #ccc;
+}
+
+header .header_wrap{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.header_left{
+    display:flex;
+}
+.header_wrap .logo{
+    margin-right:5vw;
+    margin-top:4%;
+}
+.header_wrap .logo figure{
+    width:100%;
+}
+.header_wrap .logo figure img{
+    width:100%;
+}
+/* -------------- navigation 1depth ---------------- */
+
+.header_wrap nav{
+    position:relative;
+    width:100%;
+}
+
+.header_wrap nav > ul{
+    display:flex;
+    margin:5% 0%;
+    position:relative;
+    justify-content:space-between;
+}
+.header_wrap nav > ul > li{
+    /* word-spacing:30px; */
+}
+nav ul li{
+    position:relative;
+    font-size:0;
+    margin:0 4vw 0 0;
+    /* text-align:center; */
+}
+
+nav ul li > a:nth-of-type(1){
+    position:relative;
+    font-size:0.9vw;
+}
+
+nav ul li > a:nth-of-type(1):after{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:0%;
+    height:2px;
+    background:#333;
+    transition:.5s;
+    bottom:-5px;
+}
+
+nav ul li:hover > a:nth-of-type(1):after{
+    width:100%;
+    left:0;
+}
+
+nav ul li div{
+    display:none;
+    overflow:hidden;
+}
+nav ul li:hover div{
+    display:block;
+}
+nav ul li div > a{
+    margin-top:15px;
+    line-height:30px;
+    text-align:center;
+    display:block
+}
+nav ul li div > a{
+    font-size:0.7vw;
+}
+nav ul li div > a:hover{
+    background-color:#ccc;
+}
+nav ul li div > a:hover{
+    color:#fff;
+
+}
+.burger_menu{
+    display:none;
+}
+.burger_menu span{
+    width:20px;
+    height:2px;
+    background:#333;
+    position:absolute;
+    display:none;
+}
+.burger_menu span:nth-of-type(1){
+    top:6px;
+}
+.burger_menu span:nth-of-type(2){
+    top:12px;
+}
+.burger_menu span:nth-of-type(3){
+    top:18px;
+}
+
+.header_right{
+    display:flex;
+}
+/* ---------------- header quick_menu --------------- */
+.header_wrap .quick_menu{
+    margin:35px 0;
+    word-spacing:15px;
+}
+.header_wrap .quick_menu a{}
+
+
+.header_wrap .quick_menu a img{
+    width:15px;
+    height:15px;
+}
+.header_wrap .search_box{
+    margin:35px 0;
+}
+/* .header_wrap .search_box form{}
+/* .search_box input{
+    border-top:none;
+    border-right:none;
+    border-left:none;
+} */
+/* .search_box img{
+    width:15px;
+    height:15px;
+} */
+
+/* ---------------- header quick_menu --------------- */
+.header_wrap .quick_menu{
+    margin:35px 0;
+    margin-right:30px;
+    word-spacing:15px;
+}
+.header_wrap .quick_menu a{}
+.header_wrap .quick_menu a img{
+    width:15px;
+    height:15px;
+}
+.header_wrap .search_box{
+    margin:35px 0;
+}
+/* .header_wrap .search_box form{}
+/* .search_box input{
+    border-top:none;
+    border-right:none;
+    border-left:none;
+} */
+/* .search_box img{
+    width:15px;
+    height:15px;
+} */
+/* ---------------------- 타이틀 --------------------------------------------------------- */
+section{
+    width: 80%; margin: 70px auto
+}
+section .title{
+    width:100%; padding: 35px 0; margin-bottom: 85px;
+    text-align:left;
+    position: relative; top: 80px
+}
+section .title h2{
+    font-size:2.5em;
+    margin-bottom:35px
+}
+section .title a{
+    padding: 0 1em;
+}
+section .title a:first-of-type{
+    padding-left: 0
+}
+section .title:after{
+    content:'';
+    width:100%; height:2px; background:#ccc;
+    position: absolute; left: 0; bottom: 0
+}
+/* ---------------------- 상품 목록 --------------------------------------------------------- */
+section .product_list{
+    width: 100%; margin-bottom: 35px;
+    text-align: center;
+    border-collapse: collapse;
+    border-top: 2px solid #f29a82;
+    border-bottom: 2px solid #f29a82
+}
+section .product_list caption{
+    font-size: 1.5em; font-weight: 600;
+    text-align: left;
+    padding: 15px 0 15px 0
+}
+section .product_list thead{
+    border-bottom: 1px solid #ccc
+}
+section .product_list thead tr{}
+section .product_list thead tr th{
+    font-size: 1.25em; font-weight: 600; color: #666;
+    padding: 15px 0;
+    
+}
+section .product_list thead tr th:nth-of-type(1){
+    width: 3%
+}
+section .product_list thead tr th:nth-of-type(2){
+    width: 10%
+}
+section .product_list thead tr th:nth-of-type(4){
+    width: 10%
+}
+section .product_list thead tr th:nth-of-type(5){
+    width: 10%
+}
+section .product_list thead tr th:nth-of-type(6){
+    width: 10%
+}
+section .product_list thead tr th:nth-of-type(7){
+    width: 10%
+}
+section .product_list thead tr th:nth-of-type(8){
+    width: 10%
+}
+section .product_list tbody{}
+section .product_list tbody tr{
+    border-bottom: 1px dotted #ccc
+}
+section .product_list tbody tr:last-of-type{
+    border-bottom: none
+}
+section .product_list tbody tr td{
+    padding: 10px
+}
+section .product_list tbody tr td input{}
+section .product_list tbody tr td img{
+    width: 100px
+}
+/* ---------------------- 주문 금액 --------------------------------------------------------- */
+section .price{
+    width: 100%; margin-bottom: 35px;
+    text-align: center;
+    border-collapse: collapse;
+    border: 2px solid #96d5c1
+}
+section .price tbody{}
+section .price tbody tr{}
+section .price tbody tr th{
+    font-size: 1.5em; font-weight: 600;
+    text-align: left; vertical-align: top;
+    padding: 15px
+}
+section .price tbody tr td{
+    padding: 15px 0; width: 15%;
+    font-size: 1.25rem
+}
+section .price tbody tr:nth-of-type(1){}
+section .price tbody tr:nth-of-type(2){
+    border-top: 1px dotted #ccc
+}
+section .price tbody tr:nth-of-type(3){
+    border-top: 1px solid #ccc
+}
+section .price tbody tr td:nth-of-type(2){
+    font-weight: 600
+}
+section .price tbody tr:nth-of-type(3) td:nth-of-type(1){
+    padding-right: 30px;
+    text-align: right;
+}
+section .price tbody tr:nth-of-type(3) td:nth-of-type(2){
+    color: #f29a82; font-size: 1.5rem
+
+}
+/* ---------------------- 버튼 --------------------------------------------------------- */
+section .button{
+    /* border: 1px solid #090; */
+    width: 100%; margin-bottom: 45px;
+    display: flex;
+    justify-content: space-between; align-items: center
+}
+section .button .bttn_manage{}
+section .button .bttn_manage li{}
+section .button .bttn_manage li a{
+    border: 1px solid #ccc;
+    padding: 5px 5px;
+    margin-right: 5px
+}
+
+section .button .bttn_order{}
+section .button .bttn_order li{
+    margin-left: 5px;
+    position: relative
+}
+section .button .bttn_order li a{
+    font-size: 1.2rem; font-weight: 600;
+    padding: 15px 60px
+}
+section .button .bttn_order li a:after{
+    content:'';
+    width: 95%; height: 85%;
+    border: 1px solid #fff;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%)
+}
+section .button .bttn_order li:nth-of-type(1) a{
+    background: rgba(242, 154, 130, 0.6)
+}
+section .button .bttn_order li:nth-of-type(2) a{
+    background: rgba(150, 213, 193, 0.6)
+}
+/* ---------------------- 이용 안내 --------------------------------------------------------- */
+section .notice{
+    width: 100%;
+    text-align: justify;
+    word-break: keep-all;
+    word-wrap: break-word
+}
+section .notice h2{
+    font-size: 1.25em; font-weight: 600;
+    padding-bottom: 15px
+}
+section .notice p{
+    font-size: .9em;
+    line-height: 2em; white-space: pre-line
+}
+/* ---------------------- 1:1 채팅 ----------------------------------------------------------------- */
+aside{}
+aside a{
+    width: 50px; height: 50px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background: #fff;
+    padding: 7px;
+    position: fixed; z-index: 100;
+    right: 5vw; bottom: 5vw
+}
+aside a img{
+    width: 100%
+}
+/* ---------------------- 푸터 ----------------------------------------------------------------- */
+/* footer */
+
+footer{
+    width:100%;
+
+    margin:35px 0;
+}
+.footer_tit{
+    width:100%;
+    padding:0 11% ;
+    background:#ccc;}
+.tit_wrap{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.sitemap{
+    margin-right:35px !important;
+}
+.footer_tit ul{
+    display:flex;
+    margin:2% 0;
+    justify-content:space-around;
+}
+.footer_tit div{
+    display:flex;
+    margin:2% 0;
+}
+
+.footer_tit ul li{
+    margin:0 35px;
+}
+
+.footer_tit div p{
+    margin:0 35px;
+}
+
+/* footer_cont */
+.footer_cont{
+    width:80%;
+    margin:2% 10%;
+}
+.foot_con_wrap{
+    display:flex;
+    justify-content:space-around;
+}
+.footer_cont .foot_logo{
+    padding-top:30px;
+}
+.footer_cont .foot_logo figure{
+}
+.footer_cont .foot_logo img{
+}
+
+.foot_left{line-height:35px;}
+.foot_address{margin-bottom:35px;}
+.foot_address ul li{
+    display:block;
+}
+.foot_info ul li{
+    display:block;
+}
+.foot_center{line-height:35px;}
+.foot_contacts{margin-bottom:5px;}
+.foot_contacts ul li{
+    display:block;
+}
+.foot_bank{}
+.foot_bank ul li{
+    display:block;
+}
+.foot_quick{line-height:35px;}
+.foot_quick ul li{
+    display:block;
+}
+.footer_cont div ul li:nth-of-type(1){
+    font-weight:600;
+}

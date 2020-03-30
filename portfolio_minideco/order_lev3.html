@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>minideco</title>
+    <link rel="stylesheet" href="css/order_lev3.css">
+</head>
+<body>
+   <header>
+        <div class="header_wrap">
+            <div class="header_left">    
+            <div class="logo">
+                <figure>
+                    <img src="./img/mainIndex/logo1.png" alt="">
+                </figure>
+            </div>
+            <nav>
+                <ul>
+                <li><a href="#">베스트</a>
+                    <div>
+                        <a href="#">특가상품</a>
+                        <a href="#">추천상품</a>
+                        <a href="#">기획전</a>
+                    </div>
+                </li>
+                <li><a href="#">신상품</a>
+                    <div>
+                        <a href="#">침대</a>
+                        <a href="#">의자</a>
+                        <a href="#">책상</a>
+                    </div>    
+                </li>
+                <li><a href="#">룸박스</a>
+                    <div>
+                        <a href="#">DIY</a>
+                        <a href="#">상자</a>
+                        <a href="#">케이스</a>
+                    </div>    
+                </li>
+                <li><a href="#">주방용품</a>
+                    <div>
+                        <a href="#">도자기</a>
+                        <a href="#">접시</a>
+                        <a href="#">바구니</a>
+                    </div>   
+                </li>
+                <li><a href="#">소품</a>
+                    <div>
+                        <a href="#">장식</a>
+                        <a href="#">선반</a>
+                        <a href="#">벽걸이</a>
+                    </div>
+                </li>
+                <li><a href="#">부자재</a>
+                    <div>
+                        <a href="#">벽지</a>
+                        <a href="#">천</a>
+                        <a href="#">조명</a>
+                    </div>
+                </li>
+            </ul>
+            </nav>
+            </div>
+            <div class="header_right">
+            <div class="quick_menu">
+                <a href="login.html" target="_blank">로그인</a>
+                <a href="mypage.html">마이페이지</a>
+                <a href="order_lev1.html"><img src="./img/mainIndex/ic_cart.png" alt=""></a> 
+                <a href="#">
+                    <img src="./img/mainIndex/ic_serch.png" alt=""></a>  
+            </div>
+            
+            <!-- <div class="search_box">
+                <form action="#">
+                    <input type="text" value="search">
+                </form> -->
+            </div>
+            <div class="burger_menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+            
+        </header>
+    <main> <!-- 장바구니 ------------------------------------------------------------->
+        <header>
+            <h2>장바구니</h2>
+            <a href="#">홈</a>><a href="#">장바구니</a>><a href="#">주문완료</a>
+        </header>
+        <article class="complete"> <!-- 주문 완료 ------------------------------------------------------------->
+            <h3>주문이 정상적으로 완료되었습니다.</h3>
+            <span>[주문번호] 20021869408</span>
+            <p>주문내역 및 배송에 관한 안내는 <strong>마이페이지 > 주문내역</strong>에서 확인 가능합니다.
+            현금영수증, 신용카드 매출전표 등 증빙서류 발급은 주문 완료 후 <strong>마이페이지 > 증빙서류 발급</strong>에서 가능합니다. </p>
+        </article>
+        <article class="info_check"> <!-- 결제정보 왁인 ------------------------------------------------------------->
+            <h3>결제정보 확인</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>결제 방법</th>
+                        <td>신용카드 결제</td>
+                        <th>주문일시</th>
+                        <td>2020-02-18 오전 9:33:10</td>
+                    </tr>
+                    <tr>
+                        <th>결제금액</th>
+                        <td colspan="3">30,500원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article class="prod_list"> <!-- 주문 목록 --------------------------------------------------->
+            <h3>주문 목록 확인</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>이미지</th>
+                        <th>상품정보</th>
+                        <th>상품옵션</th>
+                        <th>판매가격</th>
+                        <th>수량</th>
+                        <th>주문금액</th>
+                        <th>적립금</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="#" alt=""><img src="img/main/photo_11.jpg" alt=""></td>
+                        <td>DIY 마네킨(나무)</td>
+                        <td>-</td>
+                        <td>7,500원</td>
+                        <td>2</td>
+                        <td>15,000원</td>
+                        <td>450원</td>
+                    </tr>
+                    <tr>
+                        <td><img src="#" alt=""><img src="img/main/recmm_02.jpg" alt=""></td>
+                        <td>DIY 흔들의자</td>
+                        <td>XL</td>
+                        <td>13,000원</td>
+                        <td>1</td>
+                        <td>13,000원</td>
+                        <td>390원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <section class="price"> <!-- 총 주문 금액 ---------------------------------------------------------->
+            <h3>총 주문 금액</h3>
+            <table> 
+                <tbody>
+                    <tr>
+                        <th rowspan="2">총 주문 금액</th>
+                        <td>상품 합계 금액</td>
+                        <td>28,000원</td>
+                    </tr>
+                    <tr>
+                        <td>배송비</td>
+                        <td>2,500원</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">결제 예정 금액</td>
+                        <td>30,500원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <article class="info_custmr"> <!-- 주문고객 정보 ---------------------------------------------------------->
+            <h3>주문고객 정보 확인</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>보내시는 분</th>
+                        <td>이원더</td>
+                        <th>이메일</th>
+                        <td>wonderwoman@naver.com</td>
+                    </tr>
+                    <tr>
+                        <th>휴대전화</th>
+                        <td>010-1234-5678</td>
+                        <th>전화번호</th>
+                        <td>010-1234-5678</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article class="delivery"> <!-- 배송지 정보 ---------------------------------------------------------->
+            <h3>배송지 정보 확인</h3>
+            <table> 
+                <tbody>
+                    <tr>
+                        <th>받으시는 분</th>
+                        <td colspan="3">이원더</td>
+                    </tr>
+                    <tr>
+                        <th>휴대전화</th>
+                        <td>010-1234-5678</td>
+                        <th>전화번호</th>
+                        <td>010-1234-5678</td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td>[00000] 서울특별시 관악구 관악로1길 1(관악동) 1002호</td>
+                    </tr>
+                    <tr>
+                        <th>배송 요청사항</th>
+                        <td colspan="3">부재 시 휴대폰으로 연락바랍니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <ul class="link_btn"> <!-- 페이지 이동 ------------------------------------------------------------->           
+            <li><a href="#">주문/배송 조회</a></li>
+            <li><a href="#">인쇄하기</a></li>
+            <li><a href="#">쇼핑 계속하기</a></li>
+        </ul>
+    </main>
+    <aside><!-- 1:1 채팅 ------------------------------------->
+        <a href="#">
+            <img src="img/ic_chat.png" alt="">
+        </a>
+    </aside>
+    <footer>
+        <div class="footer_wrap">
+        <div class="footer_tit">
+            <div class="tit_wrap">
+            <ul>
+                <li><a href="notice.html">공지사항</a></li>
+                <li><a href="term.html">이용약관</a></li>
+                <li><a href="personalInfo.html">개인정보취급방침</a></li>
+            </ul>
+            <div class="sitemap">
+                <select name="sitemap">
+                    <option value="family site">Family site</option>
+                    <option value="market B">Market B</option>
+                    <option value="Daon pension">Daon pension</option>
+                    <option value="Green">Green</option>
+                </select>
+            </div>
+        </div>
+        </div>
+        <div class="footer_cont">
+            <div class="foot_con_wrap">
+            <div class="foot_logo">
+                <figure><img src="./img/sub_term/logo1.png" alt=""></figure>
+            </div>
+            <div class="foot_left">
+                <div class="foot_address">
+                    <ul>
+                        <li>Address</li>
+                        <li>경기도 부천시 원미구 욕산로 184번 길39(도당동)4층</li>
+                    </ul>
+                </div>
+                <div class="foot_info">
+                    <ul>
+                        <li>Information</li>
+                        <li>회사명:네오팝</li>
+                        <li>사업자번호:130-23-44405</li>
+                        <li>개인정보보호책임자:최종오</li>
+                        <li>Hosting by 심플렉스 인터넷(주)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot_center">
+                <div class="foot_contacts">
+                    <ul>
+                        <li>Contacts</li>
+                        <li>T.010-6211-2216</li>
+                        <li>E-mail:jongottan@naver.com</li>
+                    </ul>
+                </div>
+                <div class="foot_bank">
+                    <ul>
+                        <li>BANK ACCOUNT</li>
+                        <li>우리 : 1234-567-1234567</li>
+                        <li>신한 : 123-456-789012</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot_quick">
+                <ul>
+                    <li><a href="#">QUICK MENU</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="personalInfo.html">개인정보보호방침</a></li>
+                    <li><a href="term.html">이용약관</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#">제휴문의</a></li>
+                    <li><a href="#">매장안내</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    </footer>
+     <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5e68412feec7650c331f5b28/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
