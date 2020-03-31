@@ -85,12 +85,10 @@ window.addEventListener('DOMContentLoaded',function(){
     // faction 마우스 이벤트 입니다.
         $(function(){
             $('.faction_wrap div').on('mouseover',function(){
-                k($(this));
-                $('.amarr').addClass('hover');
+                k($(this))
             });
             $('.faction_wrap div').on('mouseleave',function(){
-                j($(this));
-                $('.amarr').removeClass('hover');
+                j($(this))
             });
 
             function k(t){

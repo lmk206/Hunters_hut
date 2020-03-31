@@ -6,21 +6,23 @@
     background-size:cover;
     background-attachment:fixed; */
 }
-.mainVisual {
+iframe {
 	position : fixed;
 	top : 0; 
 	left : 0;
 	min-width : 100%;
+	min-height : 100%;
 	width : auto;
 	height : auto;
+	z-index : -1;
 }
 /* -------------------------------- header ------------------------------------ */
 header{
     position:fixed;
     width:100%;
     background-color:#000;
-    z-index:25;
-    padding:0% 8%
+    z-index:10;
+    padding:0% 6%
 }
 header.active{
     opacity:0.5
@@ -77,18 +79,18 @@ header .header_wrap{
     width:100%;
     position:relative;
 }
-.visual > div{
+.visual figure{
     width:100%; height:100vh;
 }
-.visual > div iframe{
+.visual figure img{
     position:absolute;
     left:0;
     top:0;
     width:100%;
     height:100%;
-    z-index:20;
     /* opacity:0;
     transition:.8s; */
+    display:none;
 }
 
 .visual figure img.active{
@@ -126,7 +128,7 @@ header .header_wrap{
     margin-top:6%;
 }
 
-.visual .visualText span{
+.visual figcaption span{
     /* margin:1% 2%; */
     font-size:1vw;
     color:#fff;
@@ -134,8 +136,8 @@ header .header_wrap{
 
 .visual .indigator{
     position:absolute;
-    left:45%;
-    bottom:16%;
+    left:46.5%;
+    bottom:20%;
     display:flex;
 }
 
@@ -144,7 +146,7 @@ header .header_wrap{
     height:15px;
     border-radius:15px;
     background-color:#fff;
-    margin-right:60px;
+    margin-right:40px;
 }
 
 .visual .indigator li.active{
@@ -155,9 +157,6 @@ header .header_wrap{
 
 .container{
     width:100%;
-    background:url('../img/bg_image11.jpg')no-repeat;
-    background-size:cover;
-    background-attachment: fixed;
 }
 /* --------------------- faction -------------------------------- */
 .faction_title{
@@ -173,6 +172,7 @@ header .header_wrap{
     color:#fff;
     font-size:3em;
     text-align:center;
+    
 }
 .faction_title p{
     color:#fff;
@@ -208,13 +208,6 @@ header .header_wrap{
     width:100%;
     height:100%;
     position:absolute;
-}
-.faction_wrap figure .amarr{
-    width:100%;
-    height:100%;
-}
-.faction_wrap figure .amarr.hover{
-    z-index:15;
 }
 
 .faction_wrap figure figcaption{
@@ -258,12 +251,12 @@ header .header_wrap{
 }
 
 .faction_wrap figure .s_bgf{
-    opacity:1;
+    opacity:0;
     transition:.8s;
 }
 
 .faction_wrap figure .s_bgf.active{
-    opacity:0;
+    opacity:1;
 }
 .faction_wrap figure figcaption.active{
     z-index:15;
@@ -278,61 +271,20 @@ header .header_wrap{
 /* ------------------------------ player guide -------------------------------- */
 .guide{
     width:100%;
-    padding:0 15%;
 }
-.guide h2{
-    color:#fff;
-    font-size:2em;
-    text-align:center;
-    margin-bottom:5%;
-}
-.playerGuide{
-    display:flex;
-    justify-content:space-between;
-    margin:0 auto;
-}
-.playerGuide figure{
-    width:120%;
-    margin:5%;
-    position:relative;
-    left:0;
-    bottom:20%;
-}
-.playerGuide figure img{
+
+.guideLeft{
     width:100%;
-}
-.playerGuide figcaption{
-    position:absolute;
-    left:0;
-    bottom:0;
-    padding:5%;
-}
-.playerGuide figcaption h3{
-    color:#fff;
-    margin-bottom:3%;
-}
-.playerGuide figcaption p{
-    white-space:pre-line;
-    color:#fff;
-}
-.playerGuide figcaption p a{
-    color:#fff;
+    height:100%;
 }
 
-/* ---------------------- ship showcase ----------------------------- */
-
-.showCase{
-    width:100%;
+.guideLeft figure img{
+    width:25%;
+    height:25%;
 }
-.showCase h2{
-    color:#fff;
-    text-align:center;
-    font-size:2em;
-}
-.showCase .shipInfo{}
-.showCase .shipInfo table{}
-.showCase .shipInfo img{}
 
-.showCase .slideShow{}
-.showCase .slideShow figure{}
-.showCase .slideShow figure img{}
+.guideRight{}
+.guideRight h2{}
+.guideRight div{}
+.guideRight div h3{}
+.guideRight div p{}
