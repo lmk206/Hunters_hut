@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portfolio>
+    <work>
+        <thum>img/husky01-thum.jpg</thum>
+        <detail>img/husky01.jpg</detail>
+        <name>강아지1</name>
+        <time>24</time>
+        <link>http://naver.com</link>
+    </work>
+    
+    <work>
+        <thum>img/husky02-thum.jpg</thum>
+        <detail>img/husky02.jpg</detail>
+        <name>강아지2</name>
+        <time>24</time>
+        <link>http://kakao.com</link>
+    </work>
+    
+    <work>
+        <thum>img/husky03-thum.jpg</thum>
+        <detail>img/husky03.jpg</detail>
+        <name>강아지3</name>
+        <time>24</time>
+        <link>http://naver.com</link>
+    </work>
+    
+    <work>
+        <thum>img/husky04-thum.jpg</thum>
+        <detail>img/husky04.jpg</detail>
+        <name>강아지4</name>
+        <time>24</time>
+        <link>http://kakao.com</link>
+    </work>
+    
+    <work>
+        <thum>img/husky05-thum.jpg</thum>
+        <detail>img/husky05.jpg</detail>
+        <name>강아지5</name>
+        <time>24</time>
+        <link>http://kakao.com</link>
+    </work>
+</portfolio>

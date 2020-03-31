@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+    <item>
+        <full>images/fulls/01.jpg</full>
+        <thum>images/thumbs/01.jpg</thum>
+        <title>Magna feugiat lorem</title>
+    </item>
+    <item>
+        <full>images/fulls/02.jpg</full>
+        <thum>images/thumbs/02.jpg</thum>
+        <title>Nisl adipiscing</title>
+    </item>
+    <item>
+        <full>images/fulls/03.jpg</full>
+        <thum>images/thumbs/03.jpg</thum>
+        <title>Tempus aliquam veroeros</title>
+    </item>
+    <item>
+        <full>images/fulls/04.jpg</full>
+        <thum>images/thumbs/04.jpg</thum>
+        <title>Aliquam ipsum sed dolore</title>
+    </item>
+    <item>
+        <full>images/fulls/05.jpg</full>
+        <thum>images/thumbs/05.jpg</thum>
+        <title>Cursis aliquam nisl</title>
+    </item>
+    <item>
+        <full>images/fulls/06.jpg</full>
+        <thum>images/thumbs/06.jpg</thum>
+        <title>Sed consequat phasellus</title>
+    </item>
+    <item>
+        <full>images/fulls/07.jpg</full>
+        <thum>images/thumbs/07.jpg</thum>
+        <title>Mauris id tellus arcu</title>
+    </item>
+    <item>
+        <full>images/fulls/08.jpg</full>
+        <thum>images/thumbs/08.jpg</thum>
+        <title>Nunc vehicula id nulla</title>
+    </item>
+    <item>
+        <full>images/fulls/09.jpg</full>
+        <thum>images/thumbs/09.jpg</thum>
+        <title>Neque et faucibus viverra</title>
+    </item>
+    <item>
+        <full>images/fulls/10.jpg</full>
+        <thum>images/thumbs/10.jpg</thum>
+        <title>Mattis ante fermentum</title>
+    </item>
+    <item>
+        <full>images/fulls/11.jpg</full>
+        <thum>images/thumbs/11.jpg</thum>
+        <title>Sed ac elementum arcu</title>
+    </item>
+    <item>
+        <full>images/fulls/12.jpg</full>
+        <thum>images/thumbs/12.jpg</thum>
+        <title>Vehicula id nulla dignissim</title>
+    </item>
+</items>
