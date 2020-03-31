@@ -209,11 +209,11 @@ header .header_wrap{
     height:100%;
     position:absolute;
 }
-.faction_wrap figure .amarr{
+.faction_wrap figure .factionIntro{
     width:100%;
     height:100%;
 }
-.faction_wrap figure .amarr.hover{
+.faction_wrap figure .factionIntro.hover{
     z-index:15;
 }
 

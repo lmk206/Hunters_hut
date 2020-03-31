@@ -86,11 +86,11 @@ window.addEventListener('DOMContentLoaded',function(){
         $(function(){
             $('.faction_wrap div').on('mouseover',function(){
                 k($(this));
-                $('.amarr').addClass('hover');
+                $('.factionIntro').addClass('hover');
             });
             $('.faction_wrap div').on('mouseleave',function(){
                 j($(this));
-                $('.amarr').removeClass('hover');
+                $('.factionIntro').removeClass('hover');
             });
 
             function k(t){
