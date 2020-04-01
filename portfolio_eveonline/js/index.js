@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded',function(){
     // visual img fadeIn/out입니다.
         $(function(){
             //start
-            // $('.visual figure > img').not(":first").hide();
+            // $('.visual figure img').not(":first").hide();
         
             var idx = 0;
             var interval = 0;
@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded',function(){
                 interval = setInterval(function(){
                     $('.visual figure > img').eq(idx).fadeOut(1000);
                         idx++;
-                        if(idx == 4){
+                        if(idx == 2){
                             idx = 0
                         }
                     $('.visual figure > img').eq(idx).fadeIn(1000);
@@ -86,13 +86,27 @@ window.addEventListener('DOMContentLoaded',function(){
         $(function(){
             $('.faction_wrap div').on('mouseover',function(){
                 k($(this));
+                playIntro();
                 $('.factionIntro').addClass('hover');
-            });
-            $('.faction_wrap div').on('mouseleave',function(){
-                j($(this));
-                $('.factionIntro').removeClass('hover');
+                    $('.factionIntro')[0].play();
             });
 
+            $('.faction_wrap div').on('mouseleave',function(){
+                j($(this));
+                playIntro();
+                $('.factionIntro').removeClass('hover');
+            });
+            
+            function playIntro(){
+                if($('.factionIntro').hasClass('hover')){
+                    $('.factionIntro')[0].play()
+                }else{
+                    $('.factionIntro').get(0).currentTime = 59;
+                    $('.factionIntro').get(1).currentTime = 6;
+                    $('.factionIntro').get(2).currentTime = 6;              
+                    $('.factionIntro').get(3).currentTime = 6;
+                }
+            }
             function k(t){
                 t.find('.bgf').addClass('active');
                 t.find('.front').addClass('active');

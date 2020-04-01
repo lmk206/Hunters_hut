@@ -75,22 +75,22 @@ header .header_wrap{
 /* -------------------------------- visual ----------------------------------- */
 .visual{
     width:100%;
+    height:100vh;
     position:relative;
 }
-.visual > div{
-    width:100%; height:100vh;
-}
-.visual > div iframe{
+.visual video{
     position:absolute;
-    left:0;
-    top:0;
+    left:10%;
+    top:30%;
+    width:35%;
+    z-index:10;
+}
+.visual figure img{
+    position:absolute;
     width:100%;
     height:100%;
-    z-index:20;
-    /* opacity:0;
-    transition:.8s; */
+    /* display:none; */
 }
-
 .visual figure img.active{
     /* opacity:1; */
     display:block;
@@ -99,7 +99,7 @@ header .header_wrap{
 .visual .visualText{
     position:absolute;
     opacity:0;
-    left:25%;
+    right:15%;
     top:40%;
     text-align:center;
     transition:.8s;
@@ -110,12 +110,12 @@ header .header_wrap{
 }
 .visual .visualText h1{
     color:#fff;
-    font-size:4vw;
+    font-size:3em;
     margin-bottom:8%;
 }
 
 .visual .visualText p{
-    font-size:2vw;
+    font-size:2em;
     color:#fff;
     text-align:center;
 }
@@ -155,8 +155,8 @@ header .header_wrap{
 
 .container{
     width:100%;
-    background:url('../img/bg_image11.jpg')no-repeat;
-    background-size:cover;
+    background:url('../img/bg_background7.jpg')no-repeat;
+    background-size:inherit;
     background-attachment: fixed;
 }
 /* --------------------- faction -------------------------------- */
@@ -202,6 +202,7 @@ header .header_wrap{
     width:100%;
     height:100%;
     position:absolute;
+    background:#000;
 }
 
 .faction_wrap figure img{
@@ -209,6 +210,12 @@ header .header_wrap{
     height:100%;
     position:absolute;
 }
+
+.faction_wrap figure .amarr{
+    width:100%;
+    height:100%;
+}
+
 .faction_wrap figure .factionIntro{
     width:100%;
     height:100%;
@@ -323,16 +330,84 @@ header .header_wrap{
 
 .showCase{
     width:100%;
+    padding:5% 5%;
+    margin-top:5%;
 }
 .showCase h2{
     color:#fff;
     text-align:center;
     font-size:2em;
 }
-.showCase .shipInfo{}
-.showCase .shipInfo table{}
-.showCase .shipInfo img{}
+.showCase .shipInfo{
+    padding:2% 5%;
+    display:flex;
+    justify-content:space-between;
+}
+.showCase .shipInfo table{
+    margin-left:10%;
+    width:40%;
+    height:400px;
+    background-color:#0b1d2d
+}
+.showCase .shipInfo table th,tr,td{
+    color:#fff;
+    border:1px solid #324251
+}
 
-.showCase .slideShow{}
-.showCase .slideShow figure{}
-.showCase .slideShow figure img{}
+.showCase .shipInfo table tr{
+    width:50%;
+}
+
+.showCase .shipInfo table td{
+    width:10%;
+    padding:2%;
+}
+
+.mText,.cText,.vText,.oText,.wText,.iText{
+    border:none;
+}
+
+.showCase .shipInfo img{
+    width:40%;
+    margin-right:10%;
+}
+
+.showCase .slideShow{
+    margin-top:2%
+}
+.showCase .slideShow figure{
+    display:flex;
+    width:100%;
+    justify-content:center;
+}
+.showCase .slideShow figure img{
+    width:10%;
+}
+
+/* ----------------- footer ----------------- */
+footer{
+    width:100%;
+    padding:5% 15%;
+    background-color:#0a0d13;
+}
+
+footer div:nth-of-type(1){
+    display:flex;
+}
+
+footer div:nth-of-type(1) p{
+    color:#fff;
+}
+
+footer div:nth-of-type(2){
+    display:flex;
+}
+
+footer div:nth-of-type(2) ul{}
+footer div:nth-of-type(2) ul li{
+    color:#fff;
+}
+footer div:nth-of-type(2) ul li a{
+    color:#fff;
+}
+

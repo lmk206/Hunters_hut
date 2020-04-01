@@ -1,0 +1,13 @@
+section{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin:0 auto;
+/*    display:none;*/
+    padding:0 15%;
+}
+
+section img{
+    width:400px;
+    max-height:400px;
+}
