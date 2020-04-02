@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="popup">
+    <img src="img/module_table_top.png" alt="">
+    <input type="checkbox" name="day">
+    <button>닫기</button>
+</div>
+
+
+<script>
+
+    
+    // localStorage 저장공간 5MB --> 직접 지우지 않으면 재부팅 해도 여전히 남아있다.
+    
+    //set
+    localStorage.oneday = "popup1";
+    localStorage.twoday = "popup2";
+    localStorage.setItem('thrday','popup3'); //setItem(key값,value값)
+
+    //get
+    alert(localStorage.twoday);
+    alert(localStorage.getItem('oneday'));
+
+    //remove
+    localStorage.removeItem('thrday');
+    localStorage.clear();
+
+
+    // cookie 저장공간 4kb
+    var popup = document.querySelector(".popup");
+    var input = document.querySelector('.popup input');
+    var button = document.querySelector('.popup button');
+    
+    setCookie('twoday','event',20000);
+    
+    button.addEventListener('click',function(){
+        console.log(input.checked)
+        if(input.checked){
+            setCookie('popup',10000);
+        }
+        popup.style.display="none";
+    });
+
+    function setCookie(name,value,time){
+        var today = new Date();
+    
+    today.setTime(today.getTime() + time);
+    document.cookie = name+"="+value+";expires="+today.toUTCString();
+    };
+    //oneday = popup
+
+    function getCookie(){
+        if(document.cookie.match('popup') != null){
+            popup.style.display="none";
+        }else{
+            popup.style.display="block";
+        }
+       
+        //match() ()안에 들어있는 값과 같은 것을 찾아 가져온다.
+
+        // name
+        // value
+        // expire 를 사용.
+
+        // expire 에는 쿠키가 존재 할 수 있는 시간값을 정할 수 있다.
+    }
+    getCookie();
+</script>
+
+</body>
+</html>
