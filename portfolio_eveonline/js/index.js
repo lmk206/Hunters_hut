@@ -1,20 +1,6 @@
 window.addEventListener('DOMContentLoaded',function(){
 //     //start
 //      네비 떨구는 스크립트 입니다.
-    // var header = document.querySelector('.header_wrap');
-    // var nav = document.querySelector('nav');
-    // var li = document.querySelectorAll('nav ul li');
-    // var twoDepth = document.querySelectorAll('nav ul div');
-    // var i = 0;
-
-    // for(let i = 0; i<li.length;i++){
-    //     li[i].addEventListener('mouseover',function(e){
-    //         twoDepth[i].classList.add('show')
-    //     });
-    //     li[i].addEventListener('mouseleave',function(e){
-    //         twoDepth[i].classList.remove('show')
-    //     });
-    // }
     $(function(){
         $('nav li').on('mouseover',function(){
             $(this).find('div').addClass('show');
@@ -27,18 +13,18 @@ window.addEventListener('DOMContentLoaded',function(){
     // visual img fadeIn/out입니다.
         $(function(){
             //start
-            // $('.visual figure img').not(":first").hide();
+            $('.visual figure img').not(":first").hide();
         
             var idx = 0;
             var interval = 0;
             function loop(){
                 interval = setInterval(function(){
-                    $('.visual figure > img').eq(idx).fadeOut(1000);
+                    $('.visual figure img').eq(idx).fadeOut(1000);
                         idx++;
-                        if(idx == 2){
+                        if(idx == 4){
                             idx = 0
                         }
-                    $('.visual figure > img').eq(idx).fadeIn(1000);
+                    $('.visual figure img').eq(idx).fadeIn(1000);
                 },6000);
             }; 
             loop();
@@ -137,6 +123,142 @@ window.addEventListener('DOMContentLoaded',function(){
                 $('.faction_title').removeClass('show')
             }
 
-        })
+        });
+
+        //slideshow 이벤트 입니다.
+        $(function(){
+            $('.slideImg img').on('click',function(){
+                var idx = $(this).index();
+                var imgSrc = $('.slideImg img').eq(idx).attr('src');
+                imgChange();
+
+                function imgChange(){
+                    $('.shipInfo img').attr('src',imgSrc)
+                }
+
+            });
+            //  left + 30 다음 이미지로
+            // left - 30 이전 이미지로.
+            
+            $('.button a').on('click',function(e){
+                e.preventDefault();
+                var thisIdx = $(this).index();
+                console.log($(this));
+                if(thisIdx == 0){
+                    // if(thisIdx >=7){
+                    //     thisIdx = 0
+                    // }
+                    $('.slideImg').stop().animate({
+                     left : '+=30'+"%"
+                },700)
+                }else{
+                    // if(thisIdx < 0){
+                    //     thisIdx = 6
+                    // }
+                    $('.slideImg').stop().animate({
+                     left : '-=30'+"%"
+                },700)
+                }
+            });
+
+            $.ajax({
+                url : '../json/index.json',
+                type : 'GET', //POST
+                dataType : 'json',
+                success:function(index){
+                    //success start
+                  
+                    index.portfolio[0].name
+                    var name,mass,cargo,mText,cText,estValue,velocity,estText,vText,hitPoint,spec,wText,iText,sImg;
+                    $.each(index.portfolio,function(){
+                        // console.log($(this));
+                        console.log(this.cText);    
+                        name = this.Name;
+                        mass = this.Mass;
+                        cargo = this.Cargo;    
+                        mText = this.mText;    
+                        cText = this.cText;    
+                        estValue = this.ESTvalue;    
+                        velocity = this.velocity;    
+                        estText = this.ESTText;    
+                        vText = this.vText;    
+                        hitPoint = this.HitPoint;    
+                        spec = this.spec;    
+                        wText = this.wText;    
+                        iText = this.iText;    
+                        sImg = this.sImg;    
+                       
+                        showCase()
+                        showImg()
+                    });
+                    function showCase(){
+                        showTable = "<table>";
+                        showTable += "<tbody>";
+                        showTable += "<th>"+name+"</th>"
+                        showTable += "<tr>";
+                        showTable += "<td>"+mass+"</td>";
+                        showTable += "<td>"+cargo+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+mText+"</td>";
+                        showTable += "<td>"+cText+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+estValue+"</td>";
+                        showTable += "<td>"+velocity+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+estText+"</td>";
+                        showTable += "<td>"+vText+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+hitPoint+"</td>";
+                        showTable += "<td>"+spec+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+wText+"</td>";
+                        showTable += "<td>"+iText+"</td>";
+                        showTable += "</tr>";
+                        showTable += "</tody>";
+                        showTable += "</table>";
+
+                        $('.shipInfo').append(showTable)
+                    }
+                    
+                    function showImg(){
+                        showImgCase = "<figure><img src="+sImg+"></figure>";
+                        $('.shipInfo').append(showImgCase);
+                    }
+                    
+                // success end
+                }
+            });
+
+            // var j = $('.button a').index()
+            // $('.button a').eq(0).on('click',function(){
+            //     $('.slideImg').stop().animate({
+            //         left:"+= 30"+"%"
+            //     })
+            // })
+            // $('.button a').eq(1).on('click',function(){
+            //     $('.slideImg').stop().animate({
+            //         left:"-= 30"+"%"
+            //     })
+            // });
+            // console.log(j)
+                // function slideAction1(){
+                    
+                //     $('.slideImg').stop().animate({
+                //         left: -20 + "%"
+                //     })
+                // }
+
+                // function slideAction2(){
+                //     $('.slideImg').stop().animate({
+                //         left: +20 + "%"
+                //     })
+                // }
+        });
+        
     // end
 });

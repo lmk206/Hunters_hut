@@ -20,17 +20,19 @@ header{
     width:100%;
     background-color:#000;
     z-index:25;
-    padding:0% 8%
+    padding:0% 15%
 }
 header.active{
     opacity:0.5
 }
 header .header_wrap{
     width:100%;
-    display:flex;
     height:100%;
+    display:flex;
+    
 }
-.header_wrap figure{}
+.header_wrap figure{
+}
 .header_wrap figure img{
     width:100%;
 }
@@ -89,6 +91,7 @@ header .header_wrap{
     position:absolute;
     width:100%;
     height:100%;
+    opacity:0.6
     /* display:none; */
 }
 .visual figure img.active{
@@ -121,9 +124,30 @@ header .header_wrap{
 }
 
 .visual .visualText a{
-    padding:1% 2%;
+    padding:2% 3%;
     background-color:#2981bb;
     margin-top:6%;
+    position:relative;
+}
+
+.visual .visualText a:after{
+    content:"";
+    width:0;
+    height:100%;
+    display:block;
+    background-color:#fff;
+    position:absolute;
+    left:0;
+    top:0;
+    opacity:0.1;
+    transition:.5s;
+}
+
+.visual .visualText a:hover:after{
+    width:100%;
+}
+.visual .visualText a:nth-of-type(1){
+    margin-right:7%
 }
 
 .visual .visualText span{
@@ -156,18 +180,23 @@ header .header_wrap{
 .container{
     width:100%;
     background:url('../img/bg_background7.jpg')no-repeat;
-    background-size:inherit;
+    background-size:cover;
+    /* background-size:inherit; */
     background-attachment: fixed;
 }
 /* --------------------- faction -------------------------------- */
+.faction{
+    width:100%;
+    border:1px solid yellow;
+}
 .faction_title{
-    margin-top:10%;
+    margin-top:0%;
     transition:1s;
     opacity:0;
 }
 .faction_title.show{
     opacity:1;
-    margin-top:5%;
+    margin-top:10%;
 }
 .faction_title h1{
     color:#fff;
@@ -184,7 +213,7 @@ header .header_wrap{
 .faction_wrap{
     width:100%;
     display:flex;
-    padding:10% 10%;
+    padding:0% 10%;
     opacity:0;
     transition:1s;
 }
@@ -285,13 +314,14 @@ header .header_wrap{
 /* ------------------------------ player guide -------------------------------- */
 .guide{
     width:100%;
-    padding:0 15%;
+    padding:10% 15%;
+    border:1px solid yellow;
 }
 .guide h2{
     color:#fff;
     font-size:2em;
-    text-align:center;
-    margin-bottom:5%;
+    text-align:left;
+    margin:2% 0 2% 5%;
 }
 .playerGuide{
     display:flex;
@@ -330,58 +360,67 @@ header .header_wrap{
 
 .showCase{
     width:100%;
-    padding:5% 5%;
-    margin-top:5%;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    padding:10% 15%;
+    border:1px solid yellow;
 }
 .showCase h2{
     color:#fff;
-    text-align:center;
+    text-align:left;
     font-size:2em;
 }
 .showCase .shipInfo{
-    padding:2% 5%;
+    position:relative;
+    margin-top:10%;
     display:flex;
     justify-content:space-between;
 }
 .showCase .shipInfo table{
-    margin-left:10%;
-    width:40%;
-    height:400px;
-    background-color:#0b1d2d
+    position:absolute;
+    width:50%;
+    height:45vh;
+    /* background-color:#0b1d2d; */
+    background-color:rgba(11,29,45,.7);
+    border-radius:5%;
 }
 .showCase .shipInfo table th,tr,td{
     color:#fff;
-    border:1px solid #324251
+    border:1px solid #324251;
 }
 
 .showCase .shipInfo table tr{
-    width:50%;
+    width:10%;
 }
 
 .showCase .shipInfo table td{
     width:10%;
-    padding:2%;
 }
 
 .mText,.cText,.vText,.oText,.wText,.iText{
-    border:none;
+}
+.shipInfo figure{
+    position:absolute;
+}
+.shipInfo figure img{
+    width:30%;
+}
+aside{
+    position:fixed;
+    right:-35%;
+    top:20%;
 }
 
-.showCase .shipInfo img{
-    width:40%;
-    margin-right:10%;
-}
-
-.showCase .slideShow{
-    margin-top:2%
-}
-.showCase .slideShow figure{
+.slideImg{
     display:flex;
-    width:100%;
-    justify-content:center;
+    flex-direction:column;
+    /* overflow:hidden; */
+    /* justify-content:center; */
+    width:50%;
 }
-.showCase .slideShow figure img{
-    width:10%;
+.slideImg img{
+    width:30%;
 }
 
 /* ----------------- footer ----------------- */
@@ -390,24 +429,35 @@ footer{
     padding:5% 15%;
     background-color:#0a0d13;
 }
+footer .sns{
+    z-index:10;
+}
 
 footer div:nth-of-type(1){
     display:flex;
+    justify-content:space-between;
 }
 
 footer div:nth-of-type(1) p{
-    color:#fff;
+    color:#83868a;
+    font-weight:600;
+    margin-left:11.5%;
 }
 
 footer div:nth-of-type(2){
     display:flex;
+    justify-content:space-around
 }
 
 footer div:nth-of-type(2) ul{}
+footer div:nth-of-type(2) ul li:nth-of-type(1){
+    color:#83868a;
+}
 footer div:nth-of-type(2) ul li{
-    color:#fff;
+    color:#eee;
+    line-height:250%;
 }
 footer div:nth-of-type(2) ul li a{
-    color:#fff;
+    color:#eee;
 }
 
