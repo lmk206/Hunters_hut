@@ -144,6 +144,9 @@
                 //file - display:none
                 file.dispatchEvent(event) // ---> 클릭했을 때 dispatchEvent로 만들어진 event를 전달
                 // $('file').trigger('click');
+                setTimeout(function(){
+                    fileButton.textContent = file.files[0].name;
+                },2000)
             })
         </script>
         
