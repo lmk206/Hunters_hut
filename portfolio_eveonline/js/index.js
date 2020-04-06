@@ -3,10 +3,12 @@ window.addEventListener('DOMContentLoaded',function(){
 //      네비 떨구는 스크립트 입니다.
     $(function(){
         $('nav li').on('mouseover',function(){
-            $(this).find('div').addClass('show');
+            // $(this).find('div').addClass('show');
+            $('nav li').find("div").stop().slideDown()
         })
         $('nav li').on('mouseleave',function(){
-            $(this).find('div').removeClass('show');
+            // $(this).find('div').removeClass('show');
+            $('nav li').find("div").stop().slideUp()
         });
     })    
 
@@ -66,8 +68,22 @@ window.addEventListener('DOMContentLoaded',function(){
     // visual 문구 등장 스크립트입니다.
         $('.visual').on('mouseover',function(){
             $('.visual .visualText').addClass('visible')
-        })
+        });
 
+    // faction 컨텐츠 등장 이벤트 입니다.
+    $(window).on('scroll',function(){
+        var sTop = $(this).scrollTop();
+        var winH = $(window).height();
+        var facW = $('.faction_wrap').offset().top
+        if((facW - winH) < sTop){
+            $('.faction_wrap').addClass('show')
+            $('.faction_title').addClass('show')
+        }else{
+            $('.faction_wrap').removeClass('show')
+            $('.faction_title').removeClass('show')
+        }
+
+    });
     // faction 마우스 이벤트 입니다.
         $(function(){
             $('.faction_wrap div').on('mouseover',function(){
@@ -110,22 +126,19 @@ window.addEventListener('DOMContentLoaded',function(){
                 // t.find('.s_bgf').slideUp();
             };
         })
-    // faction 컨텐츠 등장 이벤트 입니다.
+    
+    // guide 등장 이벤트 입니다.
         $(window).on('scroll',function(){
             var sTop = $(this).scrollTop();
             var winH = $(window).height();
-            var facW = $('.faction_wrap').offset().top
-            if((facW - winH) < sTop){
-                $('.faction_wrap').addClass('show')
-                $('.faction_title').addClass('show')
+            var guid = $('.guide').offset().top
+            if((guid - winH) < sTop){
+                $('.guide').addClass('show')
             }else{
-                $('.faction_wrap').removeClass('show')
-                $('.faction_title').removeClass('show')
-            }
-
+                $('.guide').removeClass('show')
+            } 
         });
-
-        //slideshow 이벤트 입니다.
+    //slideshow 이벤트 입니다.
         $(function(){
             $('.slideImg img').on('click',function(){
                 var idx = $(this).index();
@@ -139,27 +152,27 @@ window.addEventListener('DOMContentLoaded',function(){
             });
             //  left + 30 다음 이미지로
             // left - 30 이전 이미지로.
-            
-            $('.button a').on('click',function(e){
-                e.preventDefault();
-                var thisIdx = $(this).index();
-                console.log($(this));
-                if(thisIdx == 0){
-                    // if(thisIdx >=7){
-                    //     thisIdx = 0
-                    // }
-                    $('.slideImg').stop().animate({
-                     left : '+=30'+"%"
-                },700)
-                }else{
-                    // if(thisIdx < 0){
-                    //     thisIdx = 6
-                    // }
-                    $('.slideImg').stop().animate({
-                     left : '-=30'+"%"
-                },700)
-                }
-            });
+        
+        $('.button a').on('click',function(e){
+            e.preventDefault();
+            var thisIdx = $(this).index();
+            console.log($(this));
+            if(thisIdx == 0){
+                // if(thisIdx >=7){
+                //     thisIdx = 0
+                // }
+                $('.slideImg').stop().animate({
+                    left : '+=30'+"%"
+            },700)
+            }else{
+                // if(thisIdx < 0){
+                //     thisIdx = 6
+                // }
+                $('.slideImg').stop().animate({
+                    left : '-=30'+"%"
+            },700)
+            }
+        });
 
             $.ajax({
                 url : '../json/index.json',
@@ -167,34 +180,53 @@ window.addEventListener('DOMContentLoaded',function(){
                 dataType : 'json',
                 success:function(index){
                     //success start
-                  
-                    index.portfolio[0].name
                     var name,mass,cargo,mText,cText,estValue,velocity,estText,vText,hitPoint,spec,wText,iText,sImg;
-                    $.each(index.portfolio,function(){
-                        // console.log($(this));
-                        console.log(this.cText);    
-                        name = this.Name;
-                        mass = this.Mass;
-                        cargo = this.Cargo;    
-                        mText = this.mText;    
-                        cText = this.cText;    
-                        estValue = this.ESTvalue;    
-                        velocity = this.velocity;    
-                        estText = this.ESTText;    
-                        vText = this.vText;    
-                        hitPoint = this.HitPoint;    
-                        spec = this.spec;    
-                        wText = this.wText;    
-                        iText = this.iText;    
-                        sImg = this.sImg;    
-                       
-                        showCase()
-                        showImg()
+                    var idx = 0;
+                    $(window).on('scroll',function(){
+                        var sTop = $(this).scrollTop();
+                        var winH = $(window).height();
+                        var shoC = $('.showCase').offset().top
+                        if((shoC - winH) < sTop){
+                            $('.showCase').addClass('show');
+                            $('aside').addClass('show');
+                            showCase(0);
+                            showImg(0);
+                        }else{
+                            $('.showCase').removeClass('show');
+                            $('aside').removeClass('show');
+                        } 
                     });
+                  
+                    $('.slideShow .slideImg img').on("click",function(){
+                        idx = $(this).index();
+                        console.log($(index.portfolio)[idx]);
+                        setTimeout(function(){
+                        showCase(idx);
+                        showImg(idx);
+                        },500)
+                    })
+                    
                     function showCase(){
+                        var $this = index.portfolio[idx];
+                        name = $this.Name;
+                        mass = $this.Mass;
+                        cargo = $this.Cargo;    
+                        mText = $this.mText;    
+                        cText = $this.cText;    
+                        estValue = $this.ESTvalue;    
+                        velocity = $this.velocity;    
+                        estText = $this.ESTText;    
+                        vText = $this.vText;    
+                        hitPoint = $this.HitPoint;    
+                        spec = $this.spec;    
+                        wText = $this.wText;    
+                        iText = $this.iText;    
+                        sImg = $this.sImg; 
+
+
                         showTable = "<table>";
                         showTable += "<tbody>";
-                        showTable += "<th>"+name+"</th>"
+                        showTable += "<th colspan='2'>"+name+"</th>"
                         showTable += "<tr>";
                         showTable += "<td>"+mass+"</td>";
                         showTable += "<td>"+cargo+"</td>";
@@ -221,43 +253,23 @@ window.addEventListener('DOMContentLoaded',function(){
                         showTable += "</tr>";
                         showTable += "</tody>";
                         showTable += "</table>";
-
-                        $('.shipInfo').append(showTable)
+                        
+                        setTimeout(function(){
+                            $('.shipInfo').html(showTable)
+                        },500)
+                        
                     }
                     
                     function showImg(){
+                        setTimeout(function(){
                         showImgCase = "<figure><img src="+sImg+"></figure>";
                         $('.shipInfo').append(showImgCase);
+                        },500)
                     }
-                    
                 // success end
                 }
             });
 
-            // var j = $('.button a').index()
-            // $('.button a').eq(0).on('click',function(){
-            //     $('.slideImg').stop().animate({
-            //         left:"+= 30"+"%"
-            //     })
-            // })
-            // $('.button a').eq(1).on('click',function(){
-            //     $('.slideImg').stop().animate({
-            //         left:"-= 30"+"%"
-            //     })
-            // });
-            // console.log(j)
-                // function slideAction1(){
-                    
-                //     $('.slideImg').stop().animate({
-                //         left: -20 + "%"
-                //     })
-                // }
-
-                // function slideAction2(){
-                //     $('.slideImg').stop().animate({
-                //         left: +20 + "%"
-                //     })
-                // }
         });
         
     // end

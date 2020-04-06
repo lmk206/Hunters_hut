@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BRACKETS 으로 시작하기</title>
+        <meta name="description" content="Brackets에 대한 대화식 시작 안내서입니다.">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>약관동의</h1>
+        <form name="join" action="join2.html">
+            <p><input type="checkbox" placeholder="name" name="all">전체동의</p>
+            <p><input type="checkbox" name="poll"> 개인정보동의</p>
+            <p><textarea cols=50 rows=10>개인정보 내용</textarea></p>
+            <p><input type="checkbox" name="agree">약관동의</p>
+            <p><textarea cols=50 rows=10>약관동의 내용</textarea></p>
+            <p><input type="button" name="yes" value="확인"><input type="reset"></p>
+            <!-- input tag의 속성 reset -->
+            <!-- input tag 속성 submit -->
+        </form>
+        
+        
+        <script>
+            window.addEventListener("DOMContentLoaded",function(){
+                join.all.addEventListener('click',function(){
+                    console.log(join.all.value); //on
+                    console.log(join.all.checked);//true,false
+                    
+                    //부모의 상태를 자식에게 집어넣는 경우
+                    join.poll.checked = join.all.checked;
+                    join.agree.checked = join.all.checked;
+                    
+                    //조건문을 활용하는 경우
+//                    if(join.all.checked){
+////                        join.poll.checked = join.all.checked;
+////                        join.agree.checked = join.all.checked;
+//                        join.poll.checked = true;
+//                        join.agree.checked = true;
+//                    }else{
+////                        join.poll.checked = join.all.checked;
+////                        join.agree.checked = join.all.checked;
+//                        join.poll.checked = false;
+//                        join.agree.checked = false;
+//                    }
+                });
+                
+                join.yes.addEventListener('click',function(){
+                    // case1
+//                    if(join.poll,join.agree.checked){
+//                        join.all.checked;
+//                        location.href="join2.html"   // 해당페이지로 넘김. 
+////                        join.action = "join2.html"; //action
+////                        join.submit(); //현재 join이라는 form요소 안에 입력된 데이터들이 있으면 데이터를 같이 전송.
+//                    }else{
+//                        alert("약관에 동의해 주십시오.")
+//                    }
+                    
+                    //case2
+//                    if(!join.poll.checked){
+//                        alert('개인정보 동의를 체크해 주세요');
+//                        return false;
+//                    }
+//                    if(!join.agree.checked  ){
+//                        alert("약관동의를 체크해 주세요");
+//                        return false;
+//                    }
+//                    else{
+//                        join.action = "join2.html";
+//                        join.submit();
+//                    }
+                    
+                    //case3
+                    if(!check(join.poll,'개인정보동의를 체크해 주세요')){
+                    
+                        return false;
+                    }
+                     if(!check(join.agree,'약관동의를 체크해 주세요')){
+                    
+                        return false;
+                    }
+                    function check(id,message){
+                        if(id.checked){
+                        join.action = "join2.html";
+                        join.submit();
+                           return true; // 조건이 맞아 return이 실행되면 alert를 실행하지 않는다.
+                        }
+                        alert(message);
+                        
+                    }
+                })
+            });
+           
+            
+        </script>
+        
+        
+    </body>
+</html>

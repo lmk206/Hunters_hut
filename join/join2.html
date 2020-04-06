@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BRACKETS 으로 시작하기</title>
+        <meta name="description" content="Brackets에 대한 대화식 시작 안내서입니다.">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <style>
+            h1,div{margin:10px 0; width:700px; margin:0 auto;}
+            h1{text-align:center; border-bottom:1px solid #ddd; padding:100px 0 20px 0;}
+            span{display:block; text-align:center; padding:20px 0;}
+            p{border-bottom:1px solid #ddd; padding:15px 0; margin:0;}
+            .fieldlabel{width:120px;text-align:right; padding-right:10px;}
+            .btnfield{margin:20px 0 0 130px;}
+        </style>
+        <h1>회원가입</h1>
+        <div>
+            <form name="join2" action="join3">
+                <p><input type="text" name="userId" placeholder="아이디">아이디는 4~12영문 대소문자와 숫자를 결합해야 합니다.</p>
+                <p><input type="password" name="userPw" placeholder="패스워드"></p>
+                <p><input type="password" name="userPwCheck" placeholder="패스워드확인"></p>
+                <p><input type="text" name="userName" placeholder="이름"></p>
+                <p><input type="text" name="email" size="20" placeholder="이메일"></p>
+                <p>
+                    <select name="mPhone1">
+                        <option value="010" selected>010</option>
+                        <option value="011">011</option>
+                        <option value="016">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                    </select>-
+                    <input name="mPhone2" type="number" size="4" maxlength="4"> -
+                    <input name="mPhone3" type="number" size="4" maxlength="4">
+                </p>
+                <p>
+                    <label>취미</label>
+                    <input type="checkbox" name="hobby" value="독서" >독서
+                    <input type="checkbox" name="hobby" value="낚시"  >낚시
+                    <input type="checkbox" name="hobby" value="수영" >수영
+                </p>
+                <p>
+                    <label>성별</label>
+                    <input type="radio" name="sex" value="남" checked >남자
+                    <input type="radio" name="sex" value="여" >여자
+                </p>
+
+                <p>
+                    <input type="file" name="profile" id="file" style="display:none;" >
+                    <a id="fileButton">아이콘</a>
+                </p>
+                <span>
+                    <input type="submit" value="회원가입" name="submit">
+                    <input type="reset" value="취소">
+                </span>
+            </form>
+        </div>
+        
+        <script>
+            function validate() {
+                event.preventDefault();
+                var reg = /^[a-zA-Z0-9]{4,12}$/ // 아이디와 패스워드가 적합한지 검사할 정규식
+                var reg2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; // 이메일이 적합한지 검사할 정규식        
+                
+//                userId
+//                uwerPw
+//                userPwCheck
+//                console.log(reg.test(join2.userId.value));
+//                console.log( join2.userId.value.match(reg) )
+                //reg(<-검사시행정규식).test(<-검사 메소드)(검사받을함수)
+                // 검사받을 함수.match(<-검사시행정규식)
+                // match -> '검색' 같은 사용자가 사용하고 싶은 데이터를 검사할 때 사용.
+                
+                if(!reg.test(join2.userId.value)){
+                    alert('아이디는 영문 대소문자 4~12자를 입력하세요.')
+                    join2.userId.value = "";
+                    join2.userId.focus();
+                    return false;
+                }
+                
+                if(!reg.test(join2.userPw.value)){
+                    alert('패스워드는 영문 대소문자,숫자 및 특수기호를 조합한 4~12자를 입력하세요.')
+                    join2.userPw.value = "";
+                    join2.userPw.focus();
+                    return false();
+                }
+                
+                if(!check(reg2,join2.email,'이메일 형식을 확인하세요.')){
+                    return false
+                }
+                function check(re,id,message){
+                    if(re.test(id.value)){
+                        return true;
+                    }
+                    alert(message);
+                    id.value = '';
+                    id.focus();
+                }
+                
+                if(join2.userPw.value !== join2.userPwCheck.value){
+                    alert('패스워드가 일치하지 않습니다.')
+                    join2.userPw.value=""
+                    join2.userPwCheck.value="";
+                    join2.id.focus();
+                    return false;
+                }
+                
+                console.log(join2.hobby.length)
+                var hobbyState = false;
+                for(var i =0; i<join2.hobby.length;i++){
+                    if(join2.hobby[i].checked){
+                        hobbyState = true; // 하나라도 선택이 된 경우 hobby의 값을 true로 변경
+                    }
+                }
+                if(!hobbyState){
+                    alert('취미를 체크하세요')
+                }
+                
+                //주민번호 유효성 검사
+                var arr = "560102154821";
+                var arr2 = '234567892345';
+                var sum = 0;
+                for(var i=0;i<arr.length;i++){
+                    sum += arr[i] * arr2[i]
+                    console.log(sum)
+                }
+                var total = sum % 11;
+                console.log(11 - total)
+            }
+            
+            join2.submit.addEventListener('click',function(){
+                validate();        
+            })
+            //파일 트리거
+            //file -> a
+            join2.submit.addEventListener('click',validate);
+            var fileButton = document.getElementById("fileButton");
+            fileButton.addEventListener("click",function(){
+                var event = new MouseEvent("click"); //click 이벤트 생성
+                var file = document.getElementById("file");
+                //file - display:none
+                file.dispatchEvent(event) // ---> 클릭했을 때 dispatchEvent로 만들어진 event를 전달
+                // $('file').trigger('click');
+            })
+        </script>
+        
+        
+    </body>
+</html>
