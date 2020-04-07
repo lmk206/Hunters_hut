@@ -2,9 +2,6 @@
 
 #total{
     width:100vw;
-    /* background:url("https://www.youtube.com/embed/0bjTrPutt4k")no-repeat;
-    background-size:cover;
-    background-attachment:fixed; */
 }
 .mainVisual {
 	position : fixed;
@@ -67,22 +64,24 @@ header .header_wrap{
     background-color:#000;
     display:none;
 }
-.header_wrap nav ul div.show{
-    /* opacity:1;
-    display:block */
-}
+
 .header_wrap nav ul div a{
     display:block;
     opacity:1;
 }
+
 .header_wrap nav ul li:nth-of-type(2) div a{
     text-align:center;
 }
 /* -------------------------------- visual ----------------------------------- */
 .visual{
-    width:100%;
-    height:100vh;
+    width:100vw;
+    height:50vw;
+    /* height:100vh; */
     position:relative;
+    left:0;
+    top:0;
+    
 }
 .visual video{
     position:absolute;
@@ -90,16 +89,16 @@ header .header_wrap{
     top:30%;
     width:35%;
     z-index:10;
+    /* transform:scale(1.5) */
 }
 .visual figure img{
     position:absolute;
     width:100%;
     height:100%;
     opacity:0.6
-    /* display:none; */
 }
+
 .visual figure img.active{
-    /* opacity:1; */
     display:block;
 }
 
@@ -156,7 +155,6 @@ header .header_wrap{
 }
 
 .visual .visualText span{
-    /* margin:1% 2%; */
     font-size:1vw;
     color:#fff;
 }
@@ -183,15 +181,15 @@ header .header_wrap{
 /* -------------------------- container ----------------------- */
 
 .container{
-    width:100%;
+    width:100vw;
     background:url('../img/bg_background7.jpg')no-repeat;
     background-size:cover;
-    /* background-size:inherit; */
     background-attachment: fixed;
 }
 /* --------------------- faction -------------------------------- */
 .faction{
     width:100%;
+    
 }
 .faction_title{
     margin-top:0%;
@@ -317,11 +315,11 @@ header .header_wrap{
 
 /* ------------------------------ player guide -------------------------------- */
 .guide{
-    width:100%;
+    width:100vw;
     padding:15% 20%;
     opacity:0;
     transition:1s;
-    /* background:url("../img/bg_featured-content-bg.jpg") */
+    
 }
 .guide.show{
     padding:10% 15%;
@@ -348,13 +346,7 @@ header .header_wrap{
     bottom:20%;
     background-color:#000;
 }
-/* .playerGuide figure img:nth-of-type(1){
-    position:absolute;
-    left:-35%;
-    top:0%;
-    width:40%;
-    height:100%;
-} */
+
 .playerGuide figure img{
     width:100%;
     height:100%;
@@ -382,18 +374,28 @@ header .header_wrap{
 .playerGuide figcaption p a{
     color:#fff;
 }
+
+.pgLeft{
+    position:relative;
+}
+.pgLeft video{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
 /* ---------------------- ship showcase ----------------------------- */
 
 .showCase{
-    width:100%;
+    width:100vw;
     display:flex;
     flex-direction:column;
     padding:0% 20% 10% 20%;
     opacity:1;
     transition:.6s;
+    
 }
 .showCase.show{
-    padding:0% 15% 10% 15%;
+    padding:5% 15% 10% 15%;
     opacity:1;
 }
 .showCase h2{
@@ -404,28 +406,26 @@ header .header_wrap{
 .showCase .shipInfo{
     position:relative;
     margin-top:10%;
-    display:flex;
-    justify-content:space-between;
     overflow:hidden;
-    
 }
-
+.showCase .shipInfo .shipDetail{
+    width:100%;
+    overflow:hidden;
+}
 .showCase .shipInfo table{
     position:relative;
     width:50%;
     height:45vh;
-    /* background-color:#0b1d2d; */
     background-color:rgba(11,29,45,.7);
     border-radius:5%;
+    float:left;
 }
 .showCase .shipInfo.active{
     opacity:0;
-    translate:translateX(-200px)
 }
 .showCase .shipInfo table th,tr,td{
     color:#fff;
     border:1px solid rgba(50,66,81,.7);
-    
     text-align:center;
 }
 .showCase .shipInfo table th{
@@ -440,15 +440,13 @@ header .header_wrap{
     width:10%;
 }
 
-.mText,.cText,.vText,.oText,.wText,.iText{
-}
 .shipInfo figure{
-    position:absolute;
-    right:-20%;
-    top:0;
+    float:right;
+    width:45%;
+    margin-left:1%;
 }
 .shipInfo figure img{
-    width:70%;
+    width:100%;
 }
 aside{
     position:fixed;
@@ -482,9 +480,10 @@ aside.show{
 
 /* ----------------- footer ----------------- */
 footer{
-    width:100%;
+    width:100vw;
     padding:5% 15%;
     background-color:#0a0d13;
+    
 }
 footer .sns{
     z-index:10;
@@ -506,7 +505,6 @@ footer div:nth-of-type(2){
     justify-content:space-around
 }
 
-footer div:nth-of-type(2) ul{}
 footer div:nth-of-type(2) ul li:nth-of-type(1){
     color:#83868a;
 }

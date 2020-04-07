@@ -1,6 +1,38 @@
 window.addEventListener('DOMContentLoaded',function(){
 //     //start
-//      네비 떨구는 스크립트 입니다.
+
+//window scroll event 입니다.
+$(function(){
+    var move = 0, num = 0, bln = true;
+    $('html').scrollTop();
+    $('section > div').on('mousewheel',function(e){
+        
+        var wheel = e.originalEvent.wheelDelta;
+        if(wheel < 0){
+            if(num == 5){ return }
+            if($(this).next().index() != -1){
+                move = $(this).next().offset().top;    
+            }
+        }else{
+            if(num == 0){ return }
+            if(num > 0){
+                if($(this).next().index() != 4)
+                move = $(this).prev().offset().top;
+            }
+        }
+        $('html').stop().animate({
+            scrollTop : move
+        },1000,function(){
+            if(wheel < 0){
+                num++;
+            }else{
+                num--;
+            }
+        })
+    })
+});
+
+    // 네비 떨구는 스크립트 입니다.
     $(function(){
         $('nav li').on('mouseover',function(){
             // $(this).find('div').addClass('show');
@@ -29,41 +61,8 @@ window.addEventListener('DOMContentLoaded',function(){
                     $('.visual figure img').eq(idx).fadeIn(1000);
                 },6000);
             }; 
-            loop();
-
-    //indigator 작동 스크립트 입니다.
-            var indi = document.querySelector('.indigator');
-            var indiLi = document.querySelectorAll('.indigator li');
-            var visualImg = document.querySelectorAll('.visual img');
-            var j=0;
-            for(let i = 0; i<indiLi.length;i++){
-                indiLi[i].addEventListener('mouseover',function(e){
-                    indiLi[i].classList.add('active');
-                    // console.log(indiLi[i])
-                    clearInterval(interval)
-                });
-                indiLi[i].addEventListener('mouseleave',function(e){
-                    indiLi[i].classList.remove('active');
-                    // console.log(indiLi[i])
-                    loop();
-                });
-        }
-        
-    // indigator 클릭 시 이미지 전환 스크립트 입니다.
-        for(let i = 0; i<indiLi.length;i++){
-            // visualImg[0].classList.add('active');
-
-            indiLi[i].addEventListener('click',function(e){
-
-                console.log(visualImg[i])
-                for(let j = 0; j<indiLi.length;j++){
-                visualImg[j].classList.remove('active')
-                }
-                visualImg[i].classList.add('active');
-                j=i
-            });
-        }
-    });
+            loop()
+        });
 
     // visual 문구 등장 스크립트입니다.
         $('.visual').on('mouseover',function(){
@@ -125,6 +124,24 @@ window.addEventListener('DOMContentLoaded',function(){
                 t.find('.s_bgf').removeClass('active');
                 // t.find('.s_bgf').slideUp();
             };
+            
+            // footer sns icon change 이벤트 입니다.
+        
+            var snsImg = $('.sns a').find('img').attr('src');
+            setTimeout(function(){
+                $('.sns a').on('mouseenter',function(){
+                    snsImg = $(this).find('img').attr('src');
+                    var snsChange = snsImg.replace('_a','_b');
+                    $(this).find('img').attr('src',snsChange)
+                })
+            },1000);
+            setTimeout(function(){
+                $('.sns a').on('mouseleave',function(){
+                    snsImg = $(this).find('img').attr('src');
+                    var snsChange2 = snsImg.replace('_b','_a');
+                    $(this).find('img').attr('src',snsChange2)
+                })
+            },1000);
         })
     
     // guide 등장 이벤트 입니다.
@@ -138,41 +155,9 @@ window.addEventListener('DOMContentLoaded',function(){
                 $('.guide').removeClass('show')
             } 
         });
+        
     //slideshow 이벤트 입니다.
         $(function(){
-            $('.slideImg img').on('click',function(){
-                var idx = $(this).index();
-                var imgSrc = $('.slideImg img').eq(idx).attr('src');
-                imgChange();
-
-                function imgChange(){
-                    $('.shipInfo img').attr('src',imgSrc)
-                }
-
-            });
-            //  left + 30 다음 이미지로
-            // left - 30 이전 이미지로.
-        
-        $('.button a').on('click',function(e){
-            e.preventDefault();
-            var thisIdx = $(this).index();
-            console.log($(this));
-            if(thisIdx == 0){
-                // if(thisIdx >=7){
-                //     thisIdx = 0
-                // }
-                $('.slideImg').stop().animate({
-                    left : '+=30'+"%"
-            },700)
-            }else{
-                // if(thisIdx < 0){
-                //     thisIdx = 6
-                // }
-                $('.slideImg').stop().animate({
-                    left : '-=30'+"%"
-            },700)
-            }
-        });
 
             $.ajax({
                 url : '../json/index.json',
@@ -190,7 +175,6 @@ window.addEventListener('DOMContentLoaded',function(){
                             $('.showCase').addClass('show');
                             $('aside').addClass('show');
                             showCase(0);
-                            showImg(0);
                         }else{
                             $('.showCase').removeClass('show');
                             $('aside').removeClass('show');
@@ -200,10 +184,11 @@ window.addEventListener('DOMContentLoaded',function(){
                     $('.slideShow .slideImg img').on("click",function(){
                         idx = $(this).index();
                         console.log($(index.portfolio)[idx]);
-                        setTimeout(function(){
+                        $('.shipInfo').addClass('active');
                         showCase(idx);
-                        showImg(idx);
-                        },500)
+                        setTimeout(function(){
+                            $('.shipInfo').removeClass('active');
+                        },1000)
                     })
                     
                     function showCase(){
@@ -224,7 +209,7 @@ window.addEventListener('DOMContentLoaded',function(){
                         sImg = $this.sImg; 
 
 
-                        showTable = "<table>";
+                        showTable = "<div class='shipDetail'><table>";
                         showTable += "<tbody>";
                         showTable += "<th colspan='2'>"+name+"</th>"
                         showTable += "<tr>";
@@ -253,19 +238,10 @@ window.addEventListener('DOMContentLoaded',function(){
                         showTable += "</tr>";
                         showTable += "</tody>";
                         showTable += "</table>";
-                        
-                        setTimeout(function(){
-                            $('.shipInfo').html(showTable)
-                        },500)
-                        
+                        showTable += "<figure><img src="+sImg+"></figure></div>";
+                        $('.shipInfo').html(showTable)
                     }
                     
-                    function showImg(){
-                        setTimeout(function(){
-                        showImgCase = "<figure><img src="+sImg+"></figure>";
-                        $('.shipInfo').append(showImgCase);
-                        },500)
-                    }
                 // success end
                 }
             });

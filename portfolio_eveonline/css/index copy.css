@@ -2,37 +2,34 @@
 
 #total{
     width:100vw;
-    /* background:url("https://www.youtube.com/embed/0bjTrPutt4k")no-repeat;
-    background-size:cover;
-    background-attachment:fixed; */
 }
-iframe {
+.mainVisual {
 	position : fixed;
 	top : 0; 
 	left : 0;
 	min-width : 100%;
-	min-height : 100%;
 	width : auto;
 	height : auto;
-	z-index : -1;
 }
 /* -------------------------------- header ------------------------------------ */
 header{
     position:fixed;
     width:100%;
     background-color:#000;
-    z-index:10;
-    padding:0% 6%
+    z-index:25;
+    padding:0% 15%
 }
 header.active{
     opacity:0.5
 }
 header .header_wrap{
     width:100%;
-    display:flex;
     height:100%;
+    display:flex;
+    
 }
-.header_wrap figure{}
+.header_wrap figure{
+}
 .header_wrap figure img{
     width:100%;
 }
@@ -48,60 +45,68 @@ header .header_wrap{
 }
 .header_wrap nav ul{
     display:flex;
-    position:relative;
     justify-content:center;
     margin-top:0.5%;
 }
 .header_wrap nav ul li{
-    margin-right:5%
+    margin-right:5%;
+    width:8%;
+    position:relative;
 }
 .header_wrap nav ul li a{
     color:#fff;
 }
 .header_wrap nav ul div{
-    position:absolute;
-    top:70px;
-    line-height:50px;
-    opacity:0;
-    transition:.5s;
-    /* display:none; */
-}
-.header_wrap nav ul div.show{
-    opacity:1;
-}
-.header_wrap nav ul div a{
-    display:block;
-    text-align:center;
-    
-}
-/* -------------------------------- visual ----------------------------------- */
-.visual{
-    width:100%;
     position:relative;
-}
-.visual figure{
-    width:100%; height:100vh;
-}
-.visual figure img{
-    position:absolute;
-    left:0;
-    top:0;
+    margin-top:40px;
+    line-height:80px;
     width:100%;
-    height:100%;
-    /* opacity:0;
-    transition:.8s; */
+    background-color:#000;
     display:none;
 }
 
+.header_wrap nav ul div a{
+    display:block;
+    opacity:1;
+}
+
+.header_wrap nav ul li:nth-of-type(2) div a{
+    text-align:center;
+}
+/* -------------------------------- visual ----------------------------------- */
+.visual{
+    width:100vw;
+    height:50vw;
+    /* height:100vh; */
+    position:relative;
+    left:0;
+    top:0;
+    
+}
+.visual video{
+    position:absolute;
+    left:10%;
+    top:30%;
+    width:35%;
+    z-index:10;
+    /* transform:scale(1.5) */
+}
+.visual figure img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0.6
+}
+
 .visual figure img.active{
-    /* opacity:1; */
     display:block;
 }
 
 .visual .visualText{
     position:absolute;
+    width:33%;
     opacity:0;
-    left:25%;
+    right:15%;
     top:40%;
     text-align:center;
     transition:.8s;
@@ -112,32 +117,52 @@ header .header_wrap{
 }
 .visual .visualText h1{
     color:#fff;
-    font-size:4vw;
+    font-size:3em;
     margin-bottom:8%;
 }
 
 .visual .visualText p{
-    font-size:2vw;
+    font-size:2em;
     color:#fff;
     text-align:center;
 }
 
 .visual .visualText a{
-    padding:1% 2%;
+    padding:2% 3%;
     background-color:#2981bb;
     margin-top:6%;
+    position:relative;
 }
 
-.visual figcaption span{
-    /* margin:1% 2%; */
+.visual .visualText a:after{
+    content:"";
+    width:0;
+    height:100%;
+    display:block;
+    background-color:#fff;
+    position:absolute;
+    left:0;
+    top:0;
+    opacity:0.1;
+    transition:.5s;
+}
+
+.visual .visualText a:hover:after{
+    width:100%;
+}
+.visual .visualText a:nth-of-type(1){
+    margin-right:7%
+}
+
+.visual .visualText span{
     font-size:1vw;
     color:#fff;
 }
 
 .visual .indigator{
     position:absolute;
-    left:46.5%;
-    bottom:20%;
+    left:45%;
+    bottom:16%;
     display:flex;
 }
 
@@ -146,7 +171,7 @@ header .header_wrap{
     height:15px;
     border-radius:15px;
     background-color:#fff;
-    margin-right:40px;
+    margin-right:60px;
 }
 
 .visual .indigator li.active{
@@ -156,23 +181,29 @@ header .header_wrap{
 /* -------------------------- container ----------------------- */
 
 .container{
-    width:100%;
+    width:100vw;
+    background:url('../img/bg_background7.jpg')no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
 }
 /* --------------------- faction -------------------------------- */
+.faction{
+    width:100%;
+    
+}
 .faction_title{
-    margin-top:10%;
+    margin-top:0%;
     transition:1s;
     opacity:0;
 }
 .faction_title.show{
     opacity:1;
-    margin-top:5%;
+    margin-top:10%;
 }
 .faction_title h1{
     color:#fff;
     font-size:3em;
     text-align:center;
-    
 }
 .faction_title p{
     color:#fff;
@@ -184,7 +215,7 @@ header .header_wrap{
 .faction_wrap{
     width:100%;
     display:flex;
-    padding:10% 10%;
+    padding:0% 10%;
     opacity:0;
     transition:1s;
 }
@@ -202,12 +233,26 @@ header .header_wrap{
     width:100%;
     height:100%;
     position:absolute;
+    background:#000;
 }
 
 .faction_wrap figure img{
     width:100%;
     height:100%;
     position:absolute;
+}
+
+.faction_wrap figure .amarr{
+    width:100%;
+    height:100%;
+}
+
+.faction_wrap figure .factionIntro{
+    width:100%;
+    height:100%;
+}
+.faction_wrap figure .factionIntro.hover{
+    z-index:15;
 }
 
 .faction_wrap figure figcaption{
@@ -251,12 +296,12 @@ header .header_wrap{
 }
 
 .faction_wrap figure .s_bgf{
-    opacity:0;
+    opacity:1;
     transition:.8s;
 }
 
 .faction_wrap figure .s_bgf.active{
-    opacity:1;
+    opacity:0;
 }
 .faction_wrap figure figcaption.active{
     z-index:15;
@@ -270,21 +315,227 @@ header .header_wrap{
 
 /* ------------------------------ player guide -------------------------------- */
 .guide{
-    width:100%;
+    width:100vw;
+    padding:15% 20%;
+    opacity:0;
+    transition:1s;
+    
+}
+.guide.show{
+    padding:10% 15%;
+    opacity:1;
+}
+.guide h2{
+    color:#fff;
+    font-size:2em;
+    text-align:left;
+    margin:2% 0 2% 5%;
+}
+.playerGuide{
+    display:flex;
+    justify-content:space-between;
+    margin:0 auto;
 }
 
-.guideLeft{
+.playerGuide figure{
+    width:100%;
+    height:100%;
+    margin:7%;
+    position:relative;
+    left:0;
+    bottom:20%;
+    background-color:#000;
+}
+
+.playerGuide figure img{
+    width:100%;
+    height:100%;
+    opacity:.6;
+    transition:.5s;
+}
+
+.playerGuide figure:hover img{
+    opacity:1;
+}
+.playerGuide figcaption{
+    position:absolute;
+    left:0;
+    bottom:0;
+    padding:5%;
+}
+.playerGuide figcaption h3{
+    color:#fff;
+    margin-bottom:3%;
+}
+.playerGuide figcaption p{
+    white-space:pre-line;
+    color:#fff;
+}
+.playerGuide figcaption p a{
+    color:#fff;
+}
+
+.pgLeft{
+    position:relative;
+}
+.pgLeft video{
+    position:absolute;
     width:100%;
     height:100%;
 }
+/* ---------------------- ship showcase ----------------------------- */
 
-.guideLeft figure img{
-    width:25%;
-    height:25%;
+.showCase{
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+    padding:0% 20% 10% 20%;
+    opacity:1;
+    transition:.6s;
+    position:relative;
+}
+.showCase.show{
+    padding:5% 15% 10% 15%;
+    opacity:1;
+}
+.showCase h2{
+    color:#fff;
+    text-align:left;
+    font-size:2em;
+}
+.showCase .vertical{
+    width:0%;
+    height:55%;
+    background-color:#fff;
+    /* border:1px solid yellow; */
+    position:absolute;
+    left:15%;
+    /* right:-55%; */
+    top:27%;
+    z-index:10;
+    opacity:.2;
+    transition:.4s;
+}
+.showCase .vertical.active{
+    width:70%;
+}
+.showCase .vertical.reactive{
+    /* transition:.5s; */
+    opacity:0;
+    width:0%;
+    /* left:115%; */
+    right:-55%;
+}
+.showCase .shipInfo{
+    position:relative;
+    margin-top:10%;
+    overflow:hidden;
+}
+.showCase .shipInfo .shipDetail{
+    width:100%;
+    overflow:hidden;
+}
+.showCase .shipInfo table{
+    position:relative;
+    width:50%;
+    height:45vh;
+    background-color:rgba(11,29,45,.7);
+    border-radius:5%;
+    float:left;
+}
+.showCase .shipInfo.active{
+    opacity:0;
+}
+.showCase .shipInfo table th,tr,td{
+    color:#fff;
+    border:1px solid rgba(50,66,81,.7);
+    text-align:center;
+}
+.showCase .shipInfo table th{
+    border:none;
 }
 
-.guideRight{}
-.guideRight h2{}
-.guideRight div{}
-.guideRight div h3{}
-.guideRight div p{}
+.showCase .shipInfo table tr{
+    width:10%;
+}
+
+.showCase .shipInfo table td{
+    width:10%;
+}
+
+.shipInfo figure{
+    float:right;
+    width:45%;
+    margin-left:1%;
+}
+.shipInfo figure img{
+    width:100%;
+}
+aside{
+    position:fixed;
+    right:-55%;
+    top:20%;
+    opacity:0;
+    transition:1.5s;
+}
+
+aside.show{
+    opacity:1;
+    right:-35%;
+}
+
+.slideImg{
+    display:flex;
+    flex-direction:column;
+    /* overflow:hidden; */
+    /* justify-content:center; */
+    width:50%;
+}
+.slideImg img{
+    width:30%;
+    opacity:.8;
+}
+.slideImg img:hover{
+    transform:scale(1.3);
+    transition:.5s;
+    opacity:1;
+}
+
+/* ----------------- footer ----------------- */
+footer{
+    width:100vw;
+    padding:5% 15%;
+    background-color:#0a0d13;
+    
+}
+footer .sns{
+    z-index:10;
+}
+
+footer div:nth-of-type(1){
+    display:flex;
+    justify-content:space-between;
+}
+
+footer div:nth-of-type(1) p{
+    color:#83868a;
+    font-weight:600;
+    margin-left:11.5%;
+}
+
+footer div:nth-of-type(2){
+    display:flex;
+    justify-content:space-around
+}
+
+footer div:nth-of-type(2) ul li:nth-of-type(1){
+    color:#83868a;
+}
+footer div:nth-of-type(2) ul li{
+    color:#eee;
+    line-height:250%;
+}
+footer div:nth-of-type(2) ul li a{
+    color:#eee;
+}
+

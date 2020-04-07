@@ -1,0 +1,545 @@
+@import url('common.css');
+
+#total{
+    width:100vw;
+    /* background:url("https://www.youtube.com/embed/0bjTrPutt4k")no-repeat;
+    background-size:cover;
+    background-attachment:fixed; */
+}
+.mainVisual {
+	position : fixed;
+	top : 0; 
+	left : 0;
+	min-width : 100%;
+	width : auto;
+	height : auto;
+}
+/* -------------------------------- header ------------------------------------ */
+header{
+    position:fixed;
+    width:100%;
+    background-color:#000;
+    z-index:25;
+    padding:0% 15%
+}
+header.active{
+    opacity:0.5
+}
+header .header_wrap{
+    width:100%;
+    height:100%;
+    display:flex;
+    
+}
+.header_wrap figure{
+}
+.header_wrap figure img{
+    width:100%;
+}
+
+/* --------------------------------- nav -------------------------------------- */
+.header_wrap .navBg{
+    width:100%;
+    background-color:#000;
+}
+.header_wrap nav{
+    width:100%;
+    padding:1.7%;
+}
+.header_wrap nav ul{
+    display:flex;
+    justify-content:center;
+    margin-top:0.5%;
+}
+.header_wrap nav ul li{
+    margin-right:5%;
+    width:8%;
+    position:relative;
+}
+.header_wrap nav ul li a{
+    color:#fff;
+}
+.header_wrap nav ul div{
+    position:relative;
+    margin-top:40px;
+    line-height:80px;
+    width:100%;
+    background-color:#000;
+    display:none;
+}
+.header_wrap nav ul div.show{
+    /* opacity:1;
+    display:block */
+}
+.header_wrap nav ul div a{
+    display:block;
+    opacity:1;
+}
+.header_wrap nav ul li:nth-of-type(2) div a{
+    text-align:center;
+}
+/* -------------------------------- visual ----------------------------------- */
+.visual{
+    width:100%;
+    height:100vh;
+    position:relative;
+    border:1px solid yellow
+}
+.visual video{
+    position:absolute;
+    left:10%;
+    top:30%;
+    width:35%;
+    z-index:10;
+}
+.visual figure img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0.6
+    /* display:none; */
+}
+.visual figure img.active{
+    /* opacity:1; */
+    display:block;
+}
+
+.visual .visualText{
+    position:absolute;
+    width:33%;
+    opacity:0;
+    right:15%;
+    top:40%;
+    text-align:center;
+    transition:.8s;
+}
+.visual .visualText.visible{
+    opacity:1;
+    top:30%;
+}
+.visual .visualText h1{
+    color:#fff;
+    font-size:3em;
+    margin-bottom:8%;
+}
+
+.visual .visualText p{
+    font-size:2em;
+    color:#fff;
+    text-align:center;
+}
+
+.visual .visualText a{
+    padding:2% 3%;
+    background-color:#2981bb;
+    margin-top:6%;
+    position:relative;
+}
+
+.visual .visualText a:after{
+    content:"";
+    width:0;
+    height:100%;
+    display:block;
+    background-color:#fff;
+    position:absolute;
+    left:0;
+    top:0;
+    opacity:0.1;
+    transition:.5s;
+}
+
+.visual .visualText a:hover:after{
+    width:100%;
+}
+.visual .visualText a:nth-of-type(1){
+    margin-right:7%
+}
+
+.visual .visualText span{
+    /* margin:1% 2%; */
+    font-size:1vw;
+    color:#fff;
+}
+
+.visual .indigator{
+    position:absolute;
+    left:45%;
+    bottom:16%;
+    display:flex;
+}
+
+.visual .indigator li{
+    width:15px;
+    height:15px;
+    border-radius:15px;
+    background-color:#fff;
+    margin-right:60px;
+}
+
+.visual .indigator li.active{
+    transform:scale(1.5);
+    transition:.3s;
+}
+/* -------------------------- container ----------------------- */
+
+.container{
+    width:100%;
+    background:url('../img/bg_background7.jpg')no-repeat;
+    background-size:cover;
+    /* background-size:inherit; */
+    background-attachment: fixed;
+}
+/* --------------------- faction -------------------------------- */
+.faction{
+    width:100%;
+    border:1px solid yellow
+}
+.faction_title{
+    margin-top:0%;
+    transition:1s;
+    opacity:0;
+}
+.faction_title.show{
+    opacity:1;
+    margin-top:10%;
+}
+.faction_title h1{
+    color:#fff;
+    font-size:3em;
+    text-align:center;
+}
+.faction_title p{
+    color:#fff;
+    font-size:2em;
+    text-align:center;
+    margin-top:10px;
+    letter-spacing:1rem;
+}
+.faction_wrap{
+    width:100%;
+    display:flex;
+    padding:0% 10%;
+    opacity:0;
+    transition:1s;
+}
+.faction_wrap.show{
+    padding:5% 15%;
+    opacity:1;
+}
+.faction_wrap div{
+    width:100%;
+    margin:0 1%;
+    height:60vh;
+    position:relative;
+}
+.faction_wrap figure{
+    width:100%;
+    height:100%;
+    position:absolute;
+    background:#000;
+}
+
+.faction_wrap figure img{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+.faction_wrap figure .amarr{
+    width:100%;
+    height:100%;
+}
+
+.faction_wrap figure .factionIntro{
+    width:100%;
+    height:100%;
+}
+.faction_wrap figure .factionIntro.hover{
+    z-index:15;
+}
+
+.faction_wrap figure figcaption{
+    position:absolute;
+    left:31.5%;
+    bottom:0%;
+    opacity:0;
+    transition:.5s;
+}
+
+.faction_wrap figure figcaption a{
+    color:#fff;
+    border:1px unset #eee;
+    padding:10px 10px;
+    transition:.5s;
+}
+.faction_wrap .bgf{
+    opacity:1;
+    transition:.5s;
+}
+.faction_wrap .front{
+    width:100%;
+    height:100%;
+    background-color:#000;
+    opacity:0.7;
+    transition:1s;
+}
+/* ------------------------faction active content---------------------------- */
+.faction_wrap .bgf.active{
+    opacity:0;
+}
+.faction_wrap .front.active{
+    opacity:0;
+}
+
+.faction_wrap figure .icon{
+    width:35%;
+    height:25%;
+    left:32%;
+    bottom:20%;
+}
+
+.faction_wrap figure .s_bgf{
+    opacity:1;
+    transition:.8s;
+}
+
+.faction_wrap figure .s_bgf.active{
+    opacity:0;
+}
+.faction_wrap figure figcaption.active{
+    z-index:15;
+    opacity:1;
+    bottom:10%;
+}
+.faction_wrap figure figcaption a.active{
+    color:#fff;
+    font-weight:600;
+}   
+
+/* ------------------------------ player guide -------------------------------- */
+.guide{
+    width:100%;
+    padding:15% 20%;
+    opacity:0;
+    transition:1s;
+    /* background:url("../img/bg_featured-content-bg.jpg") */
+    border:1px solid yellow
+}
+.guide.show{
+    padding:10% 15%;
+    opacity:1;
+}
+.guide h2{
+    color:#fff;
+    font-size:2em;
+    text-align:left;
+    margin:2% 0 2% 5%;
+}
+.playerGuide{
+    display:flex;
+    justify-content:space-between;
+    margin:0 auto;
+}
+
+.playerGuide figure{
+    width:100%;
+    height:100%;
+    margin:7%;
+    position:relative;
+    left:0;
+    bottom:20%;
+    background-color:#000;
+}
+/* .playerGuide figure img:nth-of-type(1){
+    position:absolute;
+    left:-35%;
+    top:0%;
+    width:40%;
+    height:100%;
+} */
+.playerGuide figure img{
+    width:100%;
+    height:100%;
+    opacity:.4;
+    transition:.6s;
+   
+}
+
+.playerGuide figure:hover img{
+    opacity:1;
+    transform:scale(1.05)
+}
+.playerGuide figcaption{
+    position:absolute;
+    left:0;
+    bottom:0;
+    padding:5%;
+}
+.playerGuide figcaption h3{
+    color:#fff;
+    margin-bottom:3%;
+}
+.playerGuide figcaption p{
+    white-space:pre-line;
+    color:#fff;
+}
+.playerGuide figcaption p a{
+    color:#fff;
+}
+/* ---------------------- ship showcase ----------------------------- */
+
+.showCase{
+    width:100%;
+    height:70vh;
+    padding:0% 20% 10% 20%;
+    opacity:1;
+    transition:.6s;
+    position:relative;
+    border:1px solid yellow
+}
+.showCase.show{
+    padding:0% 15% 10% 15%;
+    opacity:1;
+}
+.showCase h2{
+    position:relative;
+    left:5%;
+    top:10%;
+    color:#fff;
+    text-align:left;
+    font-size:2em;
+}
+.showCase .slideBox{
+    width:100%;
+    height:100%;
+    position:relative;
+    top:20%;
+    overflow:hidden;
+    /* border:1px solid yellow; */
+    
+}
+.showCase .shipInfo{
+    width:100%;
+    height:100%;
+    position:relative;
+    left:0;
+    top:0;
+    /* border:1px solid #f00; */
+    transition:1s;
+}
+.showCase .shipInfo .shipDetail{
+    width:100%;
+    height:100%;
+    /* margin-bottom:10px; */
+    /* border:1px solid #fff; */
+}
+.showCase .shipInfo table{
+    width:50%;
+    height:100%;
+    float:left;
+    background-color:rgba(11,29,45,.7);
+    border-radius:5%;
+}
+.showCase .shipInfo.active{
+    opacity:0;
+    translate:translateX(-200px)
+}
+.showCase .shipInfo table th,tr,td{
+    color:#fff;
+    border:1px solid rgba(50,66,81,.7);
+    text-align:center;
+}
+.showCase .shipInfo table th{
+    border:none;
+}
+
+.showCase .shipInfo table tr{
+    width:10%;
+}
+
+.showCase .shipInfo table td{
+    width:10%;
+}
+
+.mText,.cText,.vText,.oText,.wText,.iText{
+}
+.shipInfo figure{
+    float:right;
+    width:50%;
+
+}
+.shipInfo figure img{
+    width:70%;
+    margin-left:15%;
+    margin-top:10%;
+}
+aside{
+    position:fixed;
+    right:-55%;
+    top:20%;
+    opacity:0;
+    transition:1.5s;
+}
+
+aside.show{
+    opacity:1;
+    right:-35%;
+}
+
+.slideImg{
+    display:flex;
+    flex-direction:column;
+    /* overflow:hidden; */
+    /* justify-content:center; */
+    width:50%;
+}
+.slideImg img{
+    width:30%;
+    opacity:.8;
+}
+.slideImg img:hover{
+    transform:scale(1.3);
+    transition:.5s;
+    opacity:1;
+}
+
+/* ----------------- footer ----------------- */
+footer{
+    width:100%;
+    padding:5% 15%;
+    background-color:#0a0d13;
+    border:1px solid yellow
+}
+footer .sns{
+    z-index:10;
+}
+
+footer div:nth-of-type(1){
+    display:flex;
+    justify-content:space-between;
+}
+
+footer div:nth-of-type(1) p{
+    color:#83868a;
+    font-weight:600;
+    margin-left:11.5%;
+}
+
+footer div:nth-of-type(2){
+    display:flex;
+    justify-content:space-around
+}
+
+footer div:nth-of-type(2) ul{}
+footer div:nth-of-type(2) ul li:nth-of-type(1){
+    color:#83868a;
+}
+footer div:nth-of-type(2) ul li{
+    color:#eee;
+    line-height:250%;
+}
+footer div:nth-of-type(2) ul li a{
+    color:#eee;
+}
+

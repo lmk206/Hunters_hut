@@ -18,20 +18,20 @@
         },
 
         {   
-            "Name" : "Barger",
+            "Name" : "Retribution",
             "Mass" : "Mass",
             "Cargo" : "Cargo",
-            "mText" : "960000t",
-            "cText" : "465000 m3",
+            "mText" : "1053t",
+            "cText" : "135 m3",
             "ESTvalue" : "EST.value",
             "velocity" : "velocity",
-            "ESTText" : "1b isk",
-            "vText" : "60m/s",
+            "ESTText" : "40m isk",
+            "vText" : "300m/s",
             "HitPoint" : "HitPoint",
             "spec" : "spec",
-            "wText" : "142500",
-            "iText" : "Hauling",
-            "sImg" : "../img/ic_spaceshipBarger.png"
+            "wText" : "2554",
+            "iText" : "Combat",
+            "sImg" : "../img/ic_spaceshipRetribution.png"
         },
 
         {
