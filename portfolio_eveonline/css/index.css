@@ -26,9 +26,9 @@ header .header_wrap{
     width:100%;
     height:100%;
     display:flex;
-    
 }
 .header_wrap figure{
+    width:10%;
 }
 .header_wrap figure img{
     width:100%;
@@ -38,6 +38,7 @@ header .header_wrap{
 .header_wrap .navBg{
     width:100%;
     background-color:#000;
+    display:flex;
 }
 .header_wrap nav{
     width:100%;
@@ -55,6 +56,7 @@ header .header_wrap{
 }
 .header_wrap nav ul li a{
     color:#fff;
+    font-size:1em;
 }
 .header_wrap nav ul div{
     position:relative;
@@ -68,14 +70,40 @@ header .header_wrap{
 .header_wrap nav ul div a{
     display:block;
     opacity:1;
+    font-size:1em;
 }
 
 .header_wrap nav ul li:nth-of-type(2) div a{
     text-align:center;
+    margin-right:10px;
+}
+
+.burger{
+    position:relative;
+    right:0;
+    top:30%;
+    display:none;
+}
+.burger span{
+    width:30px;
+    height:2px;
+    background-color:#fff;
+    display:block;
+    position:absolute;
+
+}
+.burger span:nth-of-type(1){
+    top:0
+}
+.burger span:nth-of-type(2){
+    top:6px
+}
+.burger span:nth-of-type(3){
+    top:12px
 }
 /* -------------------------------- visual ----------------------------------- */
 .visual{
-    width:100vw;
+    width:100%;
     height:50vw;
     /* height:100vh; */
     position:relative;
@@ -89,7 +117,7 @@ header .header_wrap{
     top:30%;
     width:35%;
     z-index:10;
-    /* transform:scale(1.5) */
+    transform:scale(1.1)
 }
 .visual figure img{
     position:absolute;
@@ -117,12 +145,12 @@ header .header_wrap{
 }
 .visual .visualText h1{
     color:#fff;
-    font-size:3em;
+    font-size:2.5vw;
     margin-bottom:8%;
 }
 
 .visual .visualText p{
-    font-size:2em;
+    font-size:1.5vw;
     color:#fff;
     text-align:center;
 }
@@ -132,6 +160,7 @@ header .header_wrap{
     background-color:#2981bb;
     margin-top:6%;
     position:relative;
+    font-size:1vw;
 }
 
 .visual .visualText a:after{
@@ -181,7 +210,7 @@ header .header_wrap{
 /* -------------------------- container ----------------------- */
 
 .container{
-    width:100vw;
+    width:100%;
     background:url('../img/bg_background7.jpg')no-repeat;
     background-size:cover;
     background-attachment: fixed;
@@ -189,28 +218,24 @@ header .header_wrap{
 /* --------------------- faction -------------------------------- */
 .faction{
     width:100%;
-    
 }
 .faction_title{
-    margin-top:0%;
+    padding-top:0%;
     transition:1s;
     opacity:0;
 }
 .faction_title.show{
     opacity:1;
-    margin-top:10%;
+    padding-top:10%;
 }
-.faction_title h1{
-    color:#fff;
-    font-size:3em;
-    text-align:center;
-}
+
 .faction_title p{
     color:#fff;
-    font-size:2em;
+    font-size:2vw;
     text-align:center;
     margin-top:10px;
-    letter-spacing:1rem;
+    letter-spacing:1vw;
+    font-size:2vw;
 }
 .faction_wrap{
     width:100%;
@@ -226,7 +251,7 @@ header .header_wrap{
 .faction_wrap div{
     width:100%;
     margin:0 1%;
-    height:60vh;
+    height:30vw;
     position:relative;
 }
 .faction_wrap figure{
@@ -315,11 +340,10 @@ header .header_wrap{
 
 /* ------------------------------ player guide -------------------------------- */
 .guide{
-    width:100vw;
+    width:100%;
     padding:15% 20%;
     opacity:0;
-    transition:1s;
-    
+    transition:1s;  
 }
 .guide.show{
     padding:10% 15%;
@@ -327,7 +351,7 @@ header .header_wrap{
 }
 .guide h2{
     color:#fff;
-    font-size:2em;
+    font-size:1.5vw;
     text-align:left;
     margin:2% 0 2% 5%;
 }
@@ -366,13 +390,16 @@ header .header_wrap{
 .playerGuide figcaption h3{
     color:#fff;
     margin-bottom:3%;
+    font-size:1vw;
 }
 .playerGuide figcaption p{
     white-space:pre-line;
     color:#fff;
+    font-size:0.8vw;
 }
 .playerGuide figcaption p a{
     color:#fff;
+    font-size:1vw;
 }
 
 .pgLeft{
@@ -386,7 +413,7 @@ header .header_wrap{
 /* ---------------------- ship showcase ----------------------------- */
 
 .showCase{
-    width:100vw;
+    width:100%;
     display:flex;
     flex-direction:column;
     padding:0% 20% 10% 20%;
@@ -401,7 +428,7 @@ header .header_wrap{
 .showCase h2{
     color:#fff;
     text-align:left;
-    font-size:2em;
+    font-size:1.5vw;
 }
 .showCase .shipInfo{
     position:relative;
@@ -431,11 +458,9 @@ header .header_wrap{
 .showCase .shipInfo table th{
     border:none;
 }
-
 .showCase .shipInfo table tr{
     width:10%;
 }
-
 .showCase .shipInfo table td{
     width:10%;
 }
@@ -448,28 +473,44 @@ header .header_wrap{
 .shipInfo figure img{
     width:100%;
 }
+
+.shipInfo .shipTable{
+    opacity:1;
+    transition:.5s;
+}
+.shipInfo .tableImg{
+    opacity:1;
+    transition:.5s;
+}
+.shipInfo .shipTable.active{
+    opacity:0;
+    transition:.5s;
+}
+.shipInfo .tableImg.active{
+    opacity:0;
+    transition:.5s;
+}
+
+/* ------------------------------ aside -------------------------------------- */
 aside{
     position:fixed;
-    right:-55%;
+    right:0%;
     top:20%;
     opacity:0;
+    width:7%;
     transition:1.5s;
 }
-
 aside.show{
     opacity:1;
-    right:-35%;
+    right:3%;
 }
-
 .slideImg{
     display:flex;
     flex-direction:column;
-    /* overflow:hidden; */
-    /* justify-content:center; */
-    width:50%;
+    
 }
 .slideImg img{
-    width:30%;
+    width:100%;
     opacity:.8;
 }
 .slideImg img:hover{
@@ -483,7 +524,6 @@ footer{
     width:100vw;
     padding:5% 15%;
     background-color:#0a0d13;
-    
 }
 footer .sns{
     z-index:10;
@@ -516,3 +556,59 @@ footer div:nth-of-type(2) ul li a{
     color:#eee;
 }
 
+/* ---------------------- media -------------------------------------- */
+/* -------------------- 1024px ------------------- */
+@media(max-width:1024px){
+    .header_wrap nav ul li{
+        width:10%;
+    }
+    .header_wrap nav ul li > a{
+        font-size:1vw;
+    }
+    .header_wrap nav ul li div a{
+        font-size:0.5vw;
+        margin-top:20px;
+        line-height:50px;
+    }
+    .faction_title{
+        opacity:1;
+        padding-top:10%
+    }
+    .faction_wrap{
+        opacity:1;
+        padding: 5% 15%;
+    }
+    .guide{
+        opacity:1;
+        padding:10% 15%;
+    }
+    .showCase{
+        opacity:1;
+        padding:5% 15% 10% 15%;
+    }
+    .showCase .shipTable{
+        margin-right:3%
+    }
+    .showCase .tableImg{
+        margin-top:20%;
+    }
+    aside{
+        position:absolute;
+        top:215%;
+        right:0;
+        opacity:1;
+    }
+}
+/* --------------------- 768 --------------------- */
+@media(max-width:768px){
+    header nav{
+        display:none;
+    }
+    header .burger{
+        display:block;
+    }
+}
+/* --------------------- 480 --------------------- */
+@media(max-width:480px){}
+/* --------------------- 320 --------------------- */
+@media(max-width:320px){}
