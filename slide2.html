@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+ <style>
+    
+    body, section, ul, dl, dd {
+  margin:0;
+  padding:0;
+}
+.slider {
+  list-style:none;
+  height:500px;
+  overflow:hidden;
+}
+.slider:after {
+  content:'';
+  display:block;
+  clear:both;
+}
+.slider li {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:500px;
+  opacity:0;
+}
+.slider li div {
+  width:100%;
+  height:100%;
+  background-size:cover;
+  position:relative;
+}
+.slider li dl {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:20px;
+}
+.slider li .right {
+  left:auto;
+  right:20px;
+  text-align:right;
+}
+.slider li dt {
+  color:#fff;
+  font-size:3rem;
+  text-shadow:1px 1px 10px #444;
+}
+.slider li dd {
+  color:#fff;
+  text-shadow:1px 1px 10px #444;
+}
+.btn {
+  text-align:center;
+}
+.btn button {
+  margin-top:10px;
+  border:1px solid #ccc;
+  background-color:#fff;
+  color:#666;
+  font-size:1.5rem;
+  cursor:pointer;
+}
+    
+    </style>
+  <section>
+  <ul class="slider">
+    <li>
+      <div style="background-image:url('https://cdn.pixabay.com/photo/2019/07/24/10/22/rose-4359808_960_720.jpg')">
+        <dl class="right">
+          <dt>만천하에 피어나는</dt>
+          <dd>따뜻한 예수는 하는 모래뿐일 찬미를 군영과 주는 무엇을 만천하의 칼이다.</dd>
+        </dl>
+      </div>
+    </li>
+    
+    <li>
+      <div style="background-image:url('https://cdn.pixabay.com/photo/2019/07/29/09/16/landscape-4370250_960_720.jpg');">
+        <dl>
+          <dt>생명을 그러므로</dt>
+          <dd>만천하의 피어나는 있는 같이, 못할 되려니와, 커다란 쓸쓸하랴?</dd>
+        </dl>
+      </div>
+    </li>
+    
+    <li>
+      <div style="background-image:url('https://cdn.pixabay.com/photo/2019/07/27/11/25/drinking-glasses-4366559_960_720.jpg');">
+        <dl class="right">
+          <dt>인생을 반짝이는</dt>
+          <dd>생명을 그러므로 있을 철환하였는가? 천자만홍이 없으면, 것이다.</dd>
+        </dl>
+      </div>
+    </li>
+    
+    <li>
+      <div style="background-image:url('https://cdn.pixabay.com/photo/2019/06/17/15/41/landscape-4280257_960_720.jpg');">
+        <dl>
+          <dt>산야에 가진 불러보라</dt>
+          <dd>인생을 반짝이는 청춘이 힘차게 하였으며, 보이는 이것이야말로 있는가?</dd>
+        </dl>
+      </div>
+    </li>
+    
+     <li>
+      <div style="background-image:url('https://cdn.pixabay.com/photo/2019/07/10/22/41/zinnowitz-4329714_960_720.jpg');">
+        <dl class="right">
+          <dt>풀이 얼음이 무엇을</dt>
+          <dd>피고, 산야에 가진 불러 보라. 노년에게서 때에, 인생에 인간에 트고, 듣는다.</dd>
+        </dl>
+      </div>
+    </li>
+    
+     <li>
+      <div style="background-image:url('https://cdn.pixabay.com/photo/2019/06/24/15/31/forest-4296305_960_720.jpg');">
+        <dl>
+          <dt>끓이는 것이다</dt>
+          <dd>풀이 얼음이 무엇을 청춘의 우리의 만물은 그리하였는가?</dd>
+        </dl>
+      </div>
+    </li>
+  </ul>
+  
+   <div class="btn">
+    <button type="button" id="prev"> prev </button>
+    <button type="button" id="next"> next </button>
+  </div>
+</section>
+<script>
+    
+$(function(){
+var $slider = $('.slider'),
+$firstSlide = $slider.find('li').first() // 첫번째 슬라이드
+.stop(true).animate({'opacity':1},200); // 첫번째 슬라이드만 보이게 하기
+
+function PrevSlide(){ // 이전버튼 함수
+var $lastSlide = $slider.find('li').last() //마지막 슬라이드
+.prependTo($slider); //마지막 슬라이드를 맨 앞으로 보내기  
+$secondSlide = $slider.find('li').eq(1)
+//두 번째 슬라이드 구하기
+.stop(true).animate({'opacity':0},400); //밀려난 두 번째 슬라이드는 fadeOut 시키고
+$firstSlide = $slider.find('li').first() //맨 처음 슬라이드 다시 구하기
+.stop(true).animate({'opacity':1},400);
+//새로 들어온 첫 번째 슬라이드는 fadeIn 시키기
+}
+function NextSlide(){ // 다음 버튼 함수
+$firstSlide = $slider.find('li').first() // 첫 번째 슬라이드
+.appendTo($slider); // 맨 마지막으로 보내기
+var $lastSlide = $slider.find('li').last() // 맨 마지막으로 보낸 슬라이드
+.stop(true).animate({'opacity':0},400); // fadeOut시키기
+$firstSlide = $slider.find('li').first()
+// 맨 처음 슬라이드
+.stop(true).animate({'opacity':1},400);
+// fadeIn 시키기
+}
+
+$('#next').on('click', function(){ //다음버튼 클릭
+NextSlide();
+});
+$('#prev').on('click', function(){ //이전 버튼 클릭하면
+PrevSlide();
+});
+
+setInterval(NextSlide, 5000); //자동 슬라이드 설정
+
+});
+
+    
+    </script>
+</body>
+</html>
