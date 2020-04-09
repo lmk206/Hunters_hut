@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mix">
+       <h1>AAA</h1>
+        <p></p>
+        <p></p>
+    </div>
+    <style>
+        h1{
+            position:absolute;
+            top:100px; left:80px;
+            z-index:2;
+            font-size:60px;
+            color:#aaa;
+            mix-blend-mode: difference;
+        }
+        h1:hover + div{top:200px;}
+        .mix{
+            position:relative;
+        }
+        .mix p{
+            width:200px; height:200px;
+            position:absolute;
+            background:pink;
+/*            mix-blend-mode:difference;*/
+            background-blend-mode: difference;
+        }
+        .mix p:nth-of-type(2){
+            background:blue;
+            left:100px; top:100px;
+        }
+    </style>
+</body>
+</html>

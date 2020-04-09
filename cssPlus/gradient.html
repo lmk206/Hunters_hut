@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="g1"></div>    
+    <div class="g2"></div>
+    <div class="g3"><p data-p="70"></p></div>
+    
+    <style>
+        div{width:1000px; height:200px;}
+        .g1{
+            background:linear-gradient(90deg,#f00 80%,#000 100%);
+        }
+        /* 앞에서 80%를 쓰고 뒤에서 100%를 쓰면 그 100%는 남은 20%를 가리킨다. */
+        .g2{
+            width:800px; height:400px;
+            background:radial-gradient(closest-corner,#f00,#000 50%);
+        }
+        /* 기본값 ellipse 
+           circle (중앙기준)/ at 30% 20%(x값,y값지정),
+           farthest-corner, farthest-side, closest-corner, closest-side */
+        .g3{
+            background:conic-gradient(from 0deg,#f00 1%,#000 0%);
+            width:200px; height:200px;
+            position:relative;
+            border-radius:50%;
+        }
+        .g3 p{
+           
+            position:absolute;
+            width:70%; height:70%;
+            background:#fff;
+            left:15%;top:15%;
+            border-radius:50%;
+            margin:0;
+            text-align:center;
+            line-height:140px;
+        }
+    </style>
+    <script>
+        var g3 = document.querySelector('.g3');
+        var i = 0;
+    
+        function skill(k){
+            loop = setInterval(function(){
+                if(i == k){
+                    clearInterval(loop);
+                    i = 0;
+                    return
+                }
+                i++;
+                g3.children[0].textContent = i+"%";
+                g3.style = `background:conic-gradient(from 0deg,#f00 ${i}%,#000 0%)`;
+            },10)
+        }
+        skill(g3.children[0].dataset.p);
+    </script>
+</body>
+</html>

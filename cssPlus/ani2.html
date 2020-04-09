@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <style>
+       .dash path{
+           stroke-dasharray:1200px;
+           animation:dash 2s forwards;
+       }
+       @keyframes dash{
+           0%{
+               stroke-dashoffset:1200px; 
+            /* dashoffset 경과를 진행. */
+           }
+           100%{
+               stroke-dashoffset:0px;
+           }
+       }
+    </style>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="365.192px" height="162.134px" viewBox="0 0 365.192 162.134" enable-background="new 0 0 365.192 162.134"
+	 xml:space="preserve" class="dash">
+<path fill="#ffffff" stroke="#000000" stroke-miterlimit="10" d="M115.472,0.214c-61,129-187,182-61,121s-106-191.738,101-47.869
+	s316,75.869,60,44.869"/>
+    </svg>
+</body>
+</html>
