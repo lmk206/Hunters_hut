@@ -1,5 +1,8 @@
 @import url('common.css');
-
+body{
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
 #total{
     width:100vw;
 }
@@ -26,9 +29,10 @@ header .header_wrap{
     width:100%;
     height:100%;
     display:flex;
+    position:relative;
 }
 .header_wrap figure{
-    width:10%;
+    width:15%;
 }
 .header_wrap figure img{
     width:100%;
@@ -47,7 +51,8 @@ header .header_wrap{
 .header_wrap nav ul{
     display:flex;
     justify-content:center;
-    margin-top:0.5%;
+    /* justify-content:space-around; */
+    margin-top:1.2%;
 }
 .header_wrap nav ul li{
     margin-right:5%;
@@ -69,10 +74,9 @@ header .header_wrap{
 
 .header_wrap nav ul div a{
     display:block;
-    opacity:1;
+  
     font-size:1em;
 }
-
 .header_wrap nav ul li:nth-of-type(2) div a{
     text-align:center;
     margin-right:10px;
@@ -83,6 +87,7 @@ header .header_wrap{
     right:0;
     top:30%;
     display:none;
+    z-index:10;
 }
 .burger span{
     width:30px;
@@ -90,8 +95,8 @@ header .header_wrap{
     background-color:#fff;
     display:block;
     position:absolute;
-
 }
+.burger.active span{}
 .burger span:nth-of-type(1){
     top:0
 }
@@ -101,6 +106,47 @@ header .header_wrap{
 .burger span:nth-of-type(3){
     top:12px
 }
+/* --------------- 모바일 메뉴입니다 -------- */
+.mobileMenu{
+    position:absolute;
+    right:-60%;
+    top:0;
+    display:none;
+    transition:.5s;
+}
+.mobileMenu.show{
+    display:block;
+    z-index:5;
+    right:-10%;
+    top:35px;
+    width:50%;
+}
+.mobileMenu ul{
+    background-color:#000;
+    height:100vh;
+    margin-top:10px;
+    padding:5%;
+}
+.mobileMenu ul li{
+    padding:5% 5%;
+}
+.mobileMenu li > div{
+    opacity:0;
+    height:0;
+    line-height:55px;
+    margin-top:7%;
+    margin-left:20px;
+    transition:.5s;
+}
+.mobileMenu div.show{
+    opacity:1;
+    height:100%;
+}
+.mobileMenu a{
+    color:#fff;
+    display:block;
+}
+
 /* -------------------------------- visual ----------------------------------- */
 .visual{
     width:100%;
@@ -184,29 +230,10 @@ header .header_wrap{
 }
 
 .visual .visualText span{
-    font-size:1vw;
+    font-size:1em;
     color:#fff;
 }
 
-.visual .indigator{
-    position:absolute;
-    left:45%;
-    bottom:16%;
-    display:flex;
-}
-
-.visual .indigator li{
-    width:15px;
-    height:15px;
-    border-radius:15px;
-    background-color:#fff;
-    margin-right:60px;
-}
-
-.visual .indigator li.active{
-    transform:scale(1.5);
-    transition:.3s;
-}
 /* -------------------------- container ----------------------- */
 
 .container{
@@ -235,7 +262,7 @@ header .header_wrap{
     text-align:center;
     margin-top:10px;
     letter-spacing:1vw;
-    font-size:2vw;
+    font-size:2em;
 }
 .faction_wrap{
     width:100%;
@@ -351,7 +378,7 @@ header .header_wrap{
 }
 .guide h2{
     color:#fff;
-    font-size:1.5vw;
+    font-size:1.5em;
     text-align:left;
     margin:2% 0 2% 5%;
 }
@@ -361,9 +388,7 @@ header .header_wrap{
     margin:0 auto;
 }
 
-.playerGuide figure{
-    width:100%;
-    height:100%;
+.playerGuide figure{ 
     margin:7%;
     position:relative;
     left:0;
@@ -390,16 +415,17 @@ header .header_wrap{
 .playerGuide figcaption h3{
     color:#fff;
     margin-bottom:3%;
-    font-size:1vw;
+    font-size:1em;
 }
 .playerGuide figcaption p{
     white-space:pre-line;
     color:#fff;
     font-size:0.8vw;
 }
-.playerGuide figcaption p a{
+.playerGuide figcaption a{
     color:#fff;
-    font-size:1vw;
+    font-size:1rem;
+    margin-top:10px;
 }
 
 .pgLeft{
@@ -416,19 +442,19 @@ header .header_wrap{
     width:100%;
     display:flex;
     flex-direction:column;
-    padding:0% 20% 10% 20%;
-    opacity:1;
+    padding:10% 20% 10% 20%;
+    opacity:0;
     transition:.6s;
     
 }
 .showCase.show{
-    padding:5% 15% 10% 15%;
+    padding:10% 15% 10% 15%;
     opacity:1;
 }
 .showCase h2{
     color:#fff;
     text-align:left;
-    font-size:1.5vw;
+    font-size:1.5em;
 }
 .showCase .shipInfo{
     position:relative;
@@ -521,7 +547,7 @@ aside.show{
 
 /* ----------------- footer ----------------- */
 footer{
-    width:100vw;
+    width:100%;
     padding:5% 15%;
     background-color:#0a0d13;
 }
@@ -559,14 +585,18 @@ footer div:nth-of-type(2) ul li a{
 /* ---------------------- media -------------------------------------- */
 /* -------------------- 1024px ------------------- */
 @media(max-width:1024px){
+    body{
+        overflow-x:visible;
+        overflow-y:visible;
+    }
     .header_wrap nav ul li{
         width:10%;
     }
     .header_wrap nav ul li > a{
-        font-size:1vw;
+        font-size:0.6em;
     }
     .header_wrap nav ul li div a{
-        font-size:0.5vw;
+        font-size:0.3em;
         margin-top:20px;
         line-height:50px;
     }
@@ -578,13 +608,17 @@ footer div:nth-of-type(2) ul li a{
         opacity:1;
         padding: 5% 15%;
     }
+    .faction_wrap figcaption a{
+        font-size:0.7em;
+        left:0%;
+    }
     .guide{
         opacity:1;
         padding:10% 15%;
     }
     .showCase{
         opacity:1;
-        padding:5% 15% 10% 15%;
+        padding:0% 15% 10% 15%;
     }
     .showCase .shipTable{
         margin-right:3%
@@ -594,21 +628,116 @@ footer div:nth-of-type(2) ul li a{
     }
     aside{
         position:absolute;
-        top:215%;
-        right:0;
+        top:235%;
+        right:5%;
         opacity:1;
+    }
+    .sns{
+        margin-right:10%;
+    }
+    footer div:nth-of-type(1) p{
+        margin-left:8.5%
+    }
+    footer div:nth-of-type(2){
+        margin-top:1%;
+    }
+    footer div:nth-of-type(2) ul li a{
+        font-size:0.8em
     }
 }
 /* --------------------- 768 --------------------- */
 @media(max-width:768px){
+    body{
+        overflow-x:visible;
+        overflow-y:visible;
+    }
+    header, .faction, .faction_wrap, .guide, .showCase{
+        padding:5% 5%;
+    }
+    header{
+        padding:0 5%;
+    }
     header nav{
         display:none;
     }
     header .burger{
+        float:right;
         display:block;
+        right:30px;
+        top:23px;
+    }
+    .faction_wrap{
+        flex-wrap:wrap;
+    }
+    .faction_wrap div{
+        width:45%;
+        height:35vh;
+        margin:35px 10px 35px 10px;
+    }
+    .guide{
+        padding:5% 0;
+    }
+    .playerGuide figure img{
+        width: 100%;
+    }
+    .playerGuide figcaption{
+        left:15%;
+        top:30%;
+    }
+    .playerGuide .pgLeft figcaption{
+        left:25%;
+    }
+    .playerGuide .pgRight figcaption{
+        left:15%;
+    }
+    .playerGuide figcaption h3, a{
+        text-align:center;
+        font-size:1em;
+    }
+    .playerGuide figcaption a{
+        margin-top:80px;
+        font-size:0.8rem;
+        padding:2% 4%;
+        background-color:#2981bb;
+    }
+    .playerGuide .pgLeft figcaption a{
+        margin-left:20px;
+    }
+    .playerGuide .pgRight figcaption a{
+        margin-left:30px;
+    }
+    .playerGuide figcaption p{
+        display:none;
+    }
+    /* aside{
+        top:214%;
+        right:2%;
+    } */
+    aside{
+        display:none;
+    }
+    .showCase .shipInfo table{
+        height:25vh;
+        margin-left:5px;
+    }
+    .showCase .shipInfo .shipTable{
+        height:25vh;
+    }
+    .shipInfo .tableImg{
+        margin-top:10%;
     }
 }
 /* --------------------- 480 --------------------- */
-@media(max-width:480px){}
+@media(max-width:480px){
+    body{
+        overflow-x:visible;
+        overflow-y:visible;
+    }
+}
 /* --------------------- 320 --------------------- */
-@media(max-width:320px){}
+@media(max-width:360px){
+    body{
+        overflow-x:visible;
+        overflow-y:visible;
+    }
+}
