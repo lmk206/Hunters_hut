@@ -20,8 +20,7 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
           
         function match(e) {
             //console.log(mq[0])
-            
-           
+
             if(e.matches){
                 console.log('모바일 화면 입니다.');
             }else{
@@ -37,37 +36,19 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
             }
             
     };
-  
 
-
-// mq1.addListener(function(e){
-//     if(e.matches){
-//         console.log('모바일 화면입니다.')
-//     }else{
-//         console.log('데스크탑 화면입니다.');
-//         action();
-//         facAction();
-//         guideAction();
-//         navControl();
-//         visualFade();
-//         mouseEvent();
-//         showAction();
-//         mobileSlide(); 
-//     }
-// })
-
-// var mqP = window.matchMedia("screen and (min-width: 1025px)");
-//     // 데스크탑 모드 제어 입니다.
-//     if(mqP.matches){
-//         action();
-//         facAction();
-//         guideAction();
-//         navControl();
-//         visualFade();
-//         mouseEvent();
-//         showAction();
-//         mobileSlide();
-//     }
+var mqP = window.matchMedia("screen and (min-width: 1025px)");
+    // 데스크탑 모드 제어 입니다.
+    if(mqP.matches){
+        action();
+        facAction();
+        guideAction();
+        navControl();
+        visualFade();
+        mouseEvent();
+        showAction();
+        mobileSlide();
+    }
 
     // window scroll event 입니다.
 
@@ -268,7 +249,12 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
                     //success start
                     var name,mass,cargo,mText,cText,estValue,velocity,estText,vText,hitPoint,spec,wText,iText,sImg;
                     var idx = 0;
-                    showCase(0)
+                    if(window.innerWidth >= 1024){
+                    showCase(0);
+                    }else{
+                        showCase2(0);
+                    }
+                    console.log(window.innerWidth)
                     // showCase 등장 이벤트 입니다.
                     function scrollShow(){
                         $(window).on('scroll',function(){
@@ -276,7 +262,7 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
                             var winH = $(window).height();
                             var shoC = $('.showCase').offset().top
                             if((shoC - winH) < sTop){
-                               showCase(0)
+                                showCase(0)
                             }else{} 
                         });
                     }
@@ -347,7 +333,61 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
                         showTable += "<figure><img class='tableImg' src="+sImg+"></figure></div>";
                         $('.shipInfo').html(showTable)
                     }
-                    
+
+                    function showCase2(){
+                        $.each(index.portfolio,function(){
+                        name = this.Name;
+                        mass = this.Mass;
+                        cargo = this.Cargo;    
+                        mText = this.mText;    
+                        cText = this.cText;    
+                        estValue = this.ESTvalue;    
+                        velocity = this.velocity;    
+                        estText = this.ESTText;    
+                        vText = this.vText;    
+                        hitPoint = this.HitPoint;    
+                        spec = this.spec;    
+                        wText = this.wText;    
+                        iText = this.iText;    
+                        sImg = this.sImg; 
+                        console.log(this)
+                        slideShowCase();
+                        })
+
+                        function slideShowCase(){
+                        showTable = "<div class='shipDetail'><table class='slideTable'>";
+                        showTable += "<tbody>";
+                        showTable += "<th colspan='2'>"+name+"</th>"
+                        showTable += "<tr>";
+                        showTable += "<td>"+mass+"</td>";
+                        showTable += "<td>"+cargo+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+mText+"</td>";
+                        showTable += "<td>"+cText+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+estValue+"</td>";
+                        showTable += "<td>"+velocity+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+estText+"</td>";
+                        showTable += "<td>"+vText+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+hitPoint+"</td>";
+                        showTable += "<td>"+spec+"</td>";
+                        showTable += "</tr>";
+                        showTable += "<tr>";
+                        showTable += "<td>"+wText+"</td>";
+                        showTable += "<td>"+iText+"</td>";
+                        showTable += "</tr>";
+                        showTable += "</tody>";
+                        showTable += "</table>";
+                        showTable += "<figure><img class='sideImg' src="+sImg+"></figure></div>";
+                        $('.shipInfo').html(showTable)
+                        }
+                    }
                 // success end
                 }
             });

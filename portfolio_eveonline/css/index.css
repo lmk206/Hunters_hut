@@ -4,7 +4,7 @@ body{
     overflow-y:hidden;
 }
 #total{
-    width:100vw;
+    width:100%;
 }
 .mainVisual {
 	position : fixed;
@@ -51,35 +51,35 @@ header .header_wrap{
 .header_wrap nav ul{
     display:flex;
     justify-content:center;
-    /* justify-content:space-around; */
-    margin-top:1.2%;
+    margin-top:10px;
 }
 .header_wrap nav ul li{
     margin-right:5%;
-    width:8%;
+    width:9%;
     position:relative;
 }
 .header_wrap nav ul li a{
     color:#fff;
     font-size:1em;
 }
+.header_wrap nav ul li:nth-of-type(2) div{
+    margin:0 auto;
+    margin-top: 40px;
+}
+.header_wrap nav ul li:nth-of-type(2) div a{
+   margin-left:10px;
+}
 .header_wrap nav ul div{
     position:relative;
     margin-top:40px;
     line-height:80px;
-    width:100%;
     background-color:#000;
     display:none;
 }
 
 .header_wrap nav ul div a{
     display:block;
-  
     font-size:1em;
-}
-.header_wrap nav ul li:nth-of-type(2) div a{
-    text-align:center;
-    margin-right:10px;
 }
 
 .burger{
