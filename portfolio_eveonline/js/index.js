@@ -23,14 +23,12 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
 
             if(e.matches){
                 console.log('모바일 화면 입니다.');
+                
             }else{
                 console.log('데스크탑 화면 입니다.');
                 action();
                 facAction();
                 guideAction();
-                navControl();
-                visualFade();
-                mouseEvent();
                 showAction();
                 mobileSlide(); 
             }
@@ -44,11 +42,33 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
         facAction();
         guideAction();
         navControl();
-        visualFade();
-        mouseEvent();
         showAction();
         mobileSlide();
+        visualFade();
     }
+
+// 768 사이즈까지 faction video재생 스크립트 입니다.
+var mpj = window.matchMedia("screen and (min-width: 767px")
+    if(mpj.matches){
+        mouseEvent();
+    }
+var mpm = window.matchMedia("screen and (min-width: 339px")
+    if(mpm.matches){
+        // mouseEvent();
+        navControl();
+        visualFade();
+    }
+// 햄버거 제어입니다
+var burger = $('.burger');
+
+burger.each(function(index){
+    var $this = $(this);
+    
+    $this.on('click', function(e){
+        e.preventDefault();
+        $(this).toggleClass('active-' + (index+1));
+    })
+});
 
     // window scroll event 입니다.
 
@@ -79,7 +99,7 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
                 },700,function(){
                     bln = true;
                 })
-            }  
+            }
         })
     }
 
@@ -112,18 +132,23 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
             var idx = 0;
             var interval = 0;
             function loop(){
-                interval = setInterval(function(){
-                    $('.visual figure img').eq(idx).fadeOut(1000);
-                        idx++;
-                        if(idx == 4){
-                            idx = 0
-                        }
-                    $('.visual figure img').eq(idx).fadeIn(1000);
-                },6000);
+                if(window.innerWidth > 1023){
+                    interval = setInterval(function(){
+                        $('.visual figure img').eq(idx).fadeOut(1000);
+                            idx++;
+                            if(idx == 4){
+                                idx = 0
+                            }
+                        $('.visual figure img').eq(idx).fadeIn(1000);
+                    },6000);
+                }
             }; 
             loop()
+            if(window.innerWidth <= 1024){
+                $('.visual figure img').not(":first").hide()
+                clearInterval(loop);
+            }
         };
-
     // visual 문구 등장 스크립트입니다.
         $('.visual').on('mouseover',function(){
             $('.visual .visualText').addClass('visible')
@@ -143,7 +168,6 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
                 $('.faction_wrap').removeClass('show')
                 $('.faction_title').removeClass('show')
             }
-
         });
     }
 
@@ -252,9 +276,17 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
                     if(window.innerWidth >= 1024){
                     showCase(0);
                     }else{
-                        showCase2(0);
+                        showCase2();
+                        var divL = $(".shipInfo").find('div');
+                        for(var i = 0 ; i < divL.length; i++){
+                            console.log(divL)
+                            divL.eq(i).css({
+                                
+                                left: i* 100+"%"
+                                
+                            })
+                        }
                     }
-                    console.log(window.innerWidth)
                     // showCase 등장 이벤트 입니다.
                     function scrollShow(){
                         $(window).on('scroll',function(){
@@ -385,7 +417,7 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
                         showTable += "</tody>";
                         showTable += "</table>";
                         showTable += "<figure><img class='sideImg' src="+sImg+"></figure></div>";
-                        $('.shipInfo').html(showTable)
+                        $('.shipInfo').append(showTable)
                         }
                     }
                 // success end
