@@ -6,8 +6,9 @@ $(function(){
 // media query 이벤트 입니다
 var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
             window.matchMedia("screen and (max-width: 768px)"),
-            window.matchMedia("screen and (max-width: 480px)"),
-            window.matchMedia("screen and (max-width: 320px)")]
+            window.matchMedia("screen and (max-width: 414px)"),
+            window.matchMedia("screen and (max-width: 375px)"),
+            window.matchMedia("screen and (max-width: 360px)")]
 // var mq1 = window.matchMedia("screen and (max-width: 1024px)");
 // var mq2 = window.matchMedia("screen and (max-width: 768px)");
 // var mq3 = window.matchMedia("screen and (max-width: 480px)");
@@ -17,6 +18,7 @@ var mq = [  window.matchMedia("screen and (max-width: 1024px)"),
             mq[1].addListener(match);
             mq[2].addListener(match);
             mq[3].addListener(match);
+            mq[4].addListener(match);
           
         function match(e) {
             //console.log(mq[0])
@@ -66,10 +68,20 @@ burger.each(function(index){
     
     $this.on('click', function(e){
         e.preventDefault();
-        $(this).toggleClass('active-' + (index+1));
+        $(this).toggleClass('active');
+        $('.mobileMenu').toggleClass('show');
+        
     })
 });
 
+var burgerInner = $('.burger li');
+burgerInner.each(function(){
+    $(this).on('click',function(e){
+        e.preventDefault();
+        console.log(this)
+        $('.mobileMenu div').toggleClass('show')
+    })
+})
     // window scroll event 입니다.
 
     function action(){

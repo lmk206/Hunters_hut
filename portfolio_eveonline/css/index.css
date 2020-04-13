@@ -6,14 +6,7 @@ body{
 #total{
     width:100%;
 }
-.mainVisual {
-	position : fixed;
-	top : 0; 
-	left : 0;
-	min-width : 100%;
-	width : auto;
-	height : auto;
-}
+
 /* -------------------------------- header ------------------------------------ */
 header{
     position:fixed;
@@ -76,6 +69,13 @@ header .header_wrap{
     background-color:#000;
     display:none;
 }
+.header_wrap nav ul li:nth-of-type(1) div{
+    position:relative;
+    margin-top:40px;
+    line-height:80px;
+    background-color:#000;
+    display:none;
+}
 
 .header_wrap nav ul div a{
     display:block;
@@ -88,6 +88,7 @@ header .header_wrap{
     top:30%;
     display:none;
     z-index:10;
+    transition:all .5s;
 }
 .burger span{
     width:30px;
@@ -95,8 +96,9 @@ header .header_wrap{
     background-color:#fff;
     display:block;
     position:absolute;
+    transition:all .5s;
 }
-.burger.active span{}
+
 .burger span:nth-of-type(1){
     top:0
 }
@@ -107,27 +109,12 @@ header .header_wrap{
     top:12px
 }
 /* 버거메뉴 애니메이션입니다 */
-.burger span:nth-of-type(1) {
-    -webkit-animation : menu-bar07-01 .75s forwards;
-    animation : menu-bar07-01 .75s forwards;
-}
-@-webkit-keyframes menu-bar07-01 {
-    0% {
-        -webkit-transform : translateY(20px) rotate(45deg);
-    }
-    50% {
-        -webkit-transform : translateY(20px) rotate(0);
-    }
-    100% {
-        -webkit-transform : translateY(0) rotate(0);
-    }
-}
 @keyframes menu-bar07-01 {
     0% {
-        transform : translateY(20px) rotate(45deg);
+        transform : translateY(6px) rotate(45deg);
     }
     50% {
-        transform : translateY(20px) rotate(0);
+        transform : translateY(6px) rotate(0);
     }
     100% {
         transform : translateY(0) rotate(0);
@@ -138,106 +125,77 @@ header .header_wrap{
     opacity : 1;
 }
 .burger span:nth-of-type(3) {
-    -webkit-animation : menu-bar07-02 .75s forwards;
     animation : menu-bar07-02 .75s forwards;
 }
-@-webkit-keyframes menu-bar07-02 {
-    0% {
-        -webkit-transform : translateY(-20px) rotate(-45deg);
-    }
-    50% {
-        -webkit-transform : translateY(-20px) rotate(0);
-    }
-    100% {
-        -webkit-transform : translateY(0) rotate(0);
-    }
-}
+
 @keyframes menu-bar07-02 {
     0% {
-        transform : translateY(-20px) rotate(-45deg);
+        transform : translateY(-6px) rotate(-45deg);
     }
     50% {
-        transform : translateY(-20px) rotate(0);
+        transform : translateY(-6px) rotate(0);
     }
     100% {
         transform : translateY(0) rotate(0);
     }
 }
-.burger span:nth-of-type(1) {
-    -webkit-animation : active-menu-bar07-01 .75s forwards;
+
+.burger.active span:nth-of-type(1) {
     animation : active-menu-bar07-01 .75s forwards;
 }
-@-webkit-keyframes active-menu-bar07-01 {
-    0% {
-        -webkit-transform : translateY(0) rotate(0);
-    }
-    50% {
-        -webkit-transform : translateY(20px) rotate(0);
-    }
-    100% {
-        -webkit-transform : translateY(20px) rotate(45deg);
-    }
-}
+
 @keyframes active-menu-bar07-01 {
     0% {
         transform : translateY(0) rotate(0);
     }
     50% {
-        transform : translateY(20px) rotate(0);
+        transform : translateY(6px) rotate(0);
     }
     100% {
-        transform : translateY(20px) rotate(45deg);
+        transform : translateY(6px) rotate(45deg);
     }
 }
-.burger span:nth-of-type(2) {
+.burger.active span:nth-of-type(2) {
     opacity : 0;
 }
-.burger span:nth-of-type(3) {
+.burger.active span:nth-of-type(3) {
     -webkit-animation : active-menu-bar07-02 .75s forwards;
     animation : active-menu-bar07-02 .75s forwards;
 }
-@-webkit-keyframes active-menu-bar07-02 {
-    0% {
-        -webkit-transform : translateY(0) rotate(0);
-    }
-    50% {
-        -webkit-transform : translateY(-20px) rotate(0);
-    }
-    100% {
-        -webkit-transform : translateY(-20px) rotate(-45deg);
-    }
-}
+
 @keyframes active-menu-bar07-02 {
     0% {
         transform : translateY(0) rotate(0);
     }
     50% {
-        transform : translateY(-20px) rotate(0);
+        transform : translateY(-6px) rotate(0);
     }
     100% {
-        transform : translateY(-20px) rotate(-45deg);
+        transform : translateY(-6px) rotate(-45deg);
     }
 }
-
 /* --------------- 모바일 메뉴입니다 -------- */
 .mobileMenu{
-    position:absolute;
+    position:fixed;
     right:-60%;
-    top:0;
-    display:none;
+    top:50px;
     transition:.5s;
+    /* display:none; */
+    opacity:0;
 }
 .mobileMenu.show{
-    display:block;
+    /* display:block; */
+    opacity:1;
     z-index:5;
     right:-10%;
-    top:35px;
+    top:50px;
     width:50%;
+    transition:.5s;
 }
 .mobileMenu ul{
     background-color:#000;
     height:100vh;
-    margin-top:10px;
+    /* margin-top:10px; */
     padding:5%;
 }
 .mobileMenu ul li{
@@ -268,7 +226,6 @@ header .header_wrap{
     position:relative;
     left:0;
     top:0;
-    
 }
 
 
@@ -283,22 +240,19 @@ header .header_wrap{
     display:block;
 }
 .visualContent{
-    position:relative;
+    width:85%;
+    position:absolute;
     left:15%;
     top:35%;
     display:flex;
-    width:95%;
 }
 .visual video{
-    /* position:absolute; */
     width:35%;
     z-index:10;
     transform:scale(1.1);
     margin-right:100px;
 }
 .visual .visualText{
-    /* position:absolute; */
-    /* right:25%; */
     margin-top:-100px;
     opacity:0;
     text-align:center;
@@ -616,8 +570,9 @@ header .header_wrap{
 
 .shipInfo figure{
     float:right;
-    width:45%;
+    width:40%;
     margin-left:1%;
+    margin-top:50px;
 }
 .shipInfo figure img{
     width:100%;
@@ -758,8 +713,8 @@ footer div:nth-of-type(2) ul li a{
     }
     aside{
         position:absolute;
-        top:260%;
-        right:5%;
+        top:180%;
+        right:0;
         opacity:1;
     }
     .sns{
@@ -785,7 +740,7 @@ footer div:nth-of-type(2) ul li a{
         padding:5% 5%;
     }
     header{
-        position:absolute;
+        position:fixed;
         padding:0 5%;
     }
     header nav{
@@ -796,6 +751,9 @@ footer div:nth-of-type(2) ul li a{
         display:block;
         right:30px;
         top:23px;
+    }
+    .mobileMenu.show{
+        width:55%;
     }
     .visual{
         height:55vh;
@@ -823,6 +781,7 @@ footer div:nth-of-type(2) ul li a{
     .visual .visualText a{
         margin-top:3%;
     }
+    
     .faction_wrap{
         flex-wrap:wrap;
     }
@@ -847,7 +806,11 @@ footer div:nth-of-type(2) ul li a{
     .playerGuide .pgRight figcaption{
         left:15%;
     }
-    .playerGuide figcaption h3, a{
+    .playerGuide figcaption h3{
+        text-align:center;
+        font-size:1em;
+    }
+    .playerGuide figcaption a{
         text-align:center;
         font-size:1em;
     }
@@ -876,9 +839,9 @@ footer div:nth-of-type(2) ul li a{
         position:relative;
         display:flex;
         height:30vh;
-        /* overflow:hidden; */
-        overflow-x:scroll;
-        /* overflow-x:hidden; */
+        overflow:hidden;
+        overflow-x:auto;
+        
     }
     .showCase .shipDetail{
         position:absolute;
@@ -897,24 +860,32 @@ footer div:nth-of-type(2) ul li a{
     }
 }
 /* --------------------- 480 --------------------- */
-@media(max-width:480px){
+@media(max-width:414px){
     body{
         overflow-x:visible;
         overflow-y:visible;
     }
     header{
-        width:99.5%;
+        width:100%;
+        position:fixed;
     }
     header .burger{
         transform:scale(0.7);
         top:8px;
     }
+    .mobileMenu{
+        top:30px;
+    }
+    .mobileMenu.show{
+        top:30px;
+        width:60%;
+    }
     .visual{
         height:50vw;
     }
     .visual .visualContent{
-        width:70%;
-        left:30%;
+        width:67%;
+        left:33%;
         top:30%;
     }
     .visualContent .visualText h1{
@@ -936,11 +907,11 @@ footer div:nth-of-type(2) ul li a{
         display:flex;
         flex-wrap:wrap;
         margin:0 auto;
-        padding:5% 0 0 8%; 
+        padding:5% 0 0 5%; 
     }
     .faction_wrap div{
-        width:150px;
-        height:150px;
+        width:120px;
+        height:120px;
     }
     .faction_wrap div a{
         width:100%;
@@ -977,6 +948,9 @@ footer div:nth-of-type(2) ul li a{
     .showCase .sideImg{
         margin-top:50px;
     }
+    .showCase .shipInfo figure{
+        margin-top:20px;
+    }
     footer div:nth-of-type(1){
         display:block;
         margin-left:30px;
@@ -989,19 +963,21 @@ footer div:nth-of-type(2) ul li a{
         display:none;
     }
 }
-/* --------------------- 320 --------------------- */
-@media(max-width:360px){
+
+/* --------------------- 375 --------------------- */
+@media(max-width:375px){
     body{
         overflow-x:visible;
         overflow-y:visible;
     }
     header{
-        width:99.5%;
+        width:100%;
     }
     header .burger{
         transform:scale(0.7);
         top:8px;
     }
+    
     .visual{
         height:50vw;
     }
@@ -1075,6 +1051,118 @@ footer div:nth-of-type(2) ul li a{
     }
     .showCase .sideImg{
         margin-top:50px;
+    }
+    .showCase .shipInfo{
+        height:300px
+    }
+    .showCase .shipInfo table{
+        height:30px;
+    }
+    .showCase .shipInfo figure{
+        margin-top:20px;
+    }
+    footer div:nth-of-type(1){
+        display:block;
+        margin-left:50px;
+    }
+    footer div:nth-of-type(1) p{
+        margin-left:0;
+        margin-bottom:10px;
+    }
+    .footerMenu ul:nth-of-type(2){
+        display:none;
+    }
+}
+/* --------------------- 360 --------------------- */
+@media(max-width:360px){
+    body{
+        overflow-x:visible;
+        overflow-y:visible;
+    }
+    header{
+        width:100%;
+    }
+    header .burger{
+        transform:scale(0.7);
+        top:8px;
+    }
+    
+    .visual{
+        height:50vw;
+    }
+    .visual .visualContent{
+        width:70%;
+        left:30%;
+        top:30%;
+    }
+    .visualContent .visualText h1{
+        font-size:1em;
+    }
+    .visualContent .visualText p{
+        font-size:0.6rem;
+    }
+    .visualContent .visualText a:nth-of-type(1){
+        margin-right:0;
+    }
+    .visualContent .visualText a{
+        font-size:0.5rem;
+    }
+    .visual video{
+        display:none;
+    }
+    .faction_title p{
+        font-size:1em;
+    }
+    .faction_wrap div figure:nth-of-type(1){
+        display:none;
+    }
+    .faction_wrap{
+        display:flex;
+        flex-wrap:wrap;
+        margin:0 auto;
+        padding:5% 0 0 12%; 
+    }
+    .faction_wrap div{
+        width:100px;
+        height:100px;
+    }
+    .faction_wrap div a{
+        width:100%;
+        height:100%;
+    }
+    .faction_wrap div figure .icon{
+        width:50%;
+        height:100%;
+    }
+    .faction_wrap div .front{
+        background:transparent
+    }
+    .guide{
+        padding:0 5%;
+    }
+    .guide h2{
+        font-size:1.5em;
+    }
+    .playerGuide figcaption{
+       margin-right:35px; 
+    }
+    .pgRight figcaption{
+        margin-right:20px;
+    }
+    .playerGuide figcaption h3{
+        font-size:0.7em;
+    }
+    .playerGuide figcaption a{
+        display:none;
+    }
+    .showCase{
+        padding:0 10%;
+    }
+    .showCase .sideImg{
+        margin-top:50px;
+    }
+    .showCase .shipInfo figure{
+        margin-top:20px;
     }
     footer div:nth-of-type(1){
         display:block;
