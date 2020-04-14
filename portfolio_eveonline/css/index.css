@@ -55,10 +55,7 @@ header .header_wrap{
     color:#fff;
     font-size:1em;
 }
-.header_wrap nav ul li:nth-of-type(2) div{
-    margin:0 auto;
-    margin-top: 40px;
-}
+
 .header_wrap nav ul li:nth-of-type(2) div a{
    margin-left:10px;
 }
@@ -69,13 +66,7 @@ header .header_wrap{
     background-color:#000;
     display:none;
 }
-.header_wrap nav ul li:nth-of-type(1) div{
-    position:relative;
-    margin-top:40px;
-    line-height:80px;
-    background-color:#000;
-    display:none;
-}
+
 
 .header_wrap nav ul div a{
     display:block;
@@ -659,7 +650,11 @@ footer div:nth-of-type(2) ul li{
 footer div:nth-of-type(2) ul li a{
     color:#eee;
 }
-
+.copyRight{
+    color:#ccc;
+    text-align:center;
+    margin-top:35px;
+}
 /* ---------------------- media -------------------------------------- */
 /* -------------------- 1024px ------------------- */
 @media(max-width:1024px){
@@ -859,7 +854,7 @@ footer div:nth-of-type(2) ul li a{
         margin-top:10%;
     }
 }
-/* --------------------- 480 --------------------- */
+/* --------------------- 414 --------------------- */
 @media(max-width:414px){
     body{
         overflow-x:visible;

@@ -52,7 +52,7 @@ var mqP = window.matchMedia("screen and (min-width: 1025px)");
 // 768 사이즈까지 faction video재생 스크립트 입니다.
 var mpj = window.matchMedia("screen and (min-width: 767px")
     if(mpj.matches){
-        mouseEvent();
+        
     }
 var mpm = window.matchMedia("screen and (min-width: 339px")
     if(mpm.matches){
@@ -73,15 +73,16 @@ burger.each(function(index){
         
     })
 });
+// 작동안됨...
+// var burgerInner = $('.burger li');
+// burgerInner.each(function(){
+//     $(this).on('click',function(e){
+//         e.preventDefault();
+//         console.log(this)
+//         $('.mobileMenu div').toggleClass('show')
+//     })
+// })
 
-var burgerInner = $('.burger li');
-burgerInner.each(function(){
-    $(this).on('click',function(e){
-        e.preventDefault();
-        console.log(this)
-        $('.mobileMenu div').toggleClass('show')
-    })
-})
     // window scroll event 입니다.
 
     function action(){
@@ -119,11 +120,11 @@ burgerInner.each(function(){
     function navControl(){
         $('nav ul').on('mouseover',function(){
             // $(this).find('div').addClass('show');
-            $('nav li').find("div").stop().slideDown()
+            $('nav li div').slideDown()
         })
         $('nav ul').on('mouseleave',function(){
             // $(this).find('div').removeClass('show');
-            $('nav li').find("div").stop().slideUp()
+            $('nav li div').stop().slideUp()
         });
     }   
 
@@ -435,7 +436,47 @@ burgerInner.each(function(){
                 // success end
                 }
             });
-            
+            $.ajax({
+                url : '../json/indexFaction.json',
+                type : 'GET', //POST
+                dataType : 'json',
+                success:function(indexFaction){
+                    var faction1,faction2,faction3,faction4,faction5;
+                    var fdx = 0;
+                    if(window.innerWidth >= 768){
+                        showFaction();
+                    }
+                    function showFaction(){
+                        $.each(indexFaction.Faction,function(){
+                            faction1 = this.faction1;
+                            faction2 = this.faction2;
+                            faction3 = this.faction3;
+                            faction4 = this.faction4;
+                            faction5 = this.faction5;
+                            innerFaction();
+                        });
+
+                        function innerFaction(){
+                            showF = "<div>";
+                            showF += "<figure>";
+                            showF += "<img class='bgf' src="+faction1+">";
+                            showF += "<img class='s_bgf' src="+faction2+">";
+                            showF += "<figcaption>";
+                            showF += "<a href='#'>"+faction5+"</a>";
+                            showF += "</figcaption>";
+                            showF += "<video class='factionIntro' src="+faction3+"type='video/mp4' autoplay='' muted='' loop='' ></video>";
+                            showF += "</figure>";
+                            showF += "<figure class='front'>";
+                            showF += "<a href='#'><img class='icon' src="+faction4+">";
+                            showF += "</figure>";
+                            showF += "</div>";
+                            $('.faction_wrap').append(showF);
+                            mouseEvent();
+                        }
+                        
+                    }
+                }
+            })    
         });
     // end
 });
