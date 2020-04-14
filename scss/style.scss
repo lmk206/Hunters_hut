@@ -1,0 +1,77 @@
+@import "_common";
+$color : #eee;
+$size : size;
+
+@mixin after($dis){
+    &:after{
+        content:'';
+        clear:both;
+        display:$dis;
+    }
+}
+header{
+    background: $color;
+    @include after(inline);
+    
+   
+    nav{
+        $dash : dashed !global; 
+        float:right;
+        border:1px #{$dash} #f00; 
+    }
+    h1{
+        font-#{$size}:2em; float:left;
+        border:1px #{$dash} #f00;
+    }
+    nav a{display:inline-block;}
+    
+    @for $i from 1 to 4 {
+        nav a:nth-of-type(#{$i}){
+            font-size:$i * 2em;
+            background-image:url('../img/p_0#{$i}.jpg');
+        }
+    }
+}
+section{
+    clear:both;
+    ul{
+        display:flex;
+        justify-content: space-between;
+    }
+    li{
+        width:30%;height:400px;
+    }
+    @for $i from 1 to 4 {
+        ul li:nth-of-type(#{$i}){
+            background-image:url('../img/photo0#{$i}.jpg')
+        }
+    }
+}
+
+/*
+
+문자 변수를 쓸때는 앞에 #을 붙여라
+!global-> 선언된 변수를 아래 요소들이 쓸수 있게 바꾸어줌 
+scss --watch .:. 감지 작동
+
+1. 컨포넌트별 css 작성
+
+2. 변수 선언($변수명:값)
+
+3. @mixin aa(){재실행코드};
+   @include aa();
+
+4. %aa{ 다중선택자에 동일한 명령 } -> %는 extend를 쓸때 사용가능하다.
+   @extend %aa;
+   %가 들어간 선택자가 있으면 css에서 제외된다.
+   ul{명령 - 클래스,태그}
+   li{@extend ul;}
+   css -> li{ul태그 명령 추가}
+
+5. @import "파일명";(scss파일 컴파일 호출);
+
+6. (_common.scss -> css파일로 컴파일하지 않음)
+*/
+
+
+
