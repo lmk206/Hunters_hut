@@ -209,18 +209,101 @@ section{
     background-size:cover;
     background-attachment:scroll;
 }
-.container{
+.sectionWrap{
     width:100%;
-    padding:200px 100px 100px 100px;
+    padding:10% 5% ;
     display:flex;
     flex-wrap:wrap;
 }
-.tab{padding:0;}
-.tab li{display:inline-block;border:1px solid #000; padding:0 10px;}
-.tab li.active{background:yellow;}
-.box{border:1px solid #000; padding:60px;text-align:center;}
-.box div{display:none;}
-.box .active{display:block;}
+.downText{
+    display:flex;
+    width:100%;
+    padding:5%;
+}
+.downText article{
+    width:50%;
+    margin-right:10%;
+}
+.downText article h1{
+    font-size:2em;
+}
+.downText h1,p{
+    color:#fff;
+    white-space:pre-line;
+}
+.downButton a{
+    width:20vw;
+    color:#fff;
+    padding:25px 50px;
+    border:1px solid rgba(0,0,0,0.5);
+    background-color:#2981bb;
+    display:block;
+    margin:15% 5%;
+    transition:.5s;
+}
+.downButton a.active{
+    background-color:#fff;
+}
+.downButton a span{
+    color:#fff;
+}
+.downButton a span.active{
+    color:#2981bb;
+}
+.tabBox{
+    width:100%;
+}
+.tab{
+    padding:0;
+}
+.tab li{
+    display:inline-block;
+    padding:0 10px;
+    color:#ccc;
+}
+.tab li.active{
+    color:#fff;
+}
+.box{
+    padding:20px;
+    text-align:center;
+    width:100%;
+    height:350px;
+}
+.box div{
+    display:none;
+}
+.box .active{
+    display:block;
+}
+.box .tab-con{
+    width:100%;
+    height:100%;
+}
+.box .tab-con table tr td{
+    white-space:pre-line;
+}
+.box .tab-con table{
+    width:100%;
+    height:100%;
+    padding:1%;
+    border-collapse:collapse;
+}
+/* .box .windowTab .system,.process,.video,.memory{
+    padding:2%;
+} */
+.box .tab-con table th{
+    background-color:rgba(50,66,81,.7);
+}
+.box .tab-con table tr,td{
+    border:1px solid rgba(50,66,81,.7);
+    border-top:transparent;
+    border-bottom:transparent;
+    background-color:rgba(11,29,45,.7);
+}
+.box table th,tr,td{
+    color:#fff;
+}
 /* --------------------------------- footer -------------------------------- */
 footer{
     width:100%;

@@ -879,9 +879,12 @@ footer div:nth-of-type(2) ul li a{
         height:50vw;
     }
     .visual .visualContent{
-        width:67%;
-        left:33%;
+        width:100%;
+        left:0;
         top:30%;
+    }
+    .visual .visualText{
+        width:100%;
     }
     .visualContent .visualText h1{
         font-size:1.2em;
@@ -977,8 +980,8 @@ footer div:nth-of-type(2) ul li a{
         height:50vw;
     }
     .visual .visualContent{
-        width:70%;
-        left:30%;
+        width:100%;
+        left:0;
         top:30%;
     }
     .visualContent .visualText h1{

@@ -50,11 +50,11 @@ $(function(){
         })
     }
     // 탭메뉴 입니다.
-    window.addEventListener('DOMContentLoaded',function(){
-        var ex2 = document.querySelector("#ex2"),
-        tab = ex2.querySelector('.tab'),
-        tabCon = ex2.querySelectorAll('.tab-con'),
-        tabLi = ex2.querySelectorAll('.tab li');
+    
+        var section = document.querySelector(".sectionWrap"),
+        tab = section.querySelector('.tab'),
+        tabCon = section.querySelectorAll('.tab-con'),
+        tabLi = section.querySelectorAll('.tab li');
         var j = 0;
         
         for(let i = 0;i<tabCon.length;i++){
@@ -67,10 +67,30 @@ $(function(){
                 j=i;
             });
         }
-    });
 
+    // downButton 이벤트 입니다.
+        var buttonA = document.querySelectorAll(".downButton a");
+        var span = document.querySelectorAll(".downButton a span");
+        var buttonImg = document.querySelectorAll(".downButton a img");
+        for(let i = 0; i<buttonA.length;i++){
+            buttonA[i].addEventListener("mouseenter",function(){
+                this.classList.add('active');
+                span[i].classList.add('active');
+                buttonImg = $(this).find('img').attr('src');
+                var imgChange = buttonImg.replace('_a','_b');
+                $(this).find('img').attr('src',imgChange)
+            })
+            buttonA[i].addEventListener("mouseleave",function(){
+                this.classList.remove('active');
+                span[i].classList.remove('active');
+                buttonImg = $(this).find('img').attr('src');
+                var imgChange = buttonImg.replace('_b','_a');
+                $(this).find('img').attr('src',imgChange)
+            })
+        }
+        
     // footer sns icon change 이벤트 입니다.
-            
+
     var snsImg = $('.sns a').find('img').attr('src');
                 
     $('.sns a').on('mouseenter',function(){

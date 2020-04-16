@@ -445,6 +445,8 @@ burger.each(function(index){
                     var fdx = 0;
                     if(window.innerWidth >= 768){
                         showFaction();
+                    }else{
+                        showMobile();
                     }
                     function showFaction(){
                         $.each(indexFaction.Faction,function(){
@@ -473,7 +475,32 @@ burger.each(function(index){
                             $('.faction_wrap').append(showF);
                             mouseEvent();
                         }
-                        
+                    }
+                    function showMobile(){
+                        $.each(indexFaction.Faction,function(){
+                            faction1 = this.faction1;
+                            faction2 = this.faction2;
+                            faction3 = this.faction3;
+                            faction4 = this.faction4;
+                            faction5 = this.faction5;
+                            mobileFaction();
+                        });
+                        function mobileFaction(){
+                            showF = "<div>";
+                            showF += "<figure>";
+                            showF += "<img class='bgf' src="+faction1+">";
+                            showF += "<img class='s_bgf' src="+faction2+">";
+                            showF += "<figcaption>";
+                            showF += "<a href='#'>"+faction5+"</a>";
+                            showF += "</figcaption>";
+                            showF += "</figure>";
+                            showF += "<figure class='front'>";
+                            showF += "<a href='#'><img class='icon' src="+faction4+">";
+                            showF += "</figure>";
+                            showF += "</div>";
+                            $('.faction_wrap').append(showF);
+                            mouseEvent();
+                        }
                     }
                 }
             })    
