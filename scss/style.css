@@ -1,94 +1,46 @@
-@charset "UTF-8";
-* {
-  margin: 0;
-  padding: 0;
-  font-family: '';
-  font-size: 16px;
-  box-sizing: border-box; }
-
-li {
-  list-style-type: none; }
-
-html, body {
-  margin: 0; }
-
-li {
-  margin: 0;
-  padding: 0; }
-
-a {
-  text-decoration: none; }
-
-span, em, strong, a {
-  display: inline-block; }
-
-img {
-  border: 0;
-  vertical-align: top; }
-
-header {
-  background: #eee; }
-  header:after {
-    content: '';
-    clear: both;
-    display: inline; }
-  header nav {
-    float: right;
-    border: 1px dashed #f00; }
-  header h1 {
-    font-size: 2em;
-    float: left;
-    border: 1px dashed #f00; }
-  header nav a {
-    display: inline-block; }
-  header nav a:nth-of-type(1) {
-    font-size: 2em;
-    background-image: url("../img/p_01.jpg"); }
-  header nav a:nth-of-type(2) {
-    font-size: 4em;
-    background-image: url("../img/p_02.jpg"); }
-  header nav a:nth-of-type(3) {
-    font-size: 6em;
-    background-image: url("../img/p_03.jpg"); }
-
-section {
-  clear: both; }
-  section ul {
-    display: flex;
-    justify-content: space-between; }
-  section li {
-    width: 30%;
-    height: 400px; }
-  section ul li:nth-of-type(1) {
-    background-image: url("../img/photo01.jpg"); }
-  section ul li:nth-of-type(2) {
-    background-image: url("../img/photo02.jpg"); }
-  section ul li:nth-of-type(3) {
-    background-image: url("../img/photo03.jpg"); }
-
 /*
+Error: Invalid CP949 character "\xEB"
+        on line 53 of ./style.scss
 
-문자 변수를 쓸때는 앞에 #을 붙여라
-!global-> 선언된 변수를 아래 요소들이 쓸수 있게 바꾸어줌 
-scss --watch .:. 감지 작동
+48:     }
+49: }
+50: 
+51: /*
+52: 
+53: 문자 변수를 쓸때는 앞에 #을 붙여라
+54: !global-> 선언된 변수를 아래 요소들이 쓸수 있게 바꾸어줌 
+55: scss --watch .:. 감지 작동
+56: 
+57: 1. 컨포넌트별 css 작성
+58: 
 
-1. 컨포넌트별 css 작성
-
-2. 변수 선언($변수명:값)
-
-3. @mixin aa(){재실행코드};
-   @include aa();
-
-4. %aa{ 다중선택자에 동일한 명령 } -> %는 extend를 쓸때 사용가능하다.
-   @extend %aa;
-   %가 들어간 선택자가 있으면 css에서 제외된다.
-   ul{명령 - 클래스,태그}
-   li{@extend ul;}
-   css -> li{ul태그 명령 추가}
-
-5. @import "파일명";(scss파일 컴파일 호출);
-
-6. (_common.scss -> css파일로 컴파일하지 않음)
+Backtrace:
+./style.scss:53
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1090:in `rescue in block in find_encoding_error'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1087:in `block in find_encoding_error'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `each'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `each_with_index'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `find_encoding_error'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:814:in `check_sass_encoding'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:444:in `check_encoding!'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:400:in `_to_tree'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:294:in `watch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/plugin.rb:109:in `method_missing'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:358:in `watch_or_update'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:51:in `process_result'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/bin/scss:13:in `<top (required)>'
+C:/Ruby26-x64/bin/scss:23:in `load'
+C:/Ruby26-x64/bin/scss:23:in `<main>'
 */
-
-/*# sourceMappingURL=style.css.map */
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CP949 character \"\xEB\"\A         on line 53 of ./style.scss\A \A 48:     }\A 49: }\A 50: \A 51: /*\A 52: \A 53: 문자 변수를 쓸때는 앞에 #을 붙여라\A 54: !global-> 선언된 변수를 아래 요소들이 쓸수 있게 바꾸어줌 \A 55: scss --watch .:. 감지 작동\A 56: \A 57: 1. 컨포넌트별 css 작성\A 58: "; }
