@@ -236,7 +236,7 @@ section{
     opacity:1;
 }
 .sectionWrap .subject figure:hover a{
-    color:rgba(0,0,255,.6)
+    color:#2981bb
 }
 .sectionWrap figcaption{
     width:100%;
@@ -287,7 +287,7 @@ section{
     margin-bottom:50px;
 }
 .patchNote div:hover a{
-    color:rgba(0,0,255,.6)
+    color:#2981bb;
 }
 .patchNote p{
     color:#ccc;
@@ -304,7 +304,7 @@ section{
     width:100%;
 }
 .scope div:hover span{
-    color:rgba(0,0,255,.6)
+    color:#2981bb;
 }
 .scope div span{
     color:#fff;

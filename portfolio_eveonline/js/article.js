@@ -16,7 +16,8 @@ $(function(){
         if(mpm.matches){
             navControl();
         }
-    // 햄버거 제어입니다
+
+    // 햄버거 제어
     var burger = $('.burger');
 
     burger.each(function(index){
@@ -49,6 +50,18 @@ $(function(){
         })
     }
 
+    //data 로컬저장소에 저장
+    var figure = document.querySelectorAll(".figureControl figure");
+    console.log(figure)
+    for(let i=0; i<figure.length;i++){
+    figure[i].addEventListener('click',function(e){
+        //e.preventDefault();
+            var data = figure[i].dataset.id;
+            console.log(data)
+            localStorage.page = data;
+    })
+    }
+
     // footer sns icon change 이벤트 입니다.
             
     var snsImg = $('.sns a').find('img').attr('src');
@@ -65,4 +78,7 @@ $(function(){
             var snsChange2 = snsImg.replace('_b','_a');
             $(this).find('img').attr('src',snsChange2)
         })
+
+
+    
 })
