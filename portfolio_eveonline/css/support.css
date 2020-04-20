@@ -47,16 +47,12 @@ header .header_wrap{
 }
 .header_wrap nav ul li{
     margin-right:5%;
-    width:9%;
+    width:10%;
     position:relative;
 }
 .header_wrap nav ul li a{
     color:#fff;
     font-size:1em;
-}
-
-.header_wrap nav ul li:nth-of-type(2) div a{
-   margin-left:10px;
 }
 .header_wrap nav ul div{
     position:relative;
@@ -68,6 +64,7 @@ header .header_wrap{
 .header_wrap nav ul div a{
     display:block;
     font-size:1em;
+    color:#fff;
 }
 .burger{
     position:relative;

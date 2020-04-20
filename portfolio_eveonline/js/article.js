@@ -54,12 +54,24 @@ $(function(){
     var figure = document.querySelectorAll(".figureControl figure");
     console.log(figure)
     for(let i=0; i<figure.length;i++){
-    figure[i].addEventListener('click',function(e){
+    figure[i].addEventListener('click',function(){
         //e.preventDefault();
             var data = figure[i].dataset.id;
             console.log(data)
-            localStorage.page = data;
+            sessionStorage.page = data;
     })
+    }
+    
+    var patch = document.querySelectorAll(".patchNote div");
+    console.log(patch)
+    console.log(patch.length)
+    for(let p = 0; p<patch.length; p++){
+        patch[p].addEventListener('click',function(){
+            console.log(this);
+            var patchData = patch[p].dataset.id;
+            console.log(patchData);
+            sessionStorage.page = patchData;
+        })
     }
 
     // footer sns icon change 이벤트 입니다.
@@ -79,6 +91,4 @@ $(function(){
             $(this).find('img').attr('src',snsChange2)
         })
 
-
-    
 })

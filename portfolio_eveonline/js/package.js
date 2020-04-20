@@ -50,36 +50,52 @@ window.addEventListener('DOMContentLoaded',function(){
             })
         }
 
-        //저장소에 값 저장
-        var patch = document.querySelectorAll(".patchNote div");
-        console.log(patch)
-        console.log(patch.length)
-        for(let p = 0; p<patch.length; p++){
-            patch[p].addEventListener('click',function(){
-                console.log(this);
-                var patchData = patch[p].dataset.id;
-                console.log(patchData);
-                sessionStorage.page = patchData;
-            })
-        }
+        
         //저장소 값 가져오기 
         $.ajax({
-            url : '../xml/patchNote.xml',
+            url : '../xml/shopcon.xml',
             type : 'GET', //POST
             dataType : 'xml',
-            success:function(patchNote){
-                
-                var k = $(patchNote).find('item')[0];
-                var j = $(patchNote).find('item')[sessionStorage.page];
-                var kText = $(k).html();
+            success:function(shopCon){
+                var second = $(shopCon).find('item')[1];
+                var j = $(shopCon).find('item')[sessionStorage.page];
+                var secondCon = $(second).html();
+                console.log(j)
                 var item;
-                $('.sectionCon').html(kText);
-                $(patchNote).find('item').each(function(){
+                $('.sectionWrap').html(secondCon);
+                $(shopCon).find('item').each(function(){
                     item = $(j).html();
-                    $('.sectionCon').html(item);
+                    $('.sectionWrap').html(item);
                 });
+
+                var tab = document.querySelectorAll(".tabCon li a");
+                console.log(tab[1]);
+                for(let t = 0; t<tab.length; t++){
+                    tab[t].addEventListener('click',function(){
+                        console.log(tab[t]);
+                        var tabData = tab[t].dataset.id;
+                        console.log(tabData);
+                        sessionStorage.page = tabData;
+                    })
+                }
             }
-        });
+        })
+
+        
+        facAction();
+        // advantage
+        function facAction(){
+            $(window).on('scroll',function(){
+                var sTop = $(this).scrollTop();
+                var winH = $(window).height();
+                var advan = $('.advantage').offset().top
+                if((advan - winH) < sTop){
+                    $('.advantage').addClass('show')
+                }else{
+                    $('.advantage').removeClass('show')
+                }
+            });
+        }
         // footer sns icon change 이벤트 입니다.
       
         var snsImg = $('.sns a').find('img').attr('src');
