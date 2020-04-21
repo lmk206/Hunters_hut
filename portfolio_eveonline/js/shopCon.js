@@ -50,36 +50,63 @@ window.addEventListener('DOMContentLoaded',function(){
             })
         }
 
-        //저장소에 값 저장
-        var patch = document.querySelectorAll(".patchNote div");
-        console.log(patch)
-        console.log(patch.length)
-        for(let p = 0; p<patch.length; p++){
-            patch[p].addEventListener('click',function(){
-                console.log(this);
-                var patchData = patch[p].dataset.id;
-                console.log(patchData);
-                sessionStorage.page = patchData;
-            })
-        }
+        $("nav a").on('click',function(e){
+            e.preventDefault();
+            var $this = $(this);
+            localStorage.page = $this.index();
+            setTimeout(function(){
+                location.href = $this.attr("href");
+            },100);
+        })
+
         //저장소 값 가져오기 
         $.ajax({
-            url : '../xml/patchNote.xml',
+            url : '../xml/shopcon.xml',
             type : 'GET', //POST
             dataType : 'xml',
-            success:function(patchNote){
-                
-                var k = $(patchNote).find('item')[0];
-                var j = $(patchNote).find('item')[sessionStorage.page];
-                var kText = $(k).html();
-                var item;
-                $('.sectionCon').html(kText);
-                $(patchNote).find('item').each(function(){
-                    item = $(j).html();
-                    $('.sectionCon').html(item);
+            success:function(shopCon){
+     
+                var item;           
+                $(shopCon).find('item').each(function(){
+                    item = $(shopCon).find('item').eq(localStorage.page).html();
+                    $('.sectionWrap').html(item);
                 });
+
+                var tab = document.querySelectorAll(".tabCon li a");
+                for(let t = 0; t<tab.length; t++){
+                    tab[t].addEventListener('click',function(){
+                        console.log(tab[t]);
+                        var tabData = tab[t].dataset.id;
+                        console.log(tabData);
+                        localStorage.page = tabData;
+                    })
+                }
             }
-        });
+        })
+        // var tab = document.querySelectorAll('.tabCon li a')
+        // for(let t=0; t<tabCon.length; t++){
+        //     tab[t].addEventListener('click',function(){
+        //         var tabData = tab[t].dataset.id;
+        //         var setCookies = function(){
+
+        //         }
+        //     })
+        // }
+        
+        facAction();
+        // advantage
+        function facAction(){
+            $(window).on('scroll',function(){
+                var sTop = $(this).scrollTop();
+                var winH = $(window).height();
+                var advan = $('.advantage').offset().top
+                if((advan - winH) < sTop){
+                    $('.advantage').addClass('show')
+                }else{
+                    $('.advantage').removeClass('show')
+                }
+            });
+        }
         // footer sns icon change 이벤트 입니다.
       
         var snsImg = $('.sns a').find('img').attr('src');

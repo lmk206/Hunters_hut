@@ -33,10 +33,10 @@ $(function(){
 
     // 네비 떨구는 스크립트 입니다.
     function navControl(){
-        $('nav ul').on('mouseover',function(){
+        $('nav ul li').on('mouseover',function(){
             $('nav li div').slideDown()
         })
-        $('nav ul').on('mouseleave',function(){
+        $('nav ul li').on('mouseleave',function(){
             $('nav li div').stop().slideUp()
         });
     }   
@@ -90,5 +90,4 @@ $(function(){
             var snsChange2 = snsImg.replace('_b','_a');
             $(this).find('img').attr('src',snsChange2)
         })
-
-})
+});

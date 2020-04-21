@@ -3,15 +3,15 @@
 <item>
 <h1>Add Game Time</h1>
     <ul class="sectionTitle">
-        <li><a href="index.html">Home</a></li>
-        <img src="../img/news/ic_rightArrow.png" alt=""/>
-        <li><a href="gameShop.html">GameShop</a></li>
-        <img src="../img/news/ic_rightArrow.png" alt=""/>
+        <li><a href="index.html">Home</a><img src="../img/news/ic_rightArrow.png" alt=""/></li>
+        
+        <li><a href="gameShop.html">GameShop</a><img src="../img/news/ic_rightArrow.png" alt=""/></li>
+        
         <li><a href="gametime.html">Gametime</a></li>
     </ul>
     <ul class="tabCon">
-        <li><a data-id="0" href="gametime.html">gametime</a></li>
-        <li><a data-id="1" href="gametime.html">package</a></li>
+        <li><a data-id="0" href="gametime.html">Gametime</a></li>
+        <li><a data-id="1" href="gametime.html">Package</a></li>
     </ul>
     <div class="container">
         <figure>
@@ -97,11 +97,11 @@
         <img src="../img/news/ic_rightArrow.png" alt=""/>
         <li><a href="gameShop.html">GameShop</a></li>
         <img src="../img/news/ic_rightArrow.png" alt=""/>
-        <li><a href="gametime.html">Gametime</a></li>
+        <li><a href="gametime.html">Package</a></li>
     </ul>
     <ul class="tabCon">
-        <li><a data-id="0" href="gametime.html">gametime</a></li>
-        <li><a data-id="1" href="gametime.html">package</a></li>
+        <li><a data-id="0" href="gametime.html">Gametime</a></li>
+        <li><a data-id="1" href="gametime.html">Package</a></li>
     </ul>
     <div class="container">
         <figure>

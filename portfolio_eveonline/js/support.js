@@ -34,10 +34,10 @@ $(function(){
 
 // -------------------- nav Action ----------------------
     function navControl(){
-        $('nav ul').on('mouseover',function(){
+        $('nav ul li').on('mouseover',function(){
             $('nav li div').slideDown()
         })
-        $('nav ul').on('mouseleave',function(){
+        $('nav ul li').on('mouseleave',function(){
             $('nav li div').stop().slideUp()
         });
     }   

@@ -118,13 +118,13 @@ burger.each(function(index){
 
     // 네비 떨구는 스크립트 입니다.
     function navControl(){
-        $('nav ul').on('mouseover',function(){
+        $('nav ul li').on('mouseover',function(){
             // $(this).find('div').addClass('show');
-            $('nav li div').slideDown()
+            $('.navBg div').slideDown()
         })
-        $('nav ul').on('mouseleave',function(){
+        $('nav ul li').on('mouseleave',function(){
             // $(this).find('div').removeClass('show');
-            $('nav li div').stop().slideUp()
+            $('.navBg div').stop().slideUp()
         });
     }   
 
