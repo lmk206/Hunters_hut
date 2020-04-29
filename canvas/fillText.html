@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    
+   
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        canvas.style.border ="1px solid #f00";
+        
+        ctx.font = '60px serif';
+        ctx.fillStyle = 'red';
+        ctx.textAlign ='center';
+        ctx.fillText('Hello',canvas.width/2,canvas.height/2);
+        //image
+        var img = new Image();
+        //var img = document.createElement('img');
+        img.src = '../img/photo-01.jpg';
+        //(이미지,x,y,width,height)
+        img.addEventListener('load',function(){
+            ctx.drawImage(img, 100, 100, 200, 150);
+            //이미지, 원본이미지 x,y,width,height
+            //zosqjtm x,y,width,height
+            ctx.drawImage(img, 100, 300, 400, 300, 0, 100, 100, 100)
+        })
+        
+    </script>
+</body>
+</html>

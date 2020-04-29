@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!-- Created with Ai->Canvas Export Plug-In Version 1.2 (PC/64) -->
+<!-- By Mike Swanson (http://blog.mikeswanson.com/)             -->
+
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <title>canvasTriangle</title>
+  <script>
+
+    function init() {
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      draw(ctx);
+    }
+
+    function draw(ctx) {
+
+      // layer1/Path
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(0.5, 0.4);
+      ctx.lineTo(0.5, 102.4);
+      ctx.stroke();
+
+      // layer1/Path
+      ctx.beginPath();
+      ctx.moveTo(0.5, 0.4);
+      ctx.lineTo(60.0, 59.9);
+      ctx.stroke();
+
+      // layer1/Path
+      ctx.beginPath();
+      ctx.moveTo(60.0, 59.9);
+      ctx.lineTo(0.5, 102.4);
+      ctx.stroke();
+      ctx.restore();
+    }
+  </script>
+ </head>
+ <body onload="init()">
+   <canvas id="canvas" width="61" height="103"></canvas>
+ </body>
+</html>

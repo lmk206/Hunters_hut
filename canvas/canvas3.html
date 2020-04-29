@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width:="600" height="600">
+        현재 브라우저가 canvas를 지원하지 않습니다.
+    </canvas>
+    <canvas id="canvas1" width:="600" height="600">
+        현재 브라우저가 canvas를 지원하지 않습니다.
+    </canvas>
+    <script>
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+        
+        canvas.style.border = "1px solid #f00";
+        
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(0.5, 0.4);
+      ctx.lineTo(0.5, 102.4);
+      ctx.stroke();
+
+      // layer1/Path
+      ctx.beginPath();
+      ctx.moveTo(0.5, 0.4);
+      ctx.lineTo(60.0, 59.9);
+      ctx.stroke();
+
+      // layer1/Path
+      ctx.beginPath();
+      ctx.moveTo(60.0, 59.9);
+      ctx.lineTo(0.5, 102.4);
+      ctx.stroke();
+      ctx.restore();
+        
+    </script>
+</body>
+</html>

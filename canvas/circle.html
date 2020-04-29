@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- Created with Ai->Canvas Export Plug-In Version 1.2 (PC/64) -->
+<!-- By Mike Swanson (http://blog.mikeswanson.com/)             -->
+
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <title>circle</title>
+  
+ </head>
+ <body>
+   <canvas id="canvas" width="293" height="293"></canvas>
+   
+   <script>
+
+   
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      draw();
+      draw1();
+   
+
+    function draw() {
+
+      // layer1/Path
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(292.5, 146.5);
+      ctx.bezierCurveTo(292.5, 227.1, 227.1, 292.5, 146.5, 292.5);
+      ctx.bezierCurveTo(65.9, 292.5, 0.5, 227.1, 0.5, 146.5);
+      ctx.bezierCurveTo(0.5, 65.9, 65.9, 0.5, 146.5, 0.5);
+      ctx.bezierCurveTo(227.1, 0.5, 292.5, 65.9, 292.5, 146.5);
+      ctx.closePath();
+      ctx.fillStyle = "rgb(254, 254, 254)";
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+      
+      
+      var end = 0;
+      function draw1(){
+          end += 5;
+          ctx.clearRect(0,300,canvas.width,canvas.height);
+          ctx.beginPath();
+          ctx.lineWidth = 10;
+          ctx.arc(100,300,50,0,Math.PI / 180 *end,false);
+          ctx.stroke();
+          
+          if(end>=360)return;
+          requestAnimationFrame(draw1);
+      }
+     
+  </script>
+   
+ </body>
+</html>

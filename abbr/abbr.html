@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <abbr title="World wide web">www</abbr><!-- 축약어 -->
+    <address>웹문서 저자 또는 연락처 등</address>
+    <cite>작품의 제목을 정의</cite><!-- 작품의 제목을 정의 -->
+    <mark>글 뒤 백그라운드</mark>
+    
+    <label for="aa"></label><!-- aa를 부여 -->
+    <input type="text" id="aa"><!-- aa로 label과 맞춤 -->
+
+    <input type="text" list="list">
+    <datalist id="list">
+        <option value="">IE</option>        
+        <option value="">Chrome</option>
+        <option value="">Opera</option>
+        <option value="">Safari</option>
+    </datalist>
+    <div>
+        <dialog>다이어로그창</dialog> <!-- 자제적으로 display:none을 가지고 있는 태그 / 스크립트로 display:block 으로 살려줌 -->
+    </div>
+    
+        <form action="">
+        <input type="search">
+        <input type="tel">
+        <input type="url">
+        <input type="email" required><!--required 반드시 작성하지 않으면 넘어가는것을 막음 -->
+        <input type="datetime">
+        <input type="date">
+        <input type="month">        
+        <input type="week">
+        <input type="time" datetime="2020-04-20">
+        <input type="number">
+        <input type="color">
+    </form>
+    <div class="grid">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+    <style>
+        .grid{
+            width:600px;
+            display:grid;
+            grid-template-columns: repeat(1, 1fr 2fr 1fr); /* 가로값 */
+/*            grid-template-rows:repeat(2, 1fr);  세로값 */
+            grid-gap:10px
+        }
+        .grid div{
+            border:1px solid #000;
+            height:100px;
+        }
+        .grid .item:nth-of-type(1){
+            grid-column:1/3;/* grid라인을 1에서 3까지 합치겠다. */
+        }
+        .grid .item:nth-of-type(3){
+            grid-column:2;
+            grid-row:2/4;
+        }
+    </style>
+    <canvas id="canvas" width:="600" height="600">
+        현재 브라우저가 canvas를 지원하지 않습니다.
+    </canvas>
+    <script>
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+//        캔버스 제어 -> ctx
+        ctx.fillRect(0,0,100,100);
+        ctx.fillRect(0,300,100,100)
+    </script>
+</body>
+</html>

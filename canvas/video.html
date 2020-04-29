@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <style>
+       body{
+           height:2000px;
+       }
+       video{
+           height:0;
+       }
+       #canvas{
+           width:100%;
+           height:100vh;
+       }
+    </style>
+    <video src="img/Butterfly.mp4" muted autoplay loop></video>
+    <canvas id="canvas" width="600" height="600">
+        현재 브라우저는 canvas를 지원하지 않습니다.
+    </canvas>
+    
+   
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var video = document.querySelector('video');
+        
+        canvas.style.border ="1px solid #f00";
+        //video play 준비
+        video.addEventListener('canplaythrough',draw) 
+        
+        function draw(){
+            ctx.drawImage(video,0,0,canvas.width,canvas.height);
+            requestAnimationFrame(draw);
+        }
+        
+    </script>
+</body>
+</html>

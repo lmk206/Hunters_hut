@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width:="600" height="600">
+        현재 브라우저가 canvas를 지원하지 않습니다.
+    </canvas>
+    <script>
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+        
+        canvas.style.border = "1px solid #f00";
+        
+        ctx.fillStyle ='rgba(255,0,0,0.6)';
+        
+        canvas.addEventListener('mousedown',down);
+        canvas.addEventListener('mousemove',draw);
+        canvas.addEventListener('mouseup',up)
+        var x,y,bln=false;
+        function draw(e){
+            if(bln){
+                x = e.pageX - 50;
+                y = e.pageY - 50;
+                
+                ctx.fillRect(x,y,100,100);
+            }
+        }
+        function down(){
+            bln = true;
+        }
+        function up(){
+            bln = false;
+        }
+    </script>
+</body>
+</html>
