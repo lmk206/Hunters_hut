@@ -59,8 +59,8 @@ window.addEventListener('DOMContentLoaded',function(){
         var myImg = imgString.split(',');
         var div = document.querySelector('.page4');
         
-        for(let i=0;i<myImg.length;i++){
-            div.innerHTML="<img src="+myImg[i]+">";
+        for(let m=0;m<myImg.length;m++){
+            div.innerHTML+="<img src="+myImg[m]+">";
             console.log(myImg[i]);
         };
        
