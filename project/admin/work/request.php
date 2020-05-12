@@ -7,7 +7,7 @@
 3. 상세설명 (editor)
 4. 프로젝드 url
 5. 날짜 -->
-<script type="text/javascript" src="/admin/upload/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <article class="request">
     <h2>프로젝트 등록</h2>
     <form action="request_res.php" name="popol" enctype="multipart/form-data" method="post">
@@ -27,7 +27,6 @@
 </article>
 <?
     fun('request()');
-    include_once
-    $_SERVER['DOCUMENT_ROOT']."/admin/foot.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/admin/foot.php";
 ?>
 

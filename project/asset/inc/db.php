@@ -34,9 +34,7 @@ function back($msg){
 }
 
 function fun($name){
-    echo "<script>
-            \"{$name}();\"
-          </script>";
+    echo "<script>{$name}</script>";
 }
 
 ?>
