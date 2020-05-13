@@ -2,7 +2,7 @@
 
     include_once $_SERVER["DOCUMENT_ROOT"]."/admin/head.php";
 
-    $query = "select * from project";
+    $query = "select * from contact";
     $result = mq($query);
     $row = mysqli_fetch_array($result);
     include_once $_SERVER['DOCUMENT_ROOT']."/asset/inc/page_var.php";
@@ -13,7 +13,7 @@
     <h2>프로젝트 리스트</h2>
     <ul>
         <?
-            $query = "select * from project order by num desc limit $start_num,$list";
+            $query = "select * from contact order by num desc limit $start_num,$list";
             $result = mq($query);
             while($row = mysqli_fetch_array($result)){
         ?>
@@ -23,13 +23,16 @@
             <input type="checkbox">
             <a data-num="<?=$row['num']?>" class="view">
             <code><?=$row['num']?></code>
-            <img src="<?=$row['upload']?>">
-            <code><?=$row['title']?></code>
+            <code><?=$row['name']?></code>
+            <code><?=$row['subject']?></code>
+            <code><?=$row['email']?></code>
+            <code><?=$row['contents']?></code>
             <code><?=$row['date']?></code>
-            <code><?=$row['state']?></code>
             </a>
             <a href="modify.php?num=<?=$row['num']?>" class="edit">[수정]</a>
             <a data-num="<?=$row['num']?>" class="del">[삭제]</a>
+            
+            <div class="contents"><?=$row['contents']?></div>
         </li>
         <? } ?>
     </ul>
@@ -37,22 +40,14 @@
         <?
             include_once $_SERVER['DOCUMENT_ROOT']."/asset/inc/paging.php";
         ?>   
-<!--
-        <a href="">&lt;</a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">&gt;</a>
--->
     </div>
-    <a href="request.php" class="btn">프로젝트등록</a>
+    <a href="request.php" class="btn">등록</a>
 </article>
 <div class="pop"></div>
 
 
 <?
-    fun('workList()');
+    fun('contact()');
     include_once $_SERVER["DOCUMENT_ROOT"]."/admin/foot.php";
 
 ?>

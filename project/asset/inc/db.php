@@ -37,4 +37,8 @@ function fun($name){
     echo "<script>{$name}</script>";
 }
 
+//function contact(){
+//    
+//}
+
 ?>

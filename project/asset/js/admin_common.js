@@ -1,4 +1,85 @@
 // asset/js/admin_common.js
+// data를 이용하여 그 값들을 모두 넘겨 줄 수 있다.
+
+function workList(){
+    function data(e){
+        e.preventDefault();
+        var target = e.target;
+        var className = target.className;
+        for(; className != 'view'; target = target.parentElement){
+            
+            if(className == "del" || className == "edit") break;
+            
+            className = target.parentElement.className;
+            
+            if(className == 'work_list') break;
+        };
+        
+        if(className == 'del' || className == 'view'){
+            
+            var num = target.dataset.num;
+            console.log(className);
+            $.ajax({
+                url: 'data_query.php',
+                type:'POST',
+                data:{'num':num,'mode':className},
+                success:function(data){
+                    if(className == 'view'){
+                        $('.pop').html(data);    
+                    }else{
+                        location.reload(); //location.reload = 새로고침
+                    }
+                }
+            });
+        }
+        if(className == 'edit'){
+            location.href=target.href;
+        }
+    }
+    var workUL = document.querySelector('.work_list ul');
+    workUL.addEventListener('click',data);
+}
+
+function contact(){
+    console.log($('.view'));
+    $('.view').on('click',function(e){
+        e.preventDefault();
+        $('.contents').stop().slideUp();
+        $(this).parent().find('.contents').stop().slideDown();
+    })
+    function data(e){
+        e.preventDefault();
+        var target = e.target;
+        var className = target.className;
+        
+        if(className == 'del' || className == 'view'){
+            
+            var num = target.dataset.num;
+            
+            $.ajax({
+                url: 'del.php',
+                type:'POST',
+                data:{'num':num,'mode':className},
+                success:function(data){
+                    if(className == 'view'){
+                        $('.pop').html(data);    
+                    }else{
+                        location.reload(); //location.reload = 새로고침
+                    }
+                }
+            });
+        }
+        if(className == 'edit'){
+            location.href=target.href;
+            console.log(target);
+        }
+    }
+    var workUL = document.querySelector('.work_list ul');
+    workUL.addEventListener('click',data);
+}
+
+
+
 function request(){
     //editor start
     
