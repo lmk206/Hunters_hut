@@ -1,2 +1,88 @@
 @import "common.css";
 
+@mixin w100($wid:100%){
+    width:$wid;
+}
+
+#total{
+    @include w100;
+}
+
+header{
+    position:absolute;
+    z-index:10;
+    padding:2%;
+    height:100%;
+    & div:first-child{
+        @include w100;
+        display:flex;
+        flex-direction:column;
+        height:100%;
+    }
+    & .burger{
+        position:relative;
+        top:50%;
+        padding:2%;
+        & span{
+            position:absolute;
+            height:2px;
+            background-color:#fff;
+            display:block;
+        }
+        & span:nth-of-type(1){width: 15px; top:6px}
+        & span:nth-of-type(2){width:20px; top:12px}
+        & span:nth-of-type(3){width: 10px; top:18px}
+    }
+}
+section{
+    display:flex;
+    & .container{
+        position:relative;
+        @include w100($wid:30%);
+        background-color:#2c90d6;
+        padding:5%;
+
+        & .contents{
+            position:absolute;
+            left:0;
+            top:25%;
+            padding:10%;
+
+            $color: (strong,span,p,"ul li",a);
+            @each $col in $color{
+                #{$col}{
+                    color:#fff;
+                }
+            }
+            & strong{
+                font-size:3em;
+            }
+            & p{
+                font-size:1.5em;
+            }
+            & span{
+                line-height:25px;
+            }
+            & ul li{
+                line-height:30px;
+            }
+            & a{
+                border:1px solid #fff;
+                padding:2%;
+                margin-top:10%;
+            }
+        }
+    }
+}
+footer{
+    position:absolute;
+    left:0;
+    bottom:30px;
+    text-align:center;
+    & p{
+        @include w100;
+        color:#ddd;
+        position:relative;
+        margin:0 auto;
+    }
+}
