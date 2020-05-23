@@ -22,7 +22,6 @@ window.addEventListener("DOMContentLoaded",function(){
         },400)
         img[0].classList.add('left');
         img[1].classList.add('right');
-
     }
     function fadeInOut(){
         fadeIn();
