@@ -13,13 +13,13 @@ window.addEventListener("DOMContentLoaded",function(){
     window.addEventListener('load',function(){
         setTimeout(function(){
             divide();
-        },5000)
+        },3000)
     })
     function divide(){
         fadeInOut();
         setTimeout(function(){
             location.href="project.html"
-        },400)
+        },600)
         img[0].classList.add('left');
         img[1].classList.add('right');
     }
