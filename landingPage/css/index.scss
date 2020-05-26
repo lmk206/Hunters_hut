@@ -74,6 +74,14 @@ section{
             & h1{
                 font-size:4em;
                 position:relative;
+                opacity:0;
+                margin-top:-5%;
+                transition:.5s;
+            }
+            & h1.show{
+                opacity:1;
+                margin-top:0%;
+                transition-delay:.5s;
             }
             & h1:after{
                 content:'';
@@ -87,9 +95,16 @@ section{
             }
             & p{
                 white-space:pre-line;
-                margin-top:100px;
+                margin-top:150px;
                 font-size:1rem;
                 color:#ddd;
+                opacity:0;
+                transition:1s;
+            }
+            & p.show{
+                opacity:1;
+                margin-top:100px;
+                transition-delay:1s;
             }
         }
      }

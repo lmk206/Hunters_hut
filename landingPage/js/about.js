@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded',function(){
     var intro = document.querySelector('.intro');
     var skills = document.querySelector('.skills');
     var vision = document.querySelector('.vision');
-    console.log(fig);
+
     window.addEventListener('load',function(){
         setTimeout(function(){
             objActive();
@@ -33,10 +33,6 @@ window.addEventListener('DOMContentLoaded',function(){
         }
     });
 
-    goLink[1].addEventListener('click',function(){
-        localStorage.name = this.textContent();
-        console.log(this);
-    })
     function objActive(){
         leftCon.classList.add('active');
         rightCon.classList.add('active');
@@ -44,5 +40,35 @@ window.addEventListener('DOMContentLoaded',function(){
         burger.classList.add('active');
         fig.classList.add('active');
     }
+
+    for(var i=0; i<goLink.length;i++){
+        goLink[i].addEventListener('click',function(){
+            console.log(this);
+            sessionStorage.name = this.textContent;
+        })
+    }
+
+    // function setCookie('aboutIdx','idx','1'){
+
+    // }
+    $.ajax({
+        url : 'json/about.json',
+        type : 'GET',
+        dataType : 'json',
+        success:function(about){
+            var hImg, fText, pText1, pText2;
+            switch(sessionStorage.name){
+                case "intro" : 
+                    num = 0; 
+                    
+                    break;
+                case "skills" : num = 1; break;
+                case "vision" : num = 2; break;
+            }
+            console.log(sessionStorage.name)
+            console.log(about);
+            console.log(about.about[0]);
+        }
+    })
     //end
 })

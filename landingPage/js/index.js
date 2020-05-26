@@ -2,26 +2,30 @@ window.addEventListener("DOMContentLoaded",function(){
     //start
     var img = document.querySelectorAll('.visual img');
     var fig = document.querySelector('.visual figcaption');
-    var left = document.querySelector('.visual .left');
-    var right = document.querySelector('.visual .right');
-    var main2 = document.querySelector('.main2');
-    var conView = document.querySelector('.con_view');
-    var leftCon = document.querySelector('.left_con');
-    var rightCon = document.querySelector('.right_con');
     var copyR = document.querySelector('footer p');
+    var figH1 = document.querySelector('.visual figcaption h1');
+    var figP = document.querySelector('.visual figcaption p');
+
     console.log(img);
     window.addEventListener('load',function(){
+        showT();
         setTimeout(function(){
             divide();
-        },3000)
+        },4000)
     })
     function divide(){
-        fadeInOut();
+        setTimeout(function(){
+            fadeInOut();
+        },500)
         setTimeout(function(){
             location.href="project.html"
-        },600)
+        },1000)
         img[0].classList.add('left');
         img[1].classList.add('right');
+    }
+    function showT(){
+        figH1.classList.add('show');
+        figP.classList.add('show');
     }
     function fadeInOut(){
         fadeIn();
