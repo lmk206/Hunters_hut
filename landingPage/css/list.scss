@@ -41,6 +41,54 @@ header{
     & .burger.active{
         opacity:1;
     }
+    & .burger.show{
+        z-index:20;
+        top:35%;
+        & span:nth-of-type(1){
+            transform:translateY(7px) rotate(-45deg);
+            width:20px;
+        }
+        & span:nth-of-type(2){opacity:0}
+        & span:nth-of-type(3){
+            transform:translateY(-5px) rotate(45deg);
+            width:20px;
+        }
+    }
+    & nav{
+        position:absolute;
+        left:0;
+        top:0;
+        width:0;
+        height:100vh;
+        background-color:#000;
+        opacity:0.7;
+        padding:0;
+        transition:.5s ease-in-out;
+        overflow:hidden;
+        opacity:0;
+        & > ul{
+            display:flex;
+            position:absolute;
+            left:15%;
+            top:47%;
+            & li{
+                margin:0 45% 0 0;
+                a{
+                    color:#fff;
+                    font-size:2em;
+                }
+            }
+        }    
+    }
+    & nav.block{
+        display:block;
+        
+    }
+    & nav.show{
+        width:100vw;
+        opacity:0.7;
+        transition:.5s;
+    }
 }
 
 section{
@@ -92,13 +140,17 @@ section{
         & .right_con{
             @include w100($wid:70%);
             position:relative;
-            transform:translateX(100%);
+            opacity:0;
             transition:1s;
+            transition-delay:2s;
+            transform:translateY(10%);
             & .tab{
                 position:absolute;
                 left:37%;
-                top:8%;
+                top:10%;
                 display:flex;
+                opacity:0;
+                transition:.5s;
                 & figure{
                     width:5%;
                     margin:0 8%;
@@ -110,6 +162,10 @@ section{
                     }
                 }
             }
+            & .tab.show{
+                top:8%;
+                opacity:1;
+            }
             
             .right_box{
                 width:90%;
@@ -120,14 +176,36 @@ section{
                 & > figure{
                     width:40%;
                     padding:5%;
+                    margin-top:5%;
+                    opacity:0;
+                    transition:.5s;
                     img{
                         width:100%;
                     }
                 }
+                & > figure.show{
+                    margin-top:0;
+                    opacity:1;
+                }
             }
         }
         & .right_con.active{
-            transform:translateX(0%)
+            opacity:1;
+            transform:translateY(0%);
+            .right_box{
+                & > figure:nth-of-type(1){
+                    transition-delay:3s;
+                }
+                & > figure:nth-of-type(2){
+                    transition-delay:3.5s;
+                }
+                & > figure:nth-of-type(3){
+                    transition-delay:4s;
+                }
+                & > figure:nth-of-type(4){
+                    transition-delay:4.5s;
+                }
+            }
         }
     }
 }

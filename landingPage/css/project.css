@@ -37,6 +37,44 @@ header {
       top: 18px; }
   header .burger.active {
     opacity: 1; }
+  header .burger.show {
+    z-index: 20;
+    top: 35%; }
+    header .burger.show span:nth-of-type(1) {
+      transform: translateY(7px) rotate(-45deg);
+      width: 20px; }
+    header .burger.show span:nth-of-type(2) {
+      opacity: 0; }
+    header .burger.show span:nth-of-type(3) {
+      transform: translateY(-5px) rotate(45deg);
+      width: 20px; }
+  header nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.7;
+    padding: 0;
+    transition: .5s ease-in-out;
+    overflow: hidden;
+    opacity: 0; }
+    header nav > ul {
+      display: flex;
+      position: absolute;
+      left: 15%;
+      top: 47%; }
+      header nav > ul li {
+        margin: 0 45% 0 0; }
+        header nav > ul li a {
+          color: #fff;
+          font-size: 2em; }
+  header nav.block {
+    display: block; }
+  header nav.show {
+    width: 100vw;
+    opacity: 0.7; }
 
 section {
   height: 100%; }
@@ -89,7 +127,9 @@ section {
           margin-top: 120px;
           position: relative; }
           section .container .left_con .left_text .controler > img {
-            width: 8%; }
+            width: 5%;
+            height: 5%;
+            margin-top: 2%; }
           section .container .left_con .left_text .controler p {
             font-size: 1em;
             margin-top: 10px; }

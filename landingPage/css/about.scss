@@ -15,8 +15,8 @@
 #total{
     @include w100;
     height:100vh;
-    // overflow-X:hidden;
-    // overflow-Y:hidden;
+    overflow-X:hidden;
+    overflow-Y:hidden;
 }
 
 header{
@@ -49,6 +49,56 @@ header{
     & .burger.active{
         opacity:1;
     }
+    & .burger.show{
+        z-index:20;
+        top:35%;
+        & span{
+            background-color:#fff;
+        }
+        & span:nth-of-type(1){
+            transform:translateY(7px) rotate(-45deg);
+            width:20px;
+        }
+        & span:nth-of-type(2){opacity:0}
+        & span:nth-of-type(3){
+            transform:translateY(-5px) rotate(45deg);
+            width:20px;
+        }
+    }
+    & nav{
+        position:absolute;
+        left:0;
+        top:0;
+        width:0;
+        height:100vh;
+        background-color:#000;
+        padding:0;
+        transition:.5s ease-in-out;
+        overflow:hidden;
+        opacity:0;
+        & > ul{
+            display:flex;
+            position:absolute;
+            left:15%;
+            top:47%;
+            & li{
+                margin:0 45% 0 0;
+                a{
+                    color:#fff;
+                    font-size:2em;
+                }
+            }
+        }    
+    }
+    & nav.block{
+        display:block;
+        
+    }
+    & nav.show{
+        width:100vw;
+        opacity:0.7;
+        transition:.5s;
+    }
 }
 section{
     height:100%;
@@ -61,8 +111,16 @@ section{
             height:100%;
             background-color:yellow;
             position:relative;
+            transform:translateX(-100%);
+            transition:1s;
             & figure{
                 opacity:0;
+                width:15%;
+                padding:3% 5%;
+                right:0;
+                top:20%;
+                transition:1s;
+                transition-delay:1s;
             }
             & figure.active{
                 background-color:#f95959;
@@ -100,11 +158,17 @@ section{
                 }
             }
         }
+        & .left_con.active{
+            transform:translateX(0%);
+        }
         & .right_con{
             @include w100($wid:70%);
             height:100%;
             margin:0 auto;
             text-align:center;
+            transform:translateY(5%);
+            transition:1s;
+            opacity:0;
             & > article{
                 display:none;
             }
@@ -141,17 +205,18 @@ section{
     
                             h3:after{
                                 @include after;
-                                width:22%;
-                                height:10%; 
+                                width:26%;
+                                height:10%;
+                                margin-top:0.5%; 
                             }
                         }
                         div:nth-of-type(1) h3:after{
                             @include after;
-                            width:12%;
+                            width:14%;
                         }
                         div:nth-of-type(3) h3:after{
                             @include after;
-                            width:18%;
+                            width:21%;
                         }
                     }
                 }
@@ -207,7 +272,11 @@ section{
             & article.active.show{
                 opacity:1;
             } 
-            
+        }
+        & .right_con.active{
+            transform:translateY(0%);
+            transition-delay:1s;
+            opacity:1;
         }
     } 
 }
