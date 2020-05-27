@@ -92,13 +92,14 @@ section {
       transform: translateX(-100%);
       transition: 1s; }
       section .container .left_con figure {
-        opacity: 0;
+        background-color: #f95959;
         width: 15%;
         padding: 3% 5%;
+        position: absolute;
         right: 0;
         top: 20%;
-        transition: 1s;
-        transition-delay: 1s; }
+        opacity: 0;
+        transition: 1.5s; }
       section .container .left_con figure.active {
         background-color: #f95959;
         width: 15%;
@@ -107,26 +108,26 @@ section {
         right: -13%;
         top: 20%;
         opacity: 1; }
-        section .container .left_con figure.active img {
-          width: 100%; }
-        section .container .left_con figure.active figcaption {
-          text-align: center;
-          color: #fff; }
-          section .container .left_con figure.active figcaption p {
-            width: 100%;
-            text-align: left;
-            padding: 1%;
-            transition: .5s; }
-            section .container .left_con figure.active figcaption p span {
-              background-color: #fff;
-              width: 10px;
-              height: 10px;
-              border-radius: 50px;
-              margin-right: 10px; }
-          section .container .left_con figure.active figcaption p:hover {
-            color: #000; }
-            section .container .left_con figure.active figcaption p:hover span {
-              background-color: yellow; }
+      section .container .left_con img {
+        width: 100%; }
+      section .container .left_con figcaption {
+        text-align: center;
+        color: #fff; }
+        section .container .left_con figcaption p {
+          width: 100%;
+          text-align: left;
+          padding: 1%;
+          transition: .5s; }
+          section .container .left_con figcaption p span {
+            background-color: #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 50px;
+            margin-right: 10px; }
+        section .container .left_con figcaption p:hover {
+          color: #000; }
+          section .container .left_con figcaption p:hover span {
+            background-color: yellow; }
     section .container .left_con.active {
       transform: translateX(0%); }
     section .container .right_con {
@@ -138,12 +139,13 @@ section {
       transition: 1s;
       opacity: 0; }
       section .container .right_con > article {
+        padding-top: 10%;
         display: none; }
       section .container .right_con > article.active {
         padding-top: 10%;
         display: block;
         opacity: 0;
-        transition: .5s; }
+        transition: 2s; }
         section .container .right_con > article.active h2 {
           font-size: 2em;
           margin-bottom: 4%;
@@ -228,7 +230,8 @@ section {
             section .container .right_con > article.active ol li p {
               font-weight: 400; }
       section .container .right_con article.active.show {
-        opacity: 1; }
+        opacity: 1;
+        padding-top: 10%; }
     section .container .right_con.active {
       transform: translateY(0%);
       transition-delay: 1s;

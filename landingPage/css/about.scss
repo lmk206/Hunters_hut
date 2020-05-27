@@ -85,8 +85,8 @@ header{
                 margin:0 45% 0 0;
                 a{
                     color:#fff;
-                    font-size:2em;
-                }
+                    font-size:2em;  
+                }   
             }
         }    
     }
@@ -114,13 +114,14 @@ section{
             transform:translateX(-100%);
             transition:1s;
             & figure{
-                opacity:0;
+                background-color:#f95959;
                 width:15%;
-                padding:3% 5%;
+                padding:3% 5%; 
+                position:absolute;
                 right:0;
                 top:20%;
-                transition:1s;
-                transition-delay:1s;
+                opacity:0;
+                transition:1.5s;
             }
             & figure.active{
                 background-color:#f95959;
@@ -129,31 +130,31 @@ section{
                 position:absolute;
                 right:-13%;
                 top:20%;
-                opacity:1;
-                & img{
+                opacity:1;  
+            }
+            & img{
+                width:100%;
+            }
+            & figcaption{
+                text-align:center;
+                color:#fff;
+                & p{
                     width:100%;
-                }
-                & figcaption{
-                    text-align:center;
-                    color:#fff;
-                    & p{
-                        width:100%;
-                        text-align:left;
-                        padding:1%;
-                        transition:.5s;
-                        span{
-                            background-color:#fff;
-                            width:10px;
-                            height:10px;
-                            border-radius:50px;
-                            margin-right:10px;
-                        }
+                    text-align:left;
+                    padding:1%;
+                    transition:.5s;
+                    span{
+                        background-color:#fff;
+                        width:10px;
+                        height:10px;
+                        border-radius:50px;
+                        margin-right:10px;
                     }
-                    & p:hover{
-                        color:#000;
-                        span{
-                            background-color:yellow;
-                        }
+                }
+                & p:hover{
+                    color:#000;
+                    span{
+                        background-color:yellow;
                     }
                 }
             }
@@ -170,6 +171,7 @@ section{
             transition:1s;
             opacity:0;
             & > article{
+                padding-top:10%;
                 display:none;
             }
             & > article.active{
@@ -177,7 +179,7 @@ section{
                 padding-top:10%;
                 display:block;
                 opacity:0;
-                transition:.5s;
+                transition:2s;
                 
                 h2{
                     font-size:2em;
@@ -271,6 +273,7 @@ section{
             }
             & article.active.show{
                 opacity:1;
+                padding-top:10%;
             } 
         }
         & .right_con.active{

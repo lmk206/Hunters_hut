@@ -1,0 +1,15 @@
+{
+    "workPage" : [
+        [
+            "img/project/eve/mock1.png",
+            "img/project/eve/mock2.png",
+            "img/project/eve/mock3.png"
+        ],
+
+        [
+            "img/project/wick/mock1.png",
+            "img/project/wick/mock2.png",
+            "img/project/wick/mock3.png"
+        ]
+    ]
+}

@@ -1,27 +1,12 @@
 {
-    "about":[
+    "dataSheet":[
         {   
             "h1" : "",
             "hImg" : "img/about/profile/intro3.png",
             "fText" : "introduce",
-            "pText1": "skills",
-            "pText2": "vision"
-        },
-
-        {
-            "h1" : "",
-            "hImg" : "img/about/profile/skills2.png",
-            "fText" : "Skills",
-            "pText1" : "intro",
-            "pText2" : "vision"
-        },
-
-        {
-            "h1" : "",
-            "hImg" : "img/about/vision/vision1.png",
-            "fText" : "Vision",
-            "pText1" : "intro",
-            "pText2" : "skills"
+            "pText1": "intro",
+            "pText2": "skills",
+            "pText3": "vision"
         }
     ]
 }

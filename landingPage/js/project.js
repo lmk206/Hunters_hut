@@ -3,11 +3,13 @@ window.addEventListener("DOMContentLoaded",function(){
     
     var leftCon = document.querySelector('.left_con');
     var rightCon = document.querySelector('.right_con');
+    var rConMock = document.querySelectorAll('.right_con figure img');
     var foot = document.querySelector('footer');
-    var rImg = document.querySelectorAll('.right_con figure img');
     var burger = document.querySelector('header .burger');
     var nav = document.querySelector('header nav');
     var linkP = document.querySelector('.controler .link_page');
+    var control = document.querySelector('.controler');
+    var controlBtn = document.querySelectorAll('.controler figure img');
 
     window.addEventListener("load",function(){
         setTimeout(function(){
@@ -31,7 +33,13 @@ window.addEventListener("DOMContentLoaded",function(){
     });
 
     linkP.addEventListener('click',function(){
-        location.href="list.html";
+        leftCon.classList.remove('active');
+        rightCon.classList.remove('active');
+        foot.classList.remove('active');
+        setTimeout(function(){
+            location.href="list.html";
+        },1500);
+        
     });
     // function ------------------------------------------------------------
     function objActive(){
@@ -40,5 +48,26 @@ window.addEventListener("DOMContentLoaded",function(){
         foot.classList.add('active');
         burger.classList.add('active');
     }
+
+    // json 호출 -------------------------------------------------------------
+    var data = new XMLHttpRequest();
+        data.open('GET','json/project.json',true);
+        data.send(null);
+
+    data.addEventListener('load',function(){
+        var response = JSON.parse(data.responseText);
+        console.log(response.workPage[0][0]);
+        for(var k = 0; k<rConMock.length; k++){
+            rConMock[k].src = response.workPage[0][k]
+        }
+        for(let i = 0; i<rConMock.length; i++){
+            controlBtn[1].addEventListener('click',function(e){
+                rConMock[i].src = response.workPage[1][i]
+            })
+            controlBtn[0].addEventListener('click',function(){
+                rConMock[i].src = response.workPage[0][i]
+            })
+        }
+    })
     //end
 })
