@@ -69,7 +69,7 @@ header{
         & > ul{
             display:flex;
             position:absolute;
-            left:15%;
+            left:25%;
             top:47%;
             & li{
                 margin:0 45% 0 0;
@@ -77,6 +77,10 @@ header{
                     color:#fff;
                     font-size:2em;
                 }
+            }
+            & li:hover a{
+                color:#f00;
+                font-weight:500;
             }
         }    
     }
@@ -95,6 +99,7 @@ section{
         @include w100;
         height:100%;
         display:flex;
+        position:relative;
 
         & .left_con{
             position:relative;    
@@ -102,7 +107,7 @@ section{
             height:100%;
             background-color:#2c90d6;
             transform:translateX(-100%);
-            transition:1s;
+            transition:.5s;
 
             $color: (strong,span,p,"ul li",a);
             @each $col in $color{
@@ -176,8 +181,8 @@ section{
             @include w100($wid:55%);
             position:relative;
             transform:translateX(100%);
-            transition:1s;
-            transition-delay:1s;
+            transition:.5s;
+            transition-delay:.2s;
             & .pc{
                 position:absolute;
                 left:20%;
@@ -196,6 +201,57 @@ section{
         }
         & .right_con.active{
             transform:translateX(0%)
+        }
+        & .pop_up{
+            width:90%;
+            position:absolute;
+            left:8%;
+            top:16%;
+            text-align:center;
+            opacity:1;
+            transform:scale(0);
+            padding:0.2%;
+            background-color:#fff;
+            figure{
+                margin-top:3%;
+                img{
+                    width:30%;
+                    height:280px;;
+                }
+            }
+            & .exit{
+                margin-top:0;
+                position:absolute;
+                right:46%;
+                top:-10%;
+                width:10%;
+                & span{
+                    width:30px;
+                    height:2px;
+                    background-color:#000;
+                    position:absolute;
+                }
+                & span:nth-of-type(1){
+                    transform:rotate(-45deg) translateY(4px); 
+                    top:6px;
+                }
+                & span:nth-of-type(2){
+                    transform:rotate(45deg) translateY(-4px);
+                    top:12px;
+                }
+            }
+            & .exit:hover span{
+                background-color:#f00;
+            }
+        }
+        & .pop_up.active{
+            display:block;
+            opacity:0;
+        }
+        & .pop_up.show{
+            opacity:1;
+            transform:scale(1.0);
+            transition:.5s;
         }
     } 
 }

@@ -79,7 +79,7 @@ header{
         & > ul{
             display:flex;
             position:absolute;
-            left:15%;
+            left:25%;
             top:47%;
             & li{
                 margin:0 45% 0 0;
@@ -112,7 +112,7 @@ section{
             background-color:yellow;
             position:relative;
             transform:translateX(-100%);
-            transition:1s;
+            transition:.5s;
             & figure{
                 background-color:#f95959;
                 width:15%;
@@ -121,7 +121,8 @@ section{
                 right:0;
                 top:20%;
                 opacity:0;
-                transition:1.5s;
+                transition:.5s;
+                transition-delay:.5s;
             }
             & figure.active{
                 background-color:#f95959;
@@ -168,7 +169,7 @@ section{
             margin:0 auto;
             text-align:center;
             transform:translateY(5%);
-            transition:1s;
+            transition:.5s;
             opacity:0;
             & > article{
                 padding-top:10%;
@@ -179,7 +180,7 @@ section{
                 padding-top:10%;
                 display:block;
                 opacity:0;
-                transition:2s;
+                transition:1s;
                 
                 h2{
                     font-size:2em;
@@ -278,7 +279,7 @@ section{
         }
         & .right_con.active{
             transform:translateY(0%);
-            transition-delay:1s;
+            transition-delay:.7s;
             opacity:1;
         }
     } 

@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded',function(){
         switch(sessionStorage.name){
             case "intro" : 
                 num = 0;
-                setTimeout(intro1,1000);
+                setTimeout(intro1,500);
                 function intro1(){ 
                     sub_menu.classList.add('active');
                     sub_menu.classList.add('show');
@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded',function(){
                 break;
             case "skills" : 
                 num = 1;
-                setTimeout(skills1,1000);
+                setTimeout(skills1,500);
                 function skills1(){
                     sub_menu.classList.add('active');
                     sub_menu.classList.add('show');
@@ -74,7 +74,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
             case "vision" : 
                 num = 2;
-                setTimeout(vision1,1000);
+                setTimeout(vision1,500);
                 function vision1(){
                     sub_menu.classList.add('active');
                     sub_menu.classList.add('show'); 
@@ -95,8 +95,8 @@ window.addEventListener('DOMContentLoaded',function(){
     }
 
     function conView(){
-        sub_menu.classList.remove('active');
-        sub_menu.classList.remove('show');
+        // sub_menu.classList.remove('active');
+        // sub_menu.classList.remove('show');
         intro.classList.remove('active');
         intro.classList.remove('show');
         skills.classList.remove('active');

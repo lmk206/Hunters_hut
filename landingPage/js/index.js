@@ -10,13 +10,14 @@ window.addEventListener("DOMContentLoaded",function(){
     window.addEventListener('load',function(){
         showT();
         setTimeout(function(){
+            fadeInOut();
+        },3500)
+        setTimeout(function(){
             divide();
         },4000)
     })
     function divide(){
-        setTimeout(function(){
-            fadeInOut();
-        },500)
+        
         setTimeout(function(){
             location.href="project.html"
         },1000)

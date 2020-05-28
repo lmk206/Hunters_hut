@@ -20,6 +20,10 @@
 //       font-size: nth($item, 2);
 //     }
 //   }
+body{
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
 #total{
     @include w100;
     position:relative;
