@@ -1,21 +1,21 @@
 {
     "workPage" : [
         [
-            "img/project/eve/mock1.png",
-            "img/project/eve/mock2.png",
-            "img/project/eve/mock3.png"
+            "img/project/eve/mockPc.png",
+            "img/project/eve/mockPad.png",
+            "img/project/eve/mockMo.png"
         ],
 
         [
-            "img/project/wick/mock1.png",
-            "img/project/wick/mock2.png",
-            "img/project/wick/mock3.png"
+            "img/project/wick/mockPc.png",
+            "img/project/wick/mockPad.png",
+            "img/project/wick/mockMo.png"
         ],
 
         [
-            "img/project/deco/mock1.png",
-            "img/project/deco/mock2.png",
-            "img/project/deco/mock3.png"
+            "img/project/deco/mockPc.png",
+            "img/project/deco/mockPad.png",
+            "img/project/deco/mockMo.png"
         ]
     ],
 
@@ -32,7 +32,7 @@
         [
             "John Wick",
             "웹 페이지 제작",
-            "영화 컨텐츠를 주제로, 새 홈페이지를 제작하였습니다.",
+            "영화 컨텐츠를 주제로, 새롭게 레이아웃을 구성하여 홈페이지를 제작하였습니다.",
             "Used - Html5, Css3, Scss, Javascript, Jquery",
             "Browser - Chrome, Ex11",
             "Page - 6Pages"

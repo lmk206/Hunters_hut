@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded",function(){
     var leftCon = document.querySelector('.left_con');
     var leftConText = document.querySelector('.left_text');
     var rightCon = document.querySelector('.right_con');
-    var rConMock = document.querySelectorAll('.right_con figure img');
+    var rConMock = document.querySelectorAll('.right_con div img');
     var foot = document.querySelector('footer');
     var burger = document.querySelector('header .burger');
     var nav = document.querySelector('header nav');
@@ -57,17 +57,25 @@ window.addEventListener("DOMContentLoaded",function(){
         burger.classList.add('active');
     }
 
+    
     // json 호출 -------------------------------------------------------------
     // project 목업 이미지 호출 -----------------------------------------------
     var data = new XMLHttpRequest();
         data.open('GET','json/project.json',true);
         data.send(null);
 
+    var p = document.querySelector('.left_text p');
+    var strong = document.querySelector('.left_text strong');
+    var span = document.querySelector('.left_text span');
+    var li = document.querySelectorAll('.left_text ul li');
+    var cP = document.querySelector('.cPage');
+    var tP = document.querySelector('.tPage');
+
     data.addEventListener('load',function(){
         var response = JSON.parse(data.responseText);
         var aa = response.workPage.length;
         var wIdx=0;
-
+        innerWork();
         for(var k = 0; k<rConMock.length; k++){
             rConMock[k].src = response.workPage[0][k]
         }
@@ -75,23 +83,31 @@ window.addEventListener("DOMContentLoaded",function(){
     // 버튼 클릭시 목업 이미지 변환 -----------------------------------------------
         controlBtn[1].addEventListener('click',function(e){
             wIdx++;
-            work()
-            if(wIdx > aa){
-                widx = aa;
+            if(wIdx > aa-1){
+                wIdx = aa;
+            }else{
+                number();
+                change();
+                innerWork();
             }
-            console.log(wIdx);
-            console.log(aa)
+
         })
 
         controlBtn[0].addEventListener('click',function(){
             wIdx--;
-            work()
             if(wIdx < 0){
-                widx = 0;
+                wIdx = 0;
+            }else{
+                number();
+                change();
+                innerWork();
             }
-            console.log(wIdx)
         })
-        
+    // data 텍스트 로드 --------------------------------------------------------
+        function number(){
+            tP.textContent = '0'+aa;
+            cP.textContent = '0'+(wIdx+1);
+        }
         function work(){
             for(var j=0; j < aa; j++){
                 rConMock[j].src = response.workPage[wIdx][j];
@@ -99,32 +115,32 @@ window.addEventListener("DOMContentLoaded",function(){
                 rConMock[j].src = response.workPage[wIdx][j];
             }
         }
-        
-    });
-
-    //json 호출 2 (project텍스트 컨텐츠)----------------------------------------
-    var data2 = new XMLHttpRequest();
-        data2.open('GET','json/projectText.json',true);
-        data2.send(null);
-    
-    data2.addEventListener('load',function(){
-        var response2 = JSON.parse(data2.responseText);
-        var wText = response2.workText;
-        var p = document.querySelector('.left_text p');
-        var strong = document.querySelector('.left_text strong');
-        var span = document.querySelector('.left_text span');
-        var li = document.querySelectorAll('.left_text ul li');
-        innerWork();
-        
-        function innerWork(){
-            strong.textContent = response2.workText[0][0];
-            p.textContent = response2.workText[0][1];
-            span.textContent = response2.workText[0][2];
-            for(var t = 0; t<li.length; t++){
-                li[t].textContent = response2.workText[t][t+3]
+        console.log(wIdx);
+        console.log(aa)
+    // project rightcontent 제어 ---------------------------------------------
+        function change(){
+            for(var r = 0; r < aa; r++){
+                
+                rConMock[r].classList.add('active');
+                
+                setTimeout(function(){
+                    work();
+                },200);
+                setTimeout(function(){
+                    rConMock[r].classList.remove('active');
+                },300)
+                console.log(rConMock[r]);
             }
         }
-    })
-    
+        
+        function innerWork(){
+            for(var t = 0; t<li.length; t++){
+                strong.textContent = response.workText[wIdx][0];
+                p.textContent = response.workText[wIdx][1];
+                span.textContent = response.workText[wIdx][2];
+                li[t].textContent = response.workText[wIdx][t+3];
+            }
+        }
+    });
     //end
 })

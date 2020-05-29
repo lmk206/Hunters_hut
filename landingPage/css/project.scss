@@ -85,8 +85,7 @@ header{
         }    
     }
     & nav.block{
-        display:block;
-      
+        display:block;  
     }
     & nav.show{
         width:100vw;
@@ -129,7 +128,7 @@ section{
                 & > span{
                     line-height:25px;
                     margin-top:50px;
-                    white-space:pre-line;
+                    width:80%;
                 }
                 & ul{
                     margin-top:50px;
@@ -147,10 +146,11 @@ section{
                     width:100%;
                     display:flex;
                     justify-content: space-around;
-                    margin-top:120px;
                     position:relative;
+                    left:-10%;
+                    margin-top:130px;
                     & > img{
-                        width:5%;
+                        width:3%;
                         height:5%;
                         margin-top:2%;
                     }
@@ -166,7 +166,7 @@ section{
                         opacity:0;
                         transition:.5s;
                         position:absolute;
-                        right:-40px;
+                        right:-60px;
                     }
                     & span.active{
                         opacity:1;
@@ -183,20 +183,56 @@ section{
             transform:translateX(100%);
             transition:.5s;
             transition-delay:.2s;
+            background:url('../img/project/mockbg.png') no-repeat;
+            background-size:100% 100%;
+
             & .pc{
                 position:absolute;
-                left:20%;
+                left:30%;
                 top:30%;
             }
             & .pad{
                 position:absolute;
-                left:55%;
+                left:65%;
                 top:55%;
             }
             & .mobile{
                 position:absolute;
-                left:10%;
+                left:26%;
                 top:62%;
+            }
+            & figure{
+                & > img:nth-of-type(2){
+                    z-index:10;
+                }
+                & div{
+                    overflow:hidden;
+                }
+                & div:nth-of-type(1){
+                    position:absolute;
+                    left:31%;
+                    top:31.7%;
+                }
+                & div:nth-of-type(2){
+                    position:absolute;
+                    left:66%;
+                    top:56.2%;
+                }
+                & div:nth-of-type(3){
+                    position:absolute;
+                    left:26.3%;
+                    top:63%;
+                }
+                & div img{
+                    margin-left:0px;
+                    opacity:1;
+                    transition:.5s;
+                }
+                & div img.active{
+                    margin-left:300px;
+                    opacity:0;
+                    transition:.5s;
+                }
             }
         }
         & .right_con.active{
