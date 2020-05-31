@@ -13,6 +13,7 @@ window.addEventListener("DOMContentLoaded",function(){
     var controlBtn = document.querySelectorAll('.controler figure img');
     var pop = document.querySelector('.pop_up');
     var close = document.querySelector('.pop_up .exit');
+    var navA = document.querySelectorAll('nav ul li a');
     // 윈도우 로드시 호출 함수 ------------------------------------------------------
     window.addEventListener("load",function(){
         setTimeout(function(){
@@ -47,7 +48,38 @@ window.addEventListener("DOMContentLoaded",function(){
         rightCon.classList.add('active');
         foot.classList.add('active');
     })
-
+    // nav 클릭시 페이지 이동
+    for(var n = 0; n<navA.length; n++){
+        navA[n].addEventListener('click',function(e){
+            nextPage();
+            console.log(this.href);
+            var lo = this.href;
+            console.log(e.target.href)
+            setTimeout(function(){
+                // e.target.href = lo
+            },500);
+        })
+    }
+    function index(){
+        setTimeout(function(){
+            location.href = "index.html";
+        })
+    }
+    function project(){
+        setTimeout(function(){
+            location.href = "project.html";
+        })
+    }
+    function about(){
+        setTimeout(function(){
+            location.href = "about.html";
+        })
+    }
+    function contact(){
+        setTimeout(function(){
+            location.href = "contact.html";
+        })
+    }
     // 함수 모음 ------------------------------------------------------------
     // project 메인 화면 제어 -----------------------------------------------
     function objActive(){
@@ -57,7 +89,16 @@ window.addEventListener("DOMContentLoaded",function(){
         burger.classList.add('active');
     }
 
-    
+    function nextPage(){
+        nav.classList.remove('block');
+        nav.classList.remove('show');
+        burger.classList.remove('show');
+        setTimeout(function(){
+        leftCon.classList.remove('active');
+        rightCon.classList.remove('active');
+        foot.classList.remove('active');
+        },10)
+    }
     // json 호출 -------------------------------------------------------------
     // project 목업 이미지 호출 -----------------------------------------------
     var data = new XMLHttpRequest();
