@@ -112,28 +112,37 @@ section {
         top: 20%;
         padding: 2% 10% 0 0; }
         section .container .left_con .left_text strong {
-          font-size: 3em; }
+          font-size: 3em;
+          margin-top: 10px;
+          opacity: 0; }
         section .container .left_con .left_text p {
-          font-size: 1.5em; }
+          font-size: 1.5em;
+          margin-top: 10px;
+          opacity: 0; }
         section .container .left_con .left_text > span {
           line-height: 25px;
-          margin-top: 50px;
-          width: 80%; }
+          margin-top: 60px;
+          width: 80%;
+          opacity: 0; }
         section .container .left_con .left_text ul {
-          margin-top: 50px; }
+          margin-top: 60px;
+          opacity: 0; }
         section .container .left_con .left_text ul li {
-          line-height: 30px; }
+          margin-top: 10px;
+          line-height: 30px;
+          opacity: 0; }
         section .container .left_con .left_text a {
           border: 1px solid #fff;
           padding: 2%;
-          margin-top: 10%; }
+          margin-top: 11%;
+          opacity: 0; }
         section .container .left_con .left_text .controler {
           width: 100%;
           display: flex;
           justify-content: space-around;
-          position: relative;
+          position: absolute;
           left: -10%;
-          margin-top: 130px; }
+          bottom: -20%; }
           section .container .left_con .left_text .controler > img {
             width: 3%;
             height: 5%;
@@ -153,6 +162,43 @@ section {
             opacity: 1; }
     section .container .left_con.active {
       left: 0; }
+      section .container .left_con.active .left_text strong {
+        font-size: 3em;
+        margin-top: 0;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: .5s; }
+      section .container .left_con.active .left_text p {
+        font-size: 1.5em;
+        margin-top: 0;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: 1s; }
+      section .container .left_con.active .left_text > span {
+        line-height: 25px;
+        margin-top: 50px;
+        width: 80%;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: 1.5s; }
+      section .container .left_con.active .left_text ul {
+        margin-top: 50px;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: 2s; }
+      section .container .left_con.active .left_text ul li {
+        line-height: 30px;
+        margin-top: 0;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: 2.5s; }
+      section .container .left_con.active .left_text a {
+        border: 1px solid #fff;
+        padding: 2%;
+        margin-top: 10%;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: 3s; }
     section .container .right_con {
       width: 55%;
       position: relative;

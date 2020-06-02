@@ -116,9 +116,9 @@ window.addEventListener("DOMContentLoaded",function(){
     function loop(){
         interval = setInterval(function(){
                 figure.classList.add('active')
+                setTimeout(work,800); 
                 change();
                 innerWork();
-                setTimeout(work,800); 
                 setTimeout(function(){
                     figure.classList.remove('active');
                 },1000) 

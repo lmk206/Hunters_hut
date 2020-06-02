@@ -30,7 +30,7 @@
             $query = "update project set upload='$fileDir' where num='$num'";   
             mq($query);
         }
-        $query = "update project set 
+        $query = "update biz set 
         title='$title', url='$url', date='$date', 
         contents='$contents', state='$state' 
         where num='$num'";
