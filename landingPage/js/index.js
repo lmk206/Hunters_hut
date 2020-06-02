@@ -54,5 +54,24 @@ window.addEventListener("DOMContentLoaded",function(){
             }
         }
     }
+
+
+    var data = new XMLHttpRequest();
+    data.open('GET','json/project.json',true);
+    data.send(null);
+
+    // 윈도우 로드 시 json 호출
+    data.addEventListener('load',function(){
+        var response = JSON.parse(data.responseText);
+        for(var k = 0; k<response.workPage.length; k++){
+            for(var j = 0; j<response.workPage[k].length; j++){
+                var imgC = document.createElement('img');
+                imgC.src = response.workPage[k][j];
+            }
+        }
+    });
+
+
+
     //end
 })

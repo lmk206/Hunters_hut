@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded',function(){
     var intro = document.querySelector('.intro');
     var skills = document.querySelector('.skills');
     var vision = document.querySelector('.vision');
+    var navA = document.querySelectorAll('nav ul li a');
     var goLink = null;
     var num = 0;
 
@@ -33,6 +34,32 @@ window.addEventListener('DOMContentLoaded',function(){
             }
         }
     });
+
+    // nav 클릭시 페이지 이동
+    for(var n=0; n < navA.length; n++){
+        navA[n].addEventListener('click',function(e){
+            e.preventDefault();
+            var nP = this.href;
+            nextPage();
+            setTimeout(function(){
+                location.href = nP
+            },1200)
+        })
+    }
+
+    function nextPage(){
+        nav.classList.remove('block');
+        nav.classList.remove('show');
+        burger.classList.remove('show');
+        burger.classList.remove('active');
+        sub_menu.classList.remove('active');
+        sub_menu.classList.remove('show');
+        setTimeout(function(){
+        leftCon.classList.remove('active');
+        rightCon.classList.remove('active');
+        foot.classList.remove('active');
+        },700)
+    }
 
     function objActive(){
         leftCon.classList.add('active');
@@ -95,14 +122,18 @@ window.addEventListener('DOMContentLoaded',function(){
     }
 
     function conView(){
-        // sub_menu.classList.remove('active');
-        // sub_menu.classList.remove('show');
-        intro.classList.remove('active');
         intro.classList.remove('show');
-        skills.classList.remove('active');
+        setTimeout(function(){
+            intro.classList.remove('active');
+        },1000)
         skills.classList.remove('show');
-        vision.classList.remove('active');
+        setTimeout(function(){
+            skills.classList.remove('active');
+        },1000);
         vision.classList.remove('show');
+        setTimeout(function(){
+            vision.classList.remove('active');
+        },1000)
         setTimeout(aboutShow,500);
     }
         

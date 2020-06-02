@@ -12,8 +12,13 @@ window.addEventListener("DOMContentLoaded",function(){
     var control = document.querySelector('.controler');
     var controlBtn = document.querySelectorAll('.controler figure img');
     var pop = document.querySelector('.pop_up');
+    var popImg = document.querySelectorAll('.pop_up img');
     var close = document.querySelector('.pop_up .exit');
-    // 윈도우 로드시 호출 함수 ------------------------------------------------------
+    var navA = document.querySelectorAll('nav ul li a');
+    var figure = document.querySelector('.right_con figure');
+    var strong = document.querySelector('.left_text strong');
+    var goPage = document.querySelector('.left_con .goHtml');
+    // 윈도우 로드시 전체 데이터 호출 함수 ------------------------------------------------------
     window.addEventListener("load",function(){
         setTimeout(function(){
             objActive();
@@ -40,6 +45,7 @@ window.addEventListener("DOMContentLoaded",function(){
         pop.classList.add('active');
         pop.classList.add('show');
     });
+
     close.addEventListener('click',function(){
         pop.classList.remove('active');
         pop.classList.remove('show');
@@ -47,6 +53,18 @@ window.addEventListener("DOMContentLoaded",function(){
         rightCon.classList.add('active');
         foot.classList.add('active');
     })
+
+    // nav 클릭시 페이지 이동
+    for(var n=0; n < navA.length; n++){
+        navA[n].addEventListener('click',function(e){
+            e.preventDefault();
+            var nP = this.href;
+            nextPage();
+            setTimeout(function(){
+                location.href = nP
+            },1500)
+        })
+    }
 
     // 함수 모음 ------------------------------------------------------------
     // project 메인 화면 제어 -----------------------------------------------
@@ -57,7 +75,16 @@ window.addEventListener("DOMContentLoaded",function(){
         burger.classList.add('active');
     }
 
-    
+    function nextPage(){
+        nav.classList.remove('block');
+        nav.classList.remove('show');
+        burger.classList.remove('show');
+        setTimeout(function(){
+        leftCon.classList.remove('active');
+        rightCon.classList.remove('active');
+        foot.classList.remove('active');
+        },700)
+    }
     // json 호출 -------------------------------------------------------------
     // project 목업 이미지 호출 -----------------------------------------------
     var data = new XMLHttpRequest();
@@ -71,6 +98,7 @@ window.addEventListener("DOMContentLoaded",function(){
     var cP = document.querySelector('.cPage');
     var tP = document.querySelector('.tPage');
 
+    // 윈도우 로드 시 json 호출
     data.addEventListener('load',function(){
         var response = JSON.parse(data.responseText);
         var aa = response.workPage.length;
@@ -79,7 +107,24 @@ window.addEventListener("DOMContentLoaded",function(){
         for(var k = 0; k<rConMock.length; k++){
             rConMock[k].src = response.workPage[0][k]
         }
-    
+    // 클릭 시 프로젝트로 이동
+    goPage.addEventListener('click',function(){
+        movePage();
+    });
+
+    // project페이지 무한 루프
+    function loop(){
+        interval = setInterval(function(){
+                figure.classList.add('active')
+                change();
+                innerWork();
+                setTimeout(work,800); 
+                setTimeout(function(){
+                    figure.classList.remove('active');
+                },1000) 
+        },5000)
+    };
+    loop();
     // 버튼 클릭시 목업 이미지 변환 -----------------------------------------------
         controlBtn[1].addEventListener('click',function(e){
             wIdx++;
@@ -115,24 +160,17 @@ window.addEventListener("DOMContentLoaded",function(){
                 rConMock[j].src = response.workPage[wIdx][j];
             }
         }
-        console.log(wIdx);
-        console.log(aa)
     // project rightcontent 제어 ---------------------------------------------
         function change(){
-            for(var r = 0; r < aa; r++){
-                
-                rConMock[r].classList.add('active');
-                
+                figure.classList.add('active');
                 setTimeout(function(){
                     work();
-                },200);
+                },800);
                 setTimeout(function(){
-                    rConMock[r].classList.remove('active');
-                },300)
-                console.log(rConMock[r]);
-            }
+                    figure.classList.remove('active');
+                },1000)  
         }
-        
+        //rightContent 이미지 전송 ----------------------------------------------
         function innerWork(){
             for(var t = 0; t<li.length; t++){
                 strong.textContent = response.workText[wIdx][0];
@@ -141,6 +179,24 @@ window.addEventListener("DOMContentLoaded",function(){
                 li[t].textContent = response.workText[wIdx][t+3];
             }
         }
+        // site바로가기 클릭 시 페이지 이동
+        function movePage(){
+            var mp = strong.textContent;
+            switch(mp){
+                case "EVE ONLINE" : 
+                    goPage.href = "https://lmk206.github.io/lmk206-portfolio_eveonline/html/index.html";
+                    break;
+                case "John Wick" :
+                    goPage.href = '';
+                    break;
+                case "Mini Deco" :
+                    goPage.href = '';
+                    break;
+            }
+        }
+
+        
+        
     });
     //end
 })

@@ -2,7 +2,7 @@
     "dataSheet":[
         {   
             "h1" : "",
-            "hImg" : "img/about/profile/intro3.png",
+            "hImg" : "./img/about/profile/intro3.png",
             "fText" : "introduce",
             "pText1": "intro",
             "pText2": "skills",

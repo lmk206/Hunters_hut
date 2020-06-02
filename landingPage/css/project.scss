@@ -44,14 +44,17 @@ header{
     & .burger.show{
         z-index:20;
         top:35%;
+        
         & span:nth-of-type(1){
             transform:translateY(7px) rotate(-45deg);
             width:20px;
+            transition:.5s;
         }
-        & span:nth-of-type(2){opacity:0}
+        & span:nth-of-type(2){opacity:0; transition:.5s;}
         & span:nth-of-type(3){
             transform:translateY(-5px) rotate(45deg);
             width:20px;
+            transition:.5s;
         }
     }
     & nav{
@@ -105,8 +108,8 @@ section{
             @include w100($wid:45%);
             height:100%;
             background-color:#2c90d6;
-            transform:translateX(-100%);
-            transition:.5s;
+            left:-50%;
+            transition:.7s;
 
             $color: (strong,span,p,"ul li",a);
             @each $col in $color{
@@ -175,12 +178,12 @@ section{
             }
         }
         & .left_con.active{
-            transform:translateX(0%);
+            left:0;
         }
         & .right_con{
             @include w100($wid:55%);
             position:relative;
-            transform:translateX(100%);
+            right:-60%;
             transition:.5s;
             transition-delay:.2s;
             background:url('../img/project/mockbg.png') no-repeat;
@@ -206,6 +209,7 @@ section{
                     z-index:10;
                 }
                 & div{
+                    width:46%;
                     overflow:hidden;
                 }
                 & div:nth-of-type(1){
@@ -228,15 +232,17 @@ section{
                     opacity:1;
                     transition:.5s;
                 }
-                & div img.active{
-                    margin-left:300px;
+               
+            }
+            & figure.active{
+                & div img{
                     opacity:0;
-                    transition:.5s;
+                    margin-left:50px;
                 }
             }
         }
         & .right_con.active{
-            transform:translateX(0%)
+            right:0%;
         }
         & .pop_up{
             width:90%;
@@ -250,9 +256,13 @@ section{
             background-color:#fff;
             figure{
                 margin-top:3%;
-                img{
+                a{
                     width:30%;
-                    height:280px;;
+                    height:280px;
+                    img{
+                        width:100%;
+                        height:100%;
+                    }
                 }
             }
             & .exit{
@@ -308,5 +318,5 @@ footer{
 }
 footer.active{
     opacity:1;
-    padding-left:13%;
+    padding-left:11.5%;
 }

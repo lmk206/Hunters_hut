@@ -1,21 +1,21 @@
 {
     "workPage" : [
         [
-            "img/project/eve/mockPc.png",
-            "img/project/eve/mockPad.png",
-            "img/project/eve/mockMo.png"
+            "./img/project/eve/mockPc.png",
+            "./img/project/eve/mockPad.png",
+            "./img/project/eve/mockMo.png"
         ],
 
         [
-            "img/project/wick/mockPc.png",
-            "img/project/wick/mockPad.png",
-            "img/project/wick/mockMo.png"
+            "./img/project/wick/mockPc.png",
+            "./img/project/wick/mockPad.png",
+            "./img/project/wick/mockMo.png"
         ],
 
         [
-            "img/project/deco/mockPc.png",
-            "img/project/deco/mockPad.png",
-            "img/project/deco/mockMo.png"
+            "./img/project/deco/mockPc.png",
+            "./img/project/deco/mockPad.png",
+            "./img/project/deco/mockMo.png"
         ]
     ],
 

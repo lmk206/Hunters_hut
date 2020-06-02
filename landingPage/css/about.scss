@@ -34,7 +34,7 @@ header{
         position:relative;
         top:35%;
         padding:20%;
-        opacity:1;
+        opacity:0;
         transition:1.5s;
         & span{
             position:absolute;
@@ -111,7 +111,7 @@ section{
             height:100%;
             background-color:yellow;
             position:relative;
-            transform:translateX(-100%);
+            left:-30%;
             transition:.5s;
             & figure{
                 background-color:#f95959;
@@ -161,14 +161,14 @@ section{
             }
         }
         & .left_con.active{
-            transform:translateX(0%);
+            left:0;
         }
         & .right_con{
             @include w100($wid:70%);
             height:100%;
             margin:0 auto;
             text-align:center;
-            transform:translateY(5%);
+            top:15%;
             transition:.5s;
             opacity:0;
             & > article{
@@ -275,10 +275,11 @@ section{
             & article.active.show{
                 opacity:1;
                 padding-top:10%;
+                transition:.5s;
             } 
         }
         & .right_con.active{
-            transform:translateY(0%);
+            top:0;
             transition-delay:.7s;
             opacity:1;
         }
@@ -289,8 +290,9 @@ footer{
     left:0;
     bottom:30px;
     text-align:center;
-    opacity:1;
-    padding-left:3%;
+    opacity:0;
+    padding-left:0%;
+    transition:1s;
     & p{
         @include w100;
         color:#000;
@@ -299,5 +301,6 @@ footer{
     }
 }
 footer.active{
-    opacity:1
+    opacity:1;
+    padding-left:3%;
 }
